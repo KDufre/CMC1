@@ -109,5 +109,8 @@ public class SystemController {
 	public static boolean editPassword(String username, String newPassword) {
 		return DatabaseController.editPassword(username, newPassword);
 	}
+	public static boolean editFirstName(String username, String newFirstName) {
+		return DatabaseController.editFirstName(username, newFirstName);
+	}
 
 }

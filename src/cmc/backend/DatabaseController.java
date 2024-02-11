@@ -151,7 +151,16 @@ public class DatabaseController {
 			return true;
 		}
 	}
-	public static void editFirstName(String username, String newFirstName) {
+	public static boolean editFirstName(String username, String newFirstName) {
+		String[] userData = DatabaseController.getUser(username);
 		
+		int result = database.user_editUser(username, newFirstName, userData[1], userData[3], userData[4].charAt(0), userData[5].charAt(0));
+		if (result == -1) {
+			System.out.println("Error in changing password");
+			return false;
+		}
+		else {
+			return true;
+		}
 	}
 }

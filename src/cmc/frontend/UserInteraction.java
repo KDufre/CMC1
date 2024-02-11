@@ -140,5 +140,12 @@ public class UserInteraction {
 		}
 		return SystemController.editPassword(loggedInUser.username, newPassword);
 	}
-
+	public static boolean editFirstName(Scanner s){
+		System.out.print("New First Name: ");
+		String newFirstName = s.nextLine();
+		if(loggedInUser==null) {
+			return false;
+		}
+		return SystemController.editFirstName(loggedInUser.username, newFirstName);
+	}
 }
