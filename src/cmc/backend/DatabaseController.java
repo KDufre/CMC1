@@ -139,4 +139,19 @@ public class DatabaseController {
 		return result;
 	}
 	
+	public static boolean editPassword(String username, String newPassword) {
+		String[] userData = DatabaseController.getUser(username);
+		
+		int result = database.user_editUser(username, userData[0], userData[1], newPassword, userData[4].charAt(0), userData[5].charAt(0));
+		if (result == -1) {
+			System.out.println("Error in changing password");
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	public static void editFirstName(String username, String newFirstName) {
+		
+	}
 }

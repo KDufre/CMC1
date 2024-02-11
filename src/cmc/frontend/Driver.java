@@ -3,6 +3,8 @@ package cmc.frontend;
 import java.util.List;
 import java.util.Scanner;
 
+import cmc.CMCException;
+
 public class Driver {
 
 	/**
@@ -163,11 +165,22 @@ public class Driver {
 			System.exit(1);
 		}
 	}
+	
+	private static void editUser(Scanner s) {
+		printHeader("Edit User");
+		int choice = getMenuOption(s, List.of("Edit Password", "Edit First Name", "Edit Last Name"));
+		switch(choice) {
+		case 1:
+			UserInteraction.editPassword(s);
+			break;
+		}
+			
+	}
 
 	private static void regularUserMenu(Scanner s) {
 		printHeader("User Menu");
 
-		int choice = getMenuOption(s, List.of("Search", "View Saved Schools", "Logout"));
+		int choice = getMenuOption(s, List.of("Search", "View Saved Schools", "Edit User","Logout"));
 
 		switch(choice) {
 		case 1:
@@ -180,6 +193,9 @@ public class Driver {
 			userSavedSchoolListMenu(s);
 			break;
 		case 3:
+			editUser(s);
+			break;
+		case 4:
 			UserInteraction.logout();
 			break;
 		default:

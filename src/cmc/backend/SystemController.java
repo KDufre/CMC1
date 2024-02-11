@@ -105,5 +105,9 @@ public class SystemController {
 		Map<String, List<String>> usersToSavedSchools = DatabaseController.getUserSavedSchoolMap();
 		return usersToSavedSchools.get(user);
 	}
+	
+	public static boolean editPassword(String username, String newPassword) {
+		return DatabaseController.editPassword(username, newPassword);
+	}
 
 }

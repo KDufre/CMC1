@@ -131,5 +131,14 @@ public class UserInteraction {
 	public static User getLoggedInUser() {
 		return loggedInUser;
 	}
+	
+	public static boolean editPassword(Scanner s){
+		System.out.print("New Password: ");
+		String newPassword = s.nextLine();
+		if(loggedInUser==null) {
+			return false;
+		}
+		return SystemController.editPassword(loggedInUser.username, newPassword);
+	}
 
 }
