@@ -154,6 +154,10 @@ public class Driver {
 		// TODO: it would be nice if this was refactored into a list of objects
 		//       so we can display some data about the school...
 		List<String> schools = UserInteraction.getSavedSchools();
+		if(schools==null) {
+			System.out.println("NO saved schools.");
+			return;
+		}
 		for (String school : schools) {
 			System.out.println(school);
 		}

@@ -16,7 +16,7 @@ import dblibrary.project.csci230.*;
  */
 public class DatabaseController {
 	// TODO: we'll need to update this to our team's actual database someday!
-	private static UniversityDBLibrary database = new UniversityDBLibrary("csci230", "csci230");
+	private static UniversityDBLibrary database = new UniversityDBLibrary("dreamteam", "csci230");
 
 	// add a user to the db
 	// TODO: it would be nice if this could take a User object instead
@@ -192,6 +192,22 @@ public class DatabaseController {
 	}
 	
 	public static boolean deleteUniversity(String school) {
+		Map<String, List<String>> map = getUserSavedSchoolMap();
+		for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+	        // Get the username from the entry key
+	        String username = entry.getKey();
+	        List<String> savedSchools = entry.getValue();
+
+	        for (String school1 : savedSchools) {
+
+	            System.out.println("User: " + username + " has saved the school: " + school1);
+	            if(school1.equalsIgnoreCase(school)) {
+		            System.out.println("User: " + username + " has removed the school: " + school1);
+	            	removeSchool(username,school1);
+	            }
+	        }
+	    }
+		
 		int result = database.university_deleteUniversity(school);
 		if(result==-1) {
 			System.out.println("Error in removing school");
