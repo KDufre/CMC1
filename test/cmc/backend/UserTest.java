@@ -13,10 +13,11 @@ public class UserTest {
 	private static char testType = 'u';
 	private static String testFName = "Test";
 	private static String testLName = "AUser";
+	private static char testActivated = 'Y';
 
 	@Before
 	public void setUp() throws Exception {
-		testUser = new User(testUname, testPass, testType, testFName, testLName);
+		testUser = new User(testUname, testPass, testType, testFName, testLName, testActivated);
 	}
 
 	@After
