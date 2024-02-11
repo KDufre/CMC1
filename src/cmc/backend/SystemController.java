@@ -112,5 +112,7 @@ public class SystemController {
 	public static boolean editFirstName(String username, String newFirstName) {
 		return DatabaseController.editFirstName(username, newFirstName);
 	}
-
+	public static boolean editLastName(String username, String newLastName) {
+		return DatabaseController.editLastName(username, newLastName);
+	}
 }

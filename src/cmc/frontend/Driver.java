@@ -171,15 +171,18 @@ public class Driver {
 		int choice = getMenuOption(s, List.of("Edit Password", "Edit First Name", "Edit Last Name"));
 		switch(choice) {
 		case 1:
-			if(!UserInteraction.editPassword(s)) {
+			if(!UserInteraction.editPassword(s)) 
 				System.out.println("Error in changing password");
-			}
 			break;
 		case 2:
-			if(!UserInteraction.editFirstName(s)) {
+			if(!UserInteraction.editFirstName(s)) 
 				System.out.println("Error in changing first name");
-			}
 			break;
+		case 3:
+			if(!UserInteraction.editLastName(s))
+				System.out.println("Error in changing last name");
+			break;
+			
 		}
 			
 	}

@@ -148,4 +148,12 @@ public class UserInteraction {
 		}
 		return SystemController.editFirstName(loggedInUser.username, newFirstName);
 	}
+	public static boolean editLastName(Scanner s){
+		System.out.print("New Last Name: ");
+		String newLastName = s.nextLine();
+		if(loggedInUser==null) {
+			return false;
+		}
+		return SystemController.editLastName(loggedInUser.username, newLastName);
+	}
 }
