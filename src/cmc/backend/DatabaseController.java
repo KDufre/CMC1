@@ -200,15 +200,35 @@ public class DatabaseController {
 
 	        for (String school1 : savedSchools) {
 
-	            System.out.println("User: " + username + " has saved the school: " + school1);
+	            System.out.println("User: " + username + " has saved the school: " + school1); //test
 	            if(school1.equalsIgnoreCase(school)) {
 		            System.out.println("User: " + username + " has removed the school: " + school1);
 	            	removeSchool(username,school1);
 	            }
 	        }
 	    }
+		removeUniversityEmphases(school);
 		
 		int result = database.university_deleteUniversity(school);
+		if(result==-1) {
+			System.out.println("Error in removing school");
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	
+	public static boolean removeUniversityEmphases(String school) {
+		String[][] list = database.university_getNamesWithEmphases();
+		int result = -1;
+		for(String[] array : list) {
+			if(array[0].equalsIgnoreCase(school)) {
+				for(String e : array) {
+					result = database.university_removeUniversityEmphasis(school, e);
+				}
+			}
+		}
 		if(result==-1) {
 			System.out.println("Error in removing school");
 			return false;
