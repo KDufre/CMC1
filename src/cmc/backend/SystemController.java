@@ -30,9 +30,9 @@ public class SystemController {
 			return null;
 		
 		User theUser = new User(userData[2], userData[3], userData[4].charAt(0), userData[0],
-				userData[1]);
+				userData[1], userData[5].charAt(0));
 		
-		if (theUser.activated != 'Y' || !theUser.password.equals(password)) {
+		if (theUser.getActivated() != 'Y' || !theUser.password.equals(password)) {
 			return null;
 		}
 		else {

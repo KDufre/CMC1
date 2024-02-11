@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Driver {
-	
+
 	/**
 	 * Get the selected menu option based on user entry.
 	 * This reads one line from the provided Scanner.
@@ -28,7 +28,7 @@ public class Driver {
 			return -1;
 		}
 	}
-	
+
 	/**
 	 * Get the selected menu option based on user entry.
 	 * This reads lines from the provided Scanner until the user enters
@@ -51,10 +51,10 @@ public class Driver {
 			if (choice == -1)
 				System.out.println("Invalid option.");
 		}
-		
+
 		return choice;
 	}
-	
+
 	// print the header for the current menu
 	private static void printHeader(String title) {
 		String dashes = "";
@@ -65,19 +65,19 @@ public class Driver {
 		System.out.println(title);
 		System.out.println(dashes);
 	}
-	
+
 	private static void adminUserListMenu(Scanner s) {
 		printHeader("Admin User List");
-		
+
 		// TODO: it would be nice if this was refactored into a list of User objects...
 		List<String[]> allUsers = UserInteraction.getAllUsers();
 		for (String[] user : allUsers) {
 			System.out.println(user[2] + " | " + user[0] + " | " + user[1]);
 		}
 		System.out.println();
-		
+
 		int choice = getMenuOption(s, List.of("Add User", "Remove User", "Go Back"));
-		
+
 		switch(choice) {
 		case 1:
 			if (!UserInteraction.addUser(s))
@@ -94,12 +94,12 @@ public class Driver {
 			System.exit(1);
 		}
 	}
-	
+
 	private static void adminMenu(Scanner s) {
 		printHeader("Admin Menu");
-		
+
 		int choice = getMenuOption(s, List.of("View List of Users", "Logout"));
-		
+
 		switch(choice) {
 		case 1:
 			adminUserListMenu(s);
@@ -112,7 +112,7 @@ public class Driver {
 			System.exit(1);
 		}
 	}
-	
+
 	private static void searchResultsMenu(Scanner s, List<String[]> results) {
 		printHeader("Search Results");
 
@@ -135,10 +135,10 @@ public class Driver {
 			System.exit(1);
 		}
 	}
-	
+
 	private static void userSavedSchoolListMenu(Scanner s) {
 		printHeader("User Saved School List");
-		
+
 		// TODO: it would be nice if this was refactored into a list of objects
 		//       so we can display some data about the school...
 		List<String> schools = UserInteraction.getSavedSchools();
@@ -146,9 +146,9 @@ public class Driver {
 			System.out.println(school);
 		}
 		System.out.println();
-		
+
 		int choice = getMenuOption(s, List.of("Go Back"));
-		
+
 		switch(choice) {
 		case 1:
 			return;
@@ -157,12 +157,12 @@ public class Driver {
 			System.exit(1);
 		}
 	}
-	
+
 	private static void regularUserMenu(Scanner s) {
 		printHeader("User Menu");
-		
+
 		int choice = getMenuOption(s, List.of("Search", "View Saved Schools", "Logout"));
-		
+
 		switch(choice) {
 		case 1:
 			// TODO: it would be cleaner to use objects here (rather than
@@ -203,7 +203,7 @@ public class Driver {
 	// main just forever prints the relevant menu
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		
+
 		while (true) {
 			if (UserInteraction.getLoggedInUser() == null)
 				topMenu(s);

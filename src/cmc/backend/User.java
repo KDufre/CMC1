@@ -9,13 +9,13 @@ public class User {
 	public char activated; // Y or N
 
 	public User(String username, String password, char type, String firstName,
-			String lastName) {
+			String lastName, char activated) {
 		this.username = username;
 		this.password = password;
 		this.type = type;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.activated = 'Y'; // users always start activated
+		this.activated = activated; // users always start activated
 	}
 	
 	/**
