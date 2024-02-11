@@ -172,12 +172,11 @@ public class Driver {
 	
 	private static void editUser(Scanner s) {
 		printHeader("Edit User");
-		int choice = getMenuOption(s, List.of("Edit Password", "Edit First Name", "Edit Last Name"));
+		int choice = getMenuOption(s, List.of("Go Back", "Edit First Name", "Edit Last Name", "Edit Password"));
 		switch(choice) {
+		
 		case 1:
-			if(!UserInteraction.editPassword(s)) 
-				System.out.println("Error in changing password");
-			break;
+			return;
 		case 2:
 			if(!UserInteraction.editFirstName(s)) 
 				System.out.println("Error in changing first name");
@@ -186,7 +185,10 @@ public class Driver {
 			if(!UserInteraction.editLastName(s))
 				System.out.println("Error in changing last name");
 			break;
-			
+		case 4:
+			if(!UserInteraction.editPassword(s)) 
+				System.out.println("Error in changing password");
+			break;
 		}
 			
 	}
