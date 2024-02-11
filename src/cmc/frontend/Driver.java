@@ -102,7 +102,7 @@ public class Driver {
 	private static void adminMenu(Scanner s) {
 		printHeader("Admin Menu");
 
-		int choice = getMenuOption(s, List.of("View List of Users", "Add University","Logout"));
+		int choice = getMenuOption(s, List.of("View List of Users", "Add University", "Remove University", "Logout"));
 
 		switch(choice) {
 		case 1:
@@ -112,7 +112,11 @@ public class Driver {
 			if(!UserInteraction.addUniversity(s))
 				System.out.println("Error in adding university");
 			break;
-		case 3:
+		case 3: 
+			if(!UserInteraction.deleteUniversity(s))
+				System.out.println("Error in removing university");
+			break;
+		case 4:
 			UserInteraction.logout();
 			break;
 		default:

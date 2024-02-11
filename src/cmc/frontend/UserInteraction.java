@@ -198,4 +198,13 @@ public class UserInteraction {
 				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants, 
 				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
 	}
+	
+	public static boolean deleteUniversity(Scanner s) {
+		if(loggedInUser==null) {
+			return false;
+		}
+		System.out.print("School name: ");
+		String school = s.nextLine();
+		return SystemController.deleteUniversity(school);
+	}
 }

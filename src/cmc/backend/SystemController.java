@@ -127,4 +127,7 @@ public class SystemController {
 				SATVerbal, SATMath, expenses, percentFinancialAid, 
                 numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
 	}
+	public static boolean deleteUniversity(String school) {
+		return DatabaseController.deleteUniversity(school);
+	}
 }

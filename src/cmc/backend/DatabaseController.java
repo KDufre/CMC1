@@ -190,4 +190,15 @@ public class DatabaseController {
 			return true;
 		}
 	}
+	
+	public static boolean deleteUniversity(String school) {
+		int result = database.university_deleteUniversity(school);
+		if(result==-1) {
+			System.out.println("Error in removing school");
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
 }
