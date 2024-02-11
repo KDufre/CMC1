@@ -95,6 +95,10 @@ public class SystemController {
 		return DatabaseController.saveSchool(user, school);
 	}
 	
+	public static boolean removeSchool(String user, String school) {
+		return DatabaseController.removeSchool(user, school);
+	}
+	
 	// this REGULAR USER ONLY method attempts to retrieve the list of saved
 	// schools for the provided username
 	public static List<String> getSavedSchools(String user) {

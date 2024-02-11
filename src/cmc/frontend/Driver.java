@@ -149,11 +149,15 @@ public class Driver {
 		}
 		System.out.println();
 
-		int choice = getMenuOption(s, List.of("Go Back"));
+		int choice = getMenuOption(s, List.of("Go Back", "Remove school"));
 
 		switch(choice) {
 		case 1:
 			return;
+		case 2:
+			if(!UserInteraction.removeSchool(s))
+				System.out.println("Failed to remove school");
+			break;
 		default:
 			System.err.println("Internal error: Unsupported option.");
 			System.exit(1);

@@ -101,7 +101,6 @@ public class DatabaseController {
 	public static boolean removeSchool(String username, String schoolName) {
 		int result = database.user_removeSchool(username, schoolName);
 		if (result != 1) {
-			// TODO: How can we tell the difference?
 			throw new Error("Error in removing school");
 		}
 		else {

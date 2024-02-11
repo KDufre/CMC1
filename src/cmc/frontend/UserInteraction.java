@@ -91,7 +91,7 @@ public class UserInteraction {
 		String schoolName = s.nextLine();
 		List<String> schools = getSavedSchools(); 
 		for(String school : schools) {
-			if(schoolName==school) {
+			if(schoolName.equalsIgnoreCase(school)) {
 				System.out.println("Already saved");
 				return false;
 			}
@@ -101,6 +101,20 @@ public class UserInteraction {
 			return false;
 		else
 			return SystemController.saveSchool(loggedInUser.username, schoolName);
+	}
+	
+	public static boolean removeSchool(Scanner s) {
+		System.out.print("School Name: ");
+		String schoolName = s.nextLine();
+		List<String> schools = getSavedSchools(); 
+		if (loggedInUser == null)
+			return false;
+		for(String school : schools) {
+			if(schoolName.equalsIgnoreCase(school)) {
+				return SystemController.removeSchool(loggedInUser.username, schoolName);
+			}
+		}
+		return false;
 	}
 	
 	// get the list of saved school names for the currently-logged-in user
