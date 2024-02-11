@@ -98,6 +98,27 @@ public class DatabaseController {
 		}
 	}
 	
+	public static boolean removeSchool(String username, String schoolName) {
+		int result = database.user_removeSchool(username, schoolName);
+		if (result != 1) {
+			// TODO: How can we tell the difference?
+			throw new Error("Error in removing school");
+		}
+		else {
+			return true;
+		}
+	}
+	
+	public static boolean removeUserSavedSchools(String username) {
+		Map<String, List<String>> result = getUserSavedSchoolMap();
+		List<String> userList = result.get(username);
+		for(String school : userList) {
+			removeSchool(username, school);
+		}
+		
+		return true;
+	}
+	
 	// get the mapping from users to their saved universities in the DB
 	// e.g., peter -> {CSBSJU, HARVARD}
 	//       juser -> {YALE, AUGSBURG, STANFORD}
