@@ -70,7 +70,9 @@ public class Driver {
 		printHeader("Admin User List");
 
 		// TODO: it would be nice if this was refactored into a list of User objects...
+		
 		List<String[]> allUsers = UserInteraction.getAllUsers();
+		//prints username, first name, last name
 		for (String[] user : allUsers) {
 			System.out.println(user[2] + " | " + user[0] + " | " + user[1]);
 		}

@@ -15,7 +15,7 @@ public class User {
 		this.type = type;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.activated = activated; // users always start activated
+		this.activated = activated;
 	}
 	
 	/**
