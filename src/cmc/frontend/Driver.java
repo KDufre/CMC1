@@ -102,13 +102,17 @@ public class Driver {
 	private static void adminMenu(Scanner s) {
 		printHeader("Admin Menu");
 
-		int choice = getMenuOption(s, List.of("View List of Users", "Logout"));
+		int choice = getMenuOption(s, List.of("View List of Users", "Add University","Logout"));
 
 		switch(choice) {
 		case 1:
 			adminUserListMenu(s);
 			break;
 		case 2:
+			if(!UserInteraction.addUniversity(s))
+				System.out.println("Error in adding university");
+			break;
+		case 3:
 			UserInteraction.logout();
 			break;
 		default:

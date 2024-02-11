@@ -175,4 +175,19 @@ public class DatabaseController {
 			return true;
 		}
 	}
+	
+	public static boolean addUniversity(String school, String state, String location, String control, int numbersOfStudents, 
+			double percentFemales, double SATVerbal, double SATMath, double expenses, double percentFinancialAid, int numberOfApplicants, 
+			double percentAdmitted, double percentEnrolled, int academicsScale, int socialScale, int qualityOfLifeScale) {
+		int result = database.university_addUniversity(school, state, location, control, numbersOfStudents, percentAdmitted, 
+								SATVerbal, SATMath, expenses, percentFinancialAid, 
+				                numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+		if(result==-1) {
+			System.out.println("Error in adding school");
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
 }

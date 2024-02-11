@@ -106,13 +106,25 @@ public class SystemController {
 		return usersToSavedSchools.get(user);
 	}
 	
+	//changes password
 	public static boolean editPassword(String username, String newPassword) {
 		return DatabaseController.editPassword(username, newPassword);
 	}
+	//changes firstName
 	public static boolean editFirstName(String username, String newFirstName) {
 		return DatabaseController.editFirstName(username, newFirstName);
 	}
+	//changes lastName
 	public static boolean editLastName(String username, String newLastName) {
 		return DatabaseController.editLastName(username, newLastName);
+	}
+	
+	public static boolean addUniversity(String school, String state, String location, String control, int numbersOfStudents, 
+			double percentFemales, double SATVerbal, double SATMath, double expenses, double percentFinancialAid, int numberOfApplicants, 
+			double percentAdmitted, double percentEnrolled, int academicsScale, int socialScale, int qualityOfLifeScale) {
+		
+		return DatabaseController.addUniversity(school, state, location, control, numbersOfStudents, percentAdmitted, 
+				SATVerbal, SATMath, expenses, percentFinancialAid, 
+                numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
 	}
 }

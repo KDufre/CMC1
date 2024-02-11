@@ -156,4 +156,46 @@ public class UserInteraction {
 		}
 		return SystemController.editLastName(loggedInUser.username, newLastName);
 	}
+	
+	public static boolean addUniversity(Scanner s) {
+		if(loggedInUser==null) {
+			return false;
+		}
+		System.out.println("School: ");
+		String school = s.nextLine();
+		System.out.println("State: ");
+		String state = s.nextLine();
+		System.out.println("Location: ");
+		String location = s.nextLine();
+		System.out.println("Control : ");
+		String control = s.nextLine();
+		System.out.println("Number of Students: ");
+		int numbersOfStudents = s.nextInt();
+		System.out.println("Percent Female: ");
+		double percentFemales = s.nextDouble();
+		System.out.println("SAT Verbal: ");
+		double SATVerbal = s.nextDouble();
+		System.out.println("SAT Math: ");
+		double SATMath = s.nextDouble();
+		System.out.println("Expenses: ");
+		double expenses = s.nextDouble();
+		System.out.println("Percent Financial Aid: ");
+		double percentFinancialAid = s.nextDouble();
+		System.out.println("Number Of Applicants: ");
+		int numberOfApplicants = s.nextInt();
+		System.out.println("Percent Admitted: ");
+		double percentAdmitted = s.nextDouble();
+		System.out.println("Percent Enrolled: ");
+		double percentEnrolled = s.nextDouble();
+		System.out.println("Academics Scale: ");
+		int academicsScale = s.nextInt();
+		System.out.println("Social Scale: ");
+		int socialScale = s.nextInt();
+		System.out.println("Quality Of Life Scale: ");
+		int qualityOfLifeScale = s.nextInt();
+		
+		return SystemController.addUniversity(school, state, location, control, numbersOfStudents, 
+				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants, 
+				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+	}
 }
