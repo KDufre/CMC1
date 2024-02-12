@@ -73,7 +73,7 @@ public class UserInteraction {
 		int userIndex = s.nextInt();
 		List<String[]> allUsers = UserInteraction.getAllUsers();
 		int userAmount = allUsers.size();
-		if(userIndex>userAmount || userIndex<0) {
+		if(userIndex>userAmount || userIndex<1) {
 			return false;
 		}
 		String[] user = allUsers.get(userIndex-1);
@@ -246,7 +246,7 @@ public class UserInteraction {
 		int userIndex = s.nextInt();
 		List<String[]> allUsers = UserInteraction.getAllUsers();
 		int userAmount = allUsers.size();
-		if(userIndex<0 || userIndex>userAmount) {
+		if(userIndex<1 || userIndex>userAmount) {
 			return false;
 		}
 		String[] user = allUsers.get(userIndex-1);
