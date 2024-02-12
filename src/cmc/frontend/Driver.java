@@ -81,7 +81,12 @@ public class Driver {
 		switch(choice) {
 		case 1:
 			if(!UserInteraction.adminChangePassword(s)) {
-				System.out.println("Error in changing password");
+				System.out.println("Error in changing Password");
+			}
+			break;
+		case 2:
+			if(!UserInteraction.adminChangeFirstName(s)) {
+				System.out.println("Error in changing First Name");
 			}
 		}
 	}
