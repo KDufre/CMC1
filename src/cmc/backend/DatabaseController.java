@@ -98,6 +98,7 @@ public class DatabaseController {
 		}
 	}
 	
+	//Removes saved school for particular username entered
 	public static boolean removeSchool(String username, String schoolName) {
 		int result = database.user_removeSchool(username, schoolName);
 		if (result != 1) {
@@ -108,6 +109,7 @@ public class DatabaseController {
 		}
 	}
 	
+	//removes all the saved schools that a username has saved
 	public static boolean removeUserSavedSchools(String username) {
 		Map<String, List<String>> result = getUserSavedSchoolMap();
 		List<String> userList = result.get(username);
