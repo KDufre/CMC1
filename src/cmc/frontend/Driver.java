@@ -75,8 +75,9 @@ public class Driver {
 		
 		List<String[]> allUsers = UserInteraction.getAllUsers();
 		//prints username, first name, last name
-		for (String[] user : allUsers) {
-			System.out.println(user[2] + " | " + user[0] + " | " + user[1]);
+		for (int i=0; i<allUsers.size(); i++) {
+			String[] user = allUsers.get(i);
+			System.out.println(i+1 + " | " + user[2] + " | " + user[0] + " | " + user[1]);
 		}
 		System.out.println();
 

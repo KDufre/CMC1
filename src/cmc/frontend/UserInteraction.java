@@ -69,10 +69,12 @@ public class UserInteraction {
 	// ask the admin for a username and then remove that user from the
 	// database
 	public static boolean removeUser(Scanner s) {
-		System.out.print("Username: ");
-		String username = s.nextLine();
-
-		return SystemController.removeUser(username);
+		System.out.print("Enter number of Username: ");
+		int username = s.nextInt();
+		List<String[]> allUsers = UserInteraction.getAllUsers();
+		String[] user = allUsers.get(username-1);
+		
+		return SystemController.removeUser(user[2]);
 	}
 	
 	public static List<String[]> search(Scanner s) {
