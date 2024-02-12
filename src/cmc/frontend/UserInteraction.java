@@ -72,6 +72,10 @@ public class UserInteraction {
 		System.out.print("Enter number of Username: ");
 		int username = s.nextInt();
 		List<String[]> allUsers = UserInteraction.getAllUsers();
+		int userAmount = allUsers.size();
+		if(username>userAmount || username<userAmount) {
+			return false;
+		}
 		String[] user = allUsers.get(username-1);
 		
 		return SystemController.removeUser(user[2]);

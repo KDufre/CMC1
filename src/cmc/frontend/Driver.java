@@ -90,7 +90,7 @@ public class Driver {
 			break;
 		case 2:
 			if (!UserInteraction.removeUser(s))
-				System.out.println("Failed to remove user.  (Invalid username?)");
+				System.out.println("Failed to remove user.  (Out of range)");
 			break;
 		case 3:
 			return;
