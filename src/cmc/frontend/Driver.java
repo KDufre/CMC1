@@ -67,6 +67,24 @@ public class Driver {
 		System.out.println(title);
 		System.out.println(dashes);
 	}
+	
+	private static void adminEditUser(Scanner s) {
+		printHeader("Edit User");
+		List<String[]> allUsers = UserInteraction.getAllUsers();
+		for (int i=0; i<allUsers.size(); i++) {
+			String[] user = allUsers.get(i);
+			System.out.println(i+1 + " | " + user[2] + " | " + user[0] + " | " + user[1]);
+		}
+		System.out.println();
+		int choice = getMenuOption(s, List.of("Change a Password", "Change a first name", "Change a last name", "Deactivate User"));
+		
+		switch(choice) {
+		case 1:
+			if(!UserInteraction.adminChangePassword(s)) {
+				System.out.println("Error in changing password");
+			}
+		}
+	}
 
 	private static void adminUserListMenu(Scanner s) {
 		printHeader("Admin User List");
@@ -81,7 +99,7 @@ public class Driver {
 		}
 		System.out.println();
 
-		int choice = getMenuOption(s, List.of("Add User", "Remove User", "Go Back"));
+		int choice = getMenuOption(s, List.of("Add User", "Remove User", "Edit User", "Go Back"));
 
 		switch(choice) {
 		case 1:
@@ -93,6 +111,9 @@ public class Driver {
 				System.out.println("Failed to remove user.  (Out of range)");
 			break;
 		case 3:
+			adminEditUser(s);
+			break;
+		case 4:
 			return;
 		default:
 			System.err.println("Internal error: Unsupported option.");

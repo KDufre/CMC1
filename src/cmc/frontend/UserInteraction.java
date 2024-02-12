@@ -69,16 +69,17 @@ public class UserInteraction {
 	// ask the admin for a username and then remove that user from the
 	// database
 	public static boolean removeUser(Scanner s) {
-		System.out.print("Enter number of Username: ");
-		int username = s.nextInt();
+		System.out.print("Enter index of Username: ");
+		int userIndex = s.nextInt();
 		List<String[]> allUsers = UserInteraction.getAllUsers();
 		int userAmount = allUsers.size();
-		if(username>userAmount || username<userAmount) {
+		if(userIndex>userAmount || userIndex<0) {
 			return false;
 		}
-		String[] user = allUsers.get(username-1);
+		String[] user = allUsers.get(userIndex-1);
+		String username = user[2];
 		
-		return SystemController.removeUser(user[2]);
+		return SystemController.removeUser(username);
 	}
 	
 	public static List<String[]> search(Scanner s) {
@@ -215,5 +216,25 @@ public class UserInteraction {
 		System.out.print("School name: ");
 		String school = s.nextLine();
 		return SystemController.deleteUniversity(school);
+	}
+	
+	public static boolean adminChangePassword(Scanner s){
+		if(loggedInUser==null) {
+			return false;
+		}
+		System.out.println("Enter the index for the password you want to switch: ");
+		int userIndex = s.nextInt();
+		List<String[]> allUsers = UserInteraction.getAllUsers();
+		int userAmount = allUsers.size();
+		if(userIndex<0 || userIndex>userAmount) {
+			return false;
+		}
+		String[] user = allUsers.get(userIndex-1);
+		String username = user[2];
+		
+		System.out.println("Enter the new password");
+		s.nextLine();
+		String newPassword = s.nextLine();
+		return SystemController.editPassword(username, newPassword);
 	}
 }
