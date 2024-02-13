@@ -76,26 +76,39 @@ public class Driver {
 			System.out.println(i+1 + " | " + user[2] + " | " + user[0] + " | " + user[1]);
 		}
 		System.out.println();
-		int choice = getMenuOption(s, List.of("Change a Password", "Change a first name", "Change a last name", "Deactivate User"));
+		int choice = getMenuOption(s, List.of("Change a Password", "Change a first name", "Change a last name",  "Activate User", "Deactivate User"));
 		
 		switch(choice) {
 		case 1:
 			if(!UserInteraction.adminChangePassword(s)) {
 				System.out.println("Error in changing Password");
 			}
+			s.nextLine();
 			break;
 		case 2:
 			if(!UserInteraction.adminChangeFirstName(s)) {
 				System.out.println("Error in changing First Name");
 			}
+			s.nextLine();
+			break;
 		case 3:
 			if(!UserInteraction.adminChangeLastName(s)) {
 				System.out.println("Error in changing Last Name");
 			}
+			s.nextLine();
+			break;
 		case 4:
+			if(!UserInteraction.adminActivateUser(s)) {
+				System.out.println("Error in activating user");
+			}
+			s.nextLine();
+			break;
+		case 5:
 			if(!UserInteraction.adminDeactivateUser(s)) {
 				System.out.println("Error in deactivating user");
 			}
+			s.nextLine();
+			break;
 		}
 	}
 

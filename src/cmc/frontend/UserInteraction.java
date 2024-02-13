@@ -302,4 +302,21 @@ public class UserInteraction {
 		return SystemController.deactivateUser(username);
 	}
 	
+	public static boolean adminActivateUser(Scanner s){
+		if(loggedInUser==null) {
+			return false;
+		}
+		System.out.println("Enter the index for the user you want to activate: ");
+		int userIndex = s.nextInt();
+		List<String[]> allUsers = UserInteraction.getAllUsers();
+		int userAmount = allUsers.size();
+		if(userIndex<1 || userIndex>userAmount) {
+			return false;
+		}
+		String[] user = allUsers.get(userIndex-1);
+		String username = user[2];
+		
+		return SystemController.activateUser(username);
+	}
+	
 }

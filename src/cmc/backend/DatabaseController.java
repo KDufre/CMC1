@@ -194,6 +194,19 @@ public class DatabaseController {
 		}
 	}
 	
+	public static boolean activateUser(String username) {
+		String[] userData = DatabaseController.getUser(username);
+		
+		int result = database.user_editUser(username, userData[0], userData[1], userData[3], userData[4].charAt(0), 'Y');
+		if (result == -1) {
+			System.out.println("Error in activating user");
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	
 	public static boolean addUniversity(String school, String state, String location, String control, int numbersOfStudents, 
 			double percentFemales, double SATVerbal, double SATMath, double expenses, double percentFinancialAid, int numberOfApplicants, 
 			double percentAdmitted, double percentEnrolled, int academicsScale, int socialScale, int qualityOfLifeScale) {
