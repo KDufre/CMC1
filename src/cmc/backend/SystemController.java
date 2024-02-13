@@ -119,6 +119,10 @@ public class SystemController {
 		return DatabaseController.editLastName(username, newLastName);
 	}
 	
+	public static boolean deactivateUser(String username) {
+		return DatabaseController.deactivateUser(username);
+	}
+	
 	public static boolean addUniversity(String school, String state, String location, String control, int numbersOfStudents, 
 			double percentFemales, double SATVerbal, double SATMath, double expenses, double percentFinancialAid, int numberOfApplicants, 
 			double percentAdmitted, double percentEnrolled, int academicsScale, int socialScale, int qualityOfLifeScale) {

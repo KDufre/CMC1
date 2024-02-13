@@ -161,7 +161,7 @@ public class DatabaseController {
 		
 		int result = database.user_editUser(username, newFirstName, userData[1], userData[3], userData[4].charAt(0), userData[5].charAt(0));
 		if (result == -1) {
-			System.out.println("Error in changing password");
+			System.out.println("Error in changing first name");
 			return false;
 		}
 		else {
@@ -173,7 +173,20 @@ public class DatabaseController {
 		
 		int result = database.user_editUser(username, userData[0], newLastName, userData[3], userData[4].charAt(0), userData[5].charAt(0));
 		if (result == -1) {
-			System.out.println("Error in changing password");
+			System.out.println("Error in changing last name");
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	
+	public static boolean deactivateUser(String username) {
+		String[] userData = DatabaseController.getUser(username);
+		
+		int result = database.user_editUser(username, userData[0], userData[1], userData[3], userData[4].charAt(0), 'N');
+		if (result == -1) {
+			System.out.println("Error in deactivating user");
 			return false;
 		}
 		else {

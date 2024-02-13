@@ -90,7 +90,11 @@ public class Driver {
 			}
 		case 3:
 			if(!UserInteraction.adminChangeLastName(s)) {
-				System.out.println("Erro in changing Last Name");
+				System.out.println("Error in changing Last Name");
+			}
+		case 4:
+			if(!UserInteraction.adminDeactivateUser(s)) {
+				System.out.println("Error in deactivating user");
 			}
 		}
 	}
