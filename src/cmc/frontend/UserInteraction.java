@@ -97,14 +97,13 @@ public class UserInteraction {
 		System.out.print("School Name: ");
 		String schoolName = s.nextLine();
 		List<String> schools = getSavedSchools(); 
-		if (!(schools==null)) {
-			for(String school : schools) {
-				if(schoolName.equalsIgnoreCase(school)) {
-					System.out.println("Already saved");
-					return false;
-				}
+		for(String school : schools) {
+			if(schoolName.equalsIgnoreCase(school)) {
+				System.out.println("Already saved");
+				return false;	
 			}
 		}
+		
 
 
 		if (loggedInUser == null)
@@ -238,6 +237,10 @@ public class UserInteraction {
 		return SystemController.editPassword(username, newPassword);
 	}
 	
+	/*
+	 * For the admin to enter the user to change then enter the new first name for that user
+	 * @param s is the scanner for the admin to enter user and new first name
+	 */
 	public static boolean adminChangeFirstName(Scanner s){
 		if(loggedInUser==null) {
 			return false;
@@ -256,5 +259,29 @@ public class UserInteraction {
 		s.nextLine();
 		String newPassword = s.nextLine();
 		return SystemController.editFirstName(username, newPassword);
+	}
+	
+	/*
+	 * For the admin to enter the user to change then enter the new first name for that user
+	 * @param s is the scanner for the admin to enter user and new first name
+	 */
+	public static boolean adminChangeLastName(Scanner s){
+		if(loggedInUser==null) {
+			return false;
+		}
+		System.out.println("Enter the index for the Last Name you want to switch: ");
+		int userIndex = s.nextInt();
+		List<String[]> allUsers = UserInteraction.getAllUsers();
+		int userAmount = allUsers.size();
+		if(userIndex<1 || userIndex>userAmount) {
+			return false;
+		}
+		String[] user = allUsers.get(userIndex-1);
+		String username = user[2];
+		
+		System.out.println("Enter the new Last Name");
+		s.nextLine();
+		String newPassword = s.nextLine();
+		return SystemController.editLastName(username, newPassword);
 	}
 }

@@ -88,6 +88,10 @@ public class Driver {
 			if(!UserInteraction.adminChangeFirstName(s)) {
 				System.out.println("Error in changing First Name");
 			}
+		case 3:
+			if(!UserInteraction.adminChangeLastName(s)) {
+				System.out.println("Erro in changing Last Name");
+			}
 		}
 	}
 
