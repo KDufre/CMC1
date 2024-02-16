@@ -97,10 +97,12 @@ public class UserInteraction {
 		System.out.print("School Name: ");
 		String schoolName = s.nextLine();
 		List<String> schools = getSavedSchools(); 
-		for(String school : schools) {
-			if(schoolName.equalsIgnoreCase(school)) {
-				System.out.println("Already saved");
-				return false;	
+		if(schools!=null) {
+			for(String school : schools) {
+				if(schoolName.equalsIgnoreCase(school)) {
+					System.out.println("Already saved");
+					return false;	
+				}
 			}
 		}
 		

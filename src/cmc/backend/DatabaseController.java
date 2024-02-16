@@ -230,10 +230,9 @@ public class DatabaseController {
 	        List<String> savedSchools = entry.getValue();
 
 	        for (String school1 : savedSchools) {
-
-	            System.out.println("User: " + username + " has saved the school: " + school1); //test
+	            //System.out.println("User: " + username + " has saved the school: " + school1); //test
 	            if(school1.equalsIgnoreCase(school)) {
-		            System.out.println("User: " + username + " has removed the school: " + school1);
+		            //System.out.println("User: " + username + " has removed the school: " + school1);
 	            	removeSchool(username,school1);
 	            }
 	        }

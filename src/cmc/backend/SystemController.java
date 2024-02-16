@@ -65,7 +65,7 @@ public class SystemController {
 	// based on the provided username
 	public static boolean removeUser(String username) {
 		try {
-			DatabaseController.removeUserSavedSchools(username);
+			//DatabaseController.removeUserSavedSchools(username);
 			return DatabaseController.removeUser(username);
 		} catch (CMCException e) {
 			// TODO: should we let the calling class report the error more
