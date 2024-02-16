@@ -36,6 +36,7 @@ public class DatabaseController {
 	
 	// remove a user from the db
 	public static boolean removeUser(String username) throws CMCException {
+		removeUserSavedSchools(username);
 		int result = database.user_deleteUser(username);
 		if (result != 1) {
 			// TODO: How can we tell the difference?
@@ -241,7 +242,7 @@ public class DatabaseController {
 		
 		int result = database.university_deleteUniversity(school);
 		if(result==-1) {
-			System.out.println("Error in removing school");
+			System.out.println("Error in removing university");
 			return false;
 		}
 		else {
