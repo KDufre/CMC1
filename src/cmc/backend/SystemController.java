@@ -92,6 +92,15 @@ public class SystemController {
 	// this REGULAR USER ONLY method attempts to add the provided school
 	// to the list of saved schools for the provided username
 	public static boolean saveSchool(String user, String school) {
+		List<String> schools = getSavedSchools(user); 
+		if(schools!=null) {
+			for(String s : schools) {
+				if(school.equalsIgnoreCase(s)) {
+					System.out.println("Already saved");
+					return false;	
+				}
+			}
+		}
 		return DatabaseController.saveSchool(user, school);
 	}
 	

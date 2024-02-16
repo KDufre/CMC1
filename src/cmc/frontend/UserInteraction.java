@@ -96,18 +96,7 @@ public class UserInteraction {
 	public static boolean saveSchool(Scanner s) {
 		System.out.print("School Name: ");
 		String schoolName = s.nextLine();
-		List<String> schools = getSavedSchools(); 
-		if(schools!=null) {
-			for(String school : schools) {
-				if(schoolName.equalsIgnoreCase(school)) {
-					System.out.println("Already saved");
-					return false;	
-				}
-			}
-		}
 		
-
-
 		if (loggedInUser == null)
 			return false;
 		else
