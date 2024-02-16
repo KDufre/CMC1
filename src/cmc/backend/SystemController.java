@@ -82,7 +82,7 @@ public class SystemController {
 		List<String[]> filteredList = new ArrayList<String[]>();
 		for (int i = 0; i < schoolList.size(); i++) {
 			String[] school = schoolList.get(i);
-			if (school[1].equals(state) || state== "")
+			if (school[1].equals(state) || state == "")
 				filteredList.add(school);
 		}
 		
