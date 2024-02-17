@@ -121,7 +121,7 @@ public class Driver {
 		//prints username, first name, last name
 		for (int i=0; i<allUsers.size(); i++) {
 			String[] user = allUsers.get(i);
-			System.out.println(i+1 + " | " + user[2] + " | " + user[0] + " | " + user[1]);
+			System.out.printf("| %-3d | %-10s | %-10s | %-20s |%n", i+1, user[2], user[0], user[1]);
 		}
 		System.out.println();
 
