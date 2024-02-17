@@ -207,7 +207,7 @@ public class Driver {
 			return;
 		}
 		for (String school : schools) {
-			System.out.println(school);
+			System.out.printf("| %-60s |%n", school);
 		}
 		System.out.println();
 
