@@ -177,7 +177,7 @@ public class Driver {
 		printHeader("Search Results");
 
 		for (String[] school : results) {
-			System.out.println(school[0] + " | " + school[1]);
+			System.out.printf("| %-60s | %-20s | %-10s |%n", school[0], school[1], school[3]);
 		}
 		System.out.println();
 
