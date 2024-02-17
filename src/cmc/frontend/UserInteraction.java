@@ -352,7 +352,7 @@ public class UserInteraction {
 		}
 		String[] user = allUsers.get(userIndex-1);
 		String username = user[2];
-		s.nextLine();
+
 		
 		return SystemController.deactivateUser(username);
 	}
@@ -370,7 +370,6 @@ public class UserInteraction {
 		}
 		String[] user = allUsers.get(userIndex-1);
 		String username = user[2];
-		s.nextLine();
 		
 		return SystemController.activateUser(username);
 	}
