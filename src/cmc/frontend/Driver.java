@@ -172,6 +172,31 @@ public class Driver {
 			System.exit(1);
 		}
 	}
+	private static void userSelectedSchoolResults(Scanner s, String[] school) {
+		printHeader("Selected School Information");
+		
+		System.out.println("School Name: " + school[0]);
+		System.out.println("State: " + school[1]);
+		System.out.println("Location: " + school[2]);
+		System.out.println("Control: " + school[3]);
+		System.out.println("Number of Students: " + school[4]);
+		System.out.println("Expenses: " + school[8]);
+		System.out.println();
+		
+		int choice = getMenuOption(s, List.of("Save School", "Go Back"));
+		
+		switch(choice) {
+		case 1:
+			if (!UserInteraction.saveSchool(s, school[0]))
+				System.out.println("Failed to save school.  (Already in saved list?)");
+			break;
+		case 2:
+			return;
+		default:
+			System.err.println("Internal error: Unsupported option.");
+			System.exit(1);
+		}
+	}
 
 	private static void searchResultsMenu(Scanner s, List<String[]> results) {
 		printHeader("Search Results");
@@ -181,12 +206,16 @@ public class Driver {
 		}
 		System.out.println();
 
-		int choice = getMenuOption(s, List.of("Save School", "Go Back"));
+		int choice = getMenuOption(s, List.of("Select School", "Go Back"));
 
 		switch(choice) {
 		case 1:
-			if (!UserInteraction.saveSchool(s))
-				System.out.println("Failed to save school.  (Already in saved list?)");
+			String[] selectedSchool = UserInteraction.userSelectSchool(s);
+			if(selectedSchool == null) {
+				System.out.println("Failed to select school (entered wrong)");
+				break;
+			}
+			userSelectedSchoolResults(s, selectedSchool);
 			break;
 		case 2:
 			return;

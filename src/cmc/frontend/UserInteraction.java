@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import cmc.CMCException;
+import cmc.backend.DatabaseController;
 import cmc.backend.SystemController;
 import cmc.backend.User;
 
@@ -93,9 +94,9 @@ public class UserInteraction {
 	
 	// ask for a school name to save, and attempt to save that school
 	// to the list for the currently-logged-in user
-	public static boolean saveSchool(Scanner s) {
-		System.out.print("School Name: ");
-		String schoolName = s.nextLine();
+	public static boolean saveSchool(Scanner s, String schoolName) {
+		//System.out.print("School Name: ");
+		//String schoolName = s.nextLine();
 		
 		if (loggedInUser == null)
 			return false;
@@ -308,6 +309,18 @@ public class UserInteraction {
 		String username = user[2];
 		
 		return SystemController.activateUser(username);
+	}
+	public static String[] userSelectSchool(Scanner s) {
+		System.out.println("Enter the school name: ");
+		String schoolName = s.nextLine();
+		List<String[]> schoolList = DatabaseController.getAllSchools();
+		String[] school = null;
+		for(String[] sch : schoolList) {
+			if(sch[0].equalsIgnoreCase(schoolName)) {
+				school = sch;
+			}
+		}
+		return school;
 	}
 	
 }
