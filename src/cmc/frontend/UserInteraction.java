@@ -211,6 +211,65 @@ public class UserInteraction {
 		return SystemController.deleteUniversity(school.toUpperCase());
 	}
 	
+	public static boolean adminEditUniversity(Scanner s, String[] school) {
+		System.out.println("School Name: " + school[0]);
+		System.out.println("State: " + school[1]);
+		System.out.println("Location: " + school[2]);
+		System.out.println("Control: " + school[3]);
+		System.out.println("Number of Students: " + school[4]);
+		System.out.println("Percent Female: " + school[5]);
+		System.out.println("SAT Verbal: " + school[6]);
+		System.out.println("SAT Math: " + school[7]);
+		System.out.println("Expenses: " + school[8]);
+		System.out.println("Percent Financial Aid: " + school[9]);
+		System.out.println("Number of Applicants: " + school[10]);
+		System.out.println("Percent Admitted: " + school[11]);
+		System.out.println("Percent Enrolled: " + school[12]);
+		System.out.println("Academic Scale: " + school[13]);
+		System.out.println("Social Scale: " + school[14]);
+		System.out.println("Quality of Life Scale: " + school[15]);
+		System.out.println();
+		
+		if(loggedInUser==null) {
+			return false;
+		}
+		System.out.println("State: ");
+		String state = s.nextLine();
+		System.out.println("Location: ");
+		String location = s.nextLine();
+		System.out.println("Control : ");
+		String control = s.nextLine();
+		System.out.println("Number of Students: ");
+		int numbersOfStudents = s.nextInt();
+		System.out.println("Percent Female: ");
+		double percentFemales = s.nextDouble();
+		System.out.println("SAT Verbal: ");
+		double SATVerbal = s.nextDouble();
+		System.out.println("SAT Math: ");
+		double SATMath = s.nextDouble();
+		System.out.println("Expenses: ");
+		double expenses = s.nextDouble();
+		System.out.println("Percent Financial Aid: ");
+		double percentFinancialAid = s.nextDouble();
+		System.out.println("Number Of Applicants: ");
+		int numberOfApplicants = s.nextInt();
+		System.out.println("Percent Admitted: ");
+		double percentAdmitted = s.nextDouble();
+		System.out.println("Percent Enrolled: ");
+		double percentEnrolled = s.nextDouble();
+		System.out.println("Academics Scale: ");
+		int academicsScale = s.nextInt();
+		System.out.println("Social Scale: ");
+		int socialScale = s.nextInt();
+		System.out.println("Quality Of Life Scale: ");
+		int qualityOfLifeScale = s.nextInt();
+		s.nextLine();
+		
+		return SystemController.editUniversity(school[0], state, location, control, numbersOfStudents, 
+				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants, 
+				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+	}
+	
 	public static boolean adminChangePassword(Scanner s){
 		if(loggedInUser==null) {
 			return false;
@@ -315,7 +374,7 @@ public class UserInteraction {
 		
 		return SystemController.activateUser(username);
 	}
-	public static String[] userSelectSchool(Scanner s) {
+	public static String[] selectSchool(Scanner s) {
 		System.out.println("Enter the school name: ");
 		String schoolName = s.nextLine();
 		List<String[]> schoolList = DatabaseController.getAllSchools();

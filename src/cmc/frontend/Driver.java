@@ -150,7 +150,7 @@ public class Driver {
 	private static void adminMenu(Scanner s) {
 		printHeader("Admin Menu");
 
-		int choice = getMenuOption(s, List.of("View List of Users", "Add University", "Remove University", "Logout"));
+		int choice = getMenuOption(s, List.of("View List of Users", "Add University", "Remove University", "Edit University", "Logout"));
 
 		switch(choice) {
 		case 1:
@@ -165,6 +165,12 @@ public class Driver {
 				System.out.println("Error in removing university");
 			break;
 		case 4:
+			String[] school = UserInteraction.selectSchool(s);
+			if(!UserInteraction.adminEditUniversity(s, school)){
+				System.out.println("Error in editing university");
+			}
+			break;
+		case 5:
 			UserInteraction.logout();
 			break;
 		default:
@@ -210,7 +216,7 @@ public class Driver {
 
 		switch(choice) {
 		case 1:
-			String[] selectedSchool = UserInteraction.userSelectSchool(s);
+			String[] selectedSchool = UserInteraction.selectSchool(s);
 			if(selectedSchool == null) {
 				System.out.println("Failed to select school (entered wrong)");
 				break;

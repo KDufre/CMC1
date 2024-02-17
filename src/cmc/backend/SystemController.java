@@ -147,4 +147,12 @@ public class SystemController {
 	public static boolean deleteUniversity(String school) {
 		return DatabaseController.deleteUniversity(school);
 	}
+	public static boolean editUniversity(String school, String state, String location, String control, int numbersOfStudents, 
+			double percentFemales, double SATVerbal, double SATMath, double expenses, double percentFinancialAid, int numberOfApplicants, 
+			double percentAdmitted, double percentEnrolled, int academicsScale, int socialScale, int qualityOfLifeScale) {
+		
+		return DatabaseController.editUniversity(school, state, location, control, numbersOfStudents, percentAdmitted, 
+				SATVerbal, SATMath, expenses, percentFinancialAid, 
+                numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+	}
 }
