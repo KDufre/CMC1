@@ -102,8 +102,9 @@ public class DatabaseController {
 	//Removes saved school for particular username entered
 	public static boolean removeSchool(String username, String schoolName) {
 		int result = database.user_removeSchool(username, schoolName);
-		if (result != 1) {
-			throw new Error("Error in removing school");
+		if (result == -1) {
+			System.out.println("Error in removing School!!!");
+			return false;
 		}
 		else {
 			return true;
@@ -252,7 +253,7 @@ public class DatabaseController {
 	
 	public static boolean removeUniversityEmphases(String school) {
 		String[][] list = database.university_getNamesWithEmphases();
-		int result = -1;
+		int result = 0;
 		for(String[] array : list) {
 			if(array[0].equalsIgnoreCase(school)) {
 				for(String e : array) {

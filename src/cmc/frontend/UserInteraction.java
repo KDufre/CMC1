@@ -195,8 +195,9 @@ public class UserInteraction {
 		int socialScale = s.nextInt();
 		System.out.println("Quality Of Life Scale: ");
 		int qualityOfLifeScale = s.nextInt();
+		s.nextLine();
 		
-		return SystemController.addUniversity(school, state, location, control, numbersOfStudents, 
+		return SystemController.addUniversity(school.toUpperCase(), state, location, control, numbersOfStudents, 
 				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants, 
 				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
 	}
@@ -207,7 +208,7 @@ public class UserInteraction {
 		}
 		System.out.print("School name: ");
 		String school = s.nextLine();
-		return SystemController.deleteUniversity(school);
+		return SystemController.deleteUniversity(school.toUpperCase());
 	}
 	
 	public static boolean adminChangePassword(Scanner s){
