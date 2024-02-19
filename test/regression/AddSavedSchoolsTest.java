@@ -26,6 +26,7 @@ public class AddSavedSchoolsTest {
 
 	@After
 	public void tearDown() throws Exception {
+		DatabaseController.deleteUniversity(schoolToTest);
 		DatabaseController.removeUser(userToTest);
 	}
 

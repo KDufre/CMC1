@@ -39,8 +39,8 @@ public class DatabaseController {
 		removeUserSavedSchools(username);
 		int result = database.user_deleteUser(username);
 		if (result != 1) {
-			// TODO: How can we tell the difference?
-			throw new CMCException("Error removing user from the DB.  Not present?  DB error?");
+			System.out.println("Error in removing User");
+			return false;
 		}
 		else {
 			return true;
@@ -91,8 +91,8 @@ public class DatabaseController {
 	public static boolean saveSchool(String username, String schoolName) {
 		int result = database.user_saveSchool(username, schoolName);
 		if (result != 1) {
-			// TODO: How can we tell the difference?
-			throw new Error("Error saving school to user in the DB.  Already present?  DB error?");
+			System.out.println("Error in saving school");
+			return false;
 		}
 		else {
 			return true;
