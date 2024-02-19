@@ -1,17 +1,27 @@
 # CMC
-This is the template for the Choose-My-College system project.  While some
-development is complete, we still have a long way to go, and documentation is
-sparse.
+This is the Choose-My-College system.
 
 ## Basic Instructions
 
-TODO: Basic instructions for getting access to the system should go here.
+Request Access
+
+Clone the Repository
+
+Checkout the Repository in Eclipse
 
 ## Building CMC
 
-TODO: Instructions for building CMC should go here.
+Import pohmann CMC into new Github Repository
+
+Checkout the Repository in Eclipse
+
+Fix the Issues in pohmann's repository by creating tests and then fixing the bugs. Also add the enhancements.
 
 ## Running CMC
 
-TODO: Instructions for how to use CMC (in it's current form!) should go here.
+Request Access
+
+Clone the Repository
+
+Checkout the Repository in Eclipse
 
