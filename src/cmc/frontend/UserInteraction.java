@@ -383,7 +383,6 @@ public class UserInteraction {
 				school = sch;
 			}
 		}
-		s.nextLine();
 		return school;
 	}
 	
