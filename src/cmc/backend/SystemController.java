@@ -76,13 +76,23 @@ public class SystemController {
 	
 	// this REGULAR USER ONLY method searches for schools in the database
 	// based on provided criteria (just state for now)
-	public static List<String[]> search(String state) {
+	public static List<String[]> search(String schoolInput, String state, String location
+			, String control, int minNumberOfStudents, int maxNumberOfStudents) {
 		List<String[]> schoolList = DatabaseController.getAllSchools();
+		
+		//This is if min is set to something and max is empty
+		if(minNumberOfStudents>0 && maxNumberOfStudents==0) {
+			maxNumberOfStudents = Integer.MAX_VALUE;
+		}
 		
 		List<String[]> filteredList = new ArrayList<String[]>();
 		for (int i = 0; i < schoolList.size(); i++) {
 			String[] school = schoolList.get(i);
-			if (school[1].equals(state) || state == "")
+			if (school[0].equalsIgnoreCase(schoolInput) || school[1].equalsIgnoreCase(state) 
+					|| school[2].equalsIgnoreCase(location) 
+					|| school[3].equalsIgnoreCase(control)
+					|| (Integer.parseInt(school[4])>=minNumberOfStudents && Integer.parseInt(school[4])<=maxNumberOfStudents)
+					|| (schoolInput=="" && state=="" && location=="" && control=="" && minNumberOfStudents==0 && maxNumberOfStudents==0))
 				filteredList.add(school);
 		}
 		

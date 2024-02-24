@@ -87,10 +87,28 @@ public class UserInteraction {
 	public static List<String[]> search(Scanner s) {
 		// TODO: in the future, we would like to support searching by various
 		//       criteria, but we'll settle for just state for now
+		System.out.print("School Name (leave blank to not search by this criterion): ");
+		String school = s.nextLine();
 		System.out.print("State (leave blank to not search by this criterion): ");
 		String state = s.nextLine();
+		System.out.print("Location (leave blank to not search by this criterion): ");
+		String location = s.nextLine();
+		System.out.print("Control (leave blank to not search by this criterion): ");
+		String control = s.nextLine();
+		System.out.print("Minimum Number of Students (leave blank to not search by this criterion): ");
+		String minNumberOfStudentsInput = s.nextLine();
+		int minNumberOfStudents = 0;
+		if(minNumberOfStudentsInput!="") {
+			minNumberOfStudents = Integer.parseInt(minNumberOfStudentsInput);
+		}
+		System.out.print("Maximum Number of Students (leave blank to not search by this criterion): ");
+		String maxNumberOfStudentsInput = s.nextLine();
+		int maxNumberOfStudents = 0;
+		if(maxNumberOfStudentsInput!="") {
+			maxNumberOfStudents = Integer.parseInt(maxNumberOfStudentsInput);
+		}
 		
-		return SystemController.search(state);
+		return SystemController.search(school, state, location, control, minNumberOfStudents, maxNumberOfStudents);
 	}
 	
 	// ask for a school name to save, and attempt to save that school
