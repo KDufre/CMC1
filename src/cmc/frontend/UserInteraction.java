@@ -119,10 +119,34 @@ public class UserInteraction {
 		if(maxPercentFemaleInput!="") {
 			maxPercentFemale = Integer.parseInt(maxPercentFemaleInput);
 		}
+		System.out.print("Minimum SAT Verbal (leave blank to not search by this criterion): ");
+		String minSATVerbalInput = s.nextLine();
+		int minSATVerbal = 0;
+		if(minSATVerbalInput!="") {
+			minSATVerbal = Integer.parseInt(minSATVerbalInput);
+		}
+		System.out.print("Maximum SAT Verbal (leave blank to not search by this criterion): ");
+		String maxSATVerbalInput = s.nextLine();
+		int maxSATVerbal = 0;
+		if(maxSATVerbalInput!="") {
+			maxSATVerbal = Integer.parseInt(maxSATVerbalInput);
+		}
+		System.out.print("Minimum SAT Math (leave blank to not search by this criterion): ");
+		String minSATMathInput = s.nextLine();
+		int minSATMath = 0;
+		if(minSATMathInput!="") {
+			minSATMath = Integer.parseInt(minSATMathInput);
+		}
+		System.out.print("Maximum SAT Math (leave blank to not search by this criterion): ");
+		String maxSATMathInput = s.nextLine();
+		int maxSATMath = 0;
+		if(maxSATMathInput!="") {
+			maxSATMath = Integer.parseInt(maxSATMathInput);
+		}
 		
 		
 		
-		return SystemController.search(school, state, location, control, minNumberOfStudents, maxNumberOfStudents, minPercentFemale, maxPercentFemale);
+		return SystemController.search(school, state, location, control, minNumberOfStudents, maxNumberOfStudents, minPercentFemale, maxPercentFemale, minSATVerbal, maxSATVerbal, minSATMath, maxSATMath);
 	}
 	
 	// ask for a school name to save, and attempt to save that school

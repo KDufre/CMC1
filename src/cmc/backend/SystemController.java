@@ -77,7 +77,7 @@ public class SystemController {
 	// this REGULAR USER ONLY method searches for schools in the database
 	// based on provided criteria (just state for now)
 	public static List<String[]> search(String schoolInput, String state, String location
-			, String control, int minNumberOfStudents, int maxNumberOfStudents, int minPercentFemale, int maxPercentFemale) {
+			, String control, int minNumberOfStudents, int maxNumberOfStudents, int minPercentFemale, int maxPercentFemale, int minSATVerbal, int maxSATVerbal, int minSATMath, int maxSATMath) {
 		List<String[]> schoolList = DatabaseController.getAllSchools();
 		
 		//This is if min is set to something and max is empty
@@ -87,6 +87,13 @@ public class SystemController {
 		if(minPercentFemale>0 && maxPercentFemale==0) {
 			maxPercentFemale = Integer.MAX_VALUE;
 		}
+		if(minSATVerbal>0 && maxSATVerbal==0) {
+			maxSATVerbal = Integer.MAX_VALUE;
+		}
+		if(minSATMath>0 && maxSATMath==0) {
+			maxSATMath = Integer.MAX_VALUE;
+		}
+		
 		
 		List<String[]> filteredList = new ArrayList<String[]>();
 		for (int i = 0; i < schoolList.size(); i++) {
@@ -96,8 +103,11 @@ public class SystemController {
 					|| school[3].equalsIgnoreCase(control)
 					|| (Integer.parseInt(school[4])>=minNumberOfStudents && Integer.parseInt(school[4])<=maxNumberOfStudents)
 					|| (Integer.parseInt(school[5])>=minPercentFemale && Integer.parseInt(school[5])<=maxPercentFemale)
+					|| (Integer.parseInt(school[6])>=minSATVerbal && Integer.parseInt(school[6])<=maxSATVerbal)
+					|| (Integer.parseInt(school[7])>=minSATMath && Integer.parseInt(school[7])<=maxSATMath)
 					|| (schoolInput=="" && state=="" && location=="" && control=="" && minNumberOfStudents==0 
-					&& maxNumberOfStudents==0 && minPercentFemale==0 && maxPercentFemale==0))
+					&& maxNumberOfStudents==0 && minPercentFemale==0 && maxPercentFemale==0 && minSATVerbal==0 && 
+					maxSATVerbal==0 && minSATMath==0 && maxSATMath==0))
 				filteredList.add(school);
 		}
 		
