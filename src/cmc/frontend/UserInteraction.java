@@ -143,10 +143,60 @@ public class UserInteraction {
 		if(maxSATMathInput!="") {
 			maxSATMath = Integer.parseInt(maxSATMathInput);
 		}
+		System.out.print("Minimum Expenses ( blank to not search by this criterion): ");
+		String minExpensesInput = s.nextLine();
+		int minExpenses = 0;
+		if(minExpensesInput!="") {
+			minExpenses = Integer.parseInt(minExpensesInput);
+		}
+		System.out.print("Maximum Expenses (leave blank to not search by this criterion): ");
+		String maxExpensesInput = s.nextLine();
+		int maxExpenses = 0;
+		if(maxExpensesInput!="") {
+			maxExpenses = Integer.parseInt(maxExpensesInput);
+		}
+		System.out.print("Minimum Percent Financial Aid ( blank to not search by this criterion): ");
+		String minPercentAidInput = s.nextLine();
+		int minPercentAid = 0;
+		if(minPercentAidInput!="") {
+			minPercentAid = Integer.parseInt(minPercentAidInput);
+		}
+		System.out.print("Maximum Percent Financial Aid (leave blank to not search by this criterion): ");
+		String maxPercentAidInput = s.nextLine();
+		int maxPercentAid = 0;
+		if(maxPercentAidInput!="") {
+			maxPercentAid = Integer.parseInt(maxPercentAidInput);
+		}
+		System.out.print("Minimum Number Of Applicants ( blank to not search by this criterion): ");
+		String minNumOfApplicantsInput = s.nextLine();
+		int minNumOfApplicants = 0;
+		if(minNumOfApplicantsInput!="") {
+			minNumOfApplicants = Integer.parseInt(minNumOfApplicantsInput);
+		}
+		System.out.print("Maximum Number Of Applicants (leave blank to not search by this criterion): ");
+		String maxNumOfApplicantsInput = s.nextLine();
+		int maxNumOfApplicants = 0;
+		if(maxNumOfApplicantsInput!="") {
+			maxNumOfApplicants = Integer.parseInt(maxNumOfApplicantsInput);
+		}
+		System.out.print("Minimum Percent Admitted ( blank to not search by this criterion): ");
+		String minPercentAdmittedInput = s.nextLine();
+		int minPercentAdmitted = 0;
+		if(minPercentAdmittedInput!="") {
+			minPercentAdmitted = Integer.parseInt(minPercentAdmittedInput);
+		}
+		System.out.print("Maximum Percent Admintted (leave blank to not search by this criterion): ");
+		String maxPercentAdmittedInput = s.nextLine();
+		int maxPercentAdmitted = 0;
+		if(maxPercentAdmittedInput!="") {
+			maxPercentAdmitted = Integer.parseInt(maxPercentAdmittedInput);
+		}
 		
 		
-		
-		return SystemController.search(school, state, location, control, minNumberOfStudents, maxNumberOfStudents, minPercentFemale, maxPercentFemale, minSATVerbal, maxSATVerbal, minSATMath, maxSATMath);
+		return SystemController.search(school, state, location, control, minNumberOfStudents, maxNumberOfStudents, 
+				minPercentFemale, maxPercentFemale, minSATVerbal, maxSATVerbal, minSATMath, maxSATMath, 
+				minExpenses, maxExpenses, minPercentAid, maxPercentAid, minNumOfApplicants, maxNumOfApplicants, 
+				minPercentAdmitted, maxPercentAdmitted);
 	}
 	
 	// ask for a school name to save, and attempt to save that school
