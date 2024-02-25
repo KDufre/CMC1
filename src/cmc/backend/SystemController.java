@@ -85,70 +85,33 @@ public class SystemController {
 			int minSocialScale, int maxSocialScale, int minQualityLifeScale, int maxQualityLifeScale) {
 		List<String[]> schoolList = DatabaseController.getAllSchools();
 		
-		//This is if min is set to something and max is empty
-		if(minNumberOfStudents>0 && maxNumberOfStudents==0) {
-			maxNumberOfStudents = Integer.MAX_VALUE;
-		}
-		if(minPercentFemale>0 && maxPercentFemale==0) {
-			maxPercentFemale = Integer.MAX_VALUE;
-		}
-		if(minSATVerbal>0 && maxSATVerbal==0) {
-			maxSATVerbal = Integer.MAX_VALUE;
-		}
-		if(minSATMath>0 && maxSATMath==0) {
-			maxSATMath = Integer.MAX_VALUE;
-		}
-		if(minExpenses>0 && maxExpenses==0) {
-			maxExpenses = Integer.MAX_VALUE;
-		}
-		if(minPercentAid>0 && maxPercentAid==0) {
-			maxPercentAid = Integer.MAX_VALUE;
-		}
-		if(minNumOfApplicants>0 && maxNumOfApplicants==0) {
-			maxPercentAid = Integer.MAX_VALUE;
-		}
-		if(minPercentAdmitted>0 && maxPercentAdmitted==0) {
-			maxPercentAid = Integer.MAX_VALUE;
-		}
-		if(minPercentEnrolled>0 && maxPercentEnrolled==0) {
-			maxPercentAid = Integer.MAX_VALUE;
-		}
-		if(minAcademicScale>0 && maxAcademicScale==0) {
-			maxPercentAid = Integer.MAX_VALUE;
-		}
-		if(minSocialScale>0 && maxSocialScale==0) {
-			maxPercentAid = Integer.MAX_VALUE;
-		}
-		if(minQualityLifeScale>0 && minQualityLifeScale==0) {
-			maxPercentAid = Integer.MAX_VALUE;
-		}
-		
 		
 		
 		List<String[]> filteredList = new ArrayList<String[]>();
 		for (int i = 0; i < schoolList.size(); i++) {
 			String[] school = schoolList.get(i);
-			if (school[0].equalsIgnoreCase(schoolInput) || school[1].equalsIgnoreCase(state) 
-					|| school[2].equalsIgnoreCase(location) 
-					|| school[3].equalsIgnoreCase(control)
-					|| (Integer.parseInt(school[4])>=minNumberOfStudents && Integer.parseInt(school[4])<=maxNumberOfStudents)
-					|| (Integer.parseInt(school[5])>=minPercentFemale && Integer.parseInt(school[5])<=maxPercentFemale)
-					|| (Integer.parseInt(school[6])>=minSATVerbal && Integer.parseInt(school[6])<=maxSATVerbal)
-					|| (Integer.parseInt(school[7])>=minSATMath && Integer.parseInt(school[7])<=maxSATMath)
-					|| (Integer.parseInt(school[8])>=minExpenses && Integer.parseInt(school[8])<=maxExpenses)
-					|| (Integer.parseInt(school[9])>=minPercentAid && Integer.parseInt(school[9])<=maxPercentAid)
-					|| (Integer.parseInt(school[10])>=minNumOfApplicants && Integer.parseInt(school[10])<=maxNumOfApplicants)
-					|| (Integer.parseInt(school[11])>=minPercentAdmitted && Integer.parseInt(school[11])<=maxPercentAdmitted)
-					|| (Integer.parseInt(school[12])>=minPercentEnrolled && Integer.parseInt(school[12])<=maxPercentEnrolled)
-					|| (Integer.parseInt(school[13])>=minAcademicScale && Integer.parseInt(school[13])<=maxAcademicScale)
-					|| (Integer.parseInt(school[14])>=minSocialScale && Integer.parseInt(school[14])<=maxSocialScale)
-					|| (Integer.parseInt(school[15])>=minQualityLifeScale && Integer.parseInt(school[15])<=maxQualityLifeScale)
+			if (((school[0].equalsIgnoreCase(schoolInput) || schoolInput=="") 
+					&& (school[1].equalsIgnoreCase(state) || state =="")
+					&& (school[2].equalsIgnoreCase(location) || location =="")
+					&& (school[3].equalsIgnoreCase(control) || control=="")
+					&& (Integer.parseInt(school[4])>=minNumberOfStudents && Integer.parseInt(school[4])<=maxNumberOfStudents)
+					&& (Integer.parseInt(school[5])>=minPercentFemale && Integer.parseInt(school[5])<=maxPercentFemale)
+					&& (Integer.parseInt(school[6])>=minSATVerbal && Integer.parseInt(school[6])<=maxSATVerbal)
+					&& (Integer.parseInt(school[7])>=minSATMath && Integer.parseInt(school[7])<=maxSATMath)
+					&& (Integer.parseInt(school[8])>=minExpenses && Integer.parseInt(school[8])<=maxExpenses)
+					&& (Integer.parseInt(school[9])>=minPercentAid && Integer.parseInt(school[9])<=maxPercentAid)
+					&& (Integer.parseInt(school[10])>=minNumOfApplicants && Integer.parseInt(school[10])<=maxNumOfApplicants)
+					&& (Integer.parseInt(school[11])>=minPercentAdmitted && Integer.parseInt(school[11])<=maxPercentAdmitted)
+					&& (Integer.parseInt(school[12])>=minPercentEnrolled && Integer.parseInt(school[12])<=maxPercentEnrolled)
+					&& (Integer.parseInt(school[13])>=minAcademicScale && Integer.parseInt(school[13])<=maxAcademicScale)
+					&& (Integer.parseInt(school[14])>=minSocialScale && Integer.parseInt(school[14])<=maxSocialScale)
+					&& (Integer.parseInt(school[15])>=minQualityLifeScale && Integer.parseInt(school[15])<=maxQualityLifeScale))
 					|| (schoolInput=="" && state=="" && location=="" && control=="" && minNumberOfStudents==0 
-					&& maxNumberOfStudents==0 && minPercentFemale==0 && maxPercentFemale==0 && minSATVerbal==0 && 
-					maxSATVerbal==0 && minSATMath==0 && maxSATMath==0 && minExpenses==0 && maxExpenses==0 && 
-					minPercentAid==0 && maxPercentAid==0 && minNumOfApplicants==0 && maxNumOfApplicants==0 && minPercentAdmitted==0 
-					&& maxPercentAdmitted==0 && minPercentEnrolled==0 && maxPercentEnrolled==0 && minAcademicScale==0 && 
-					maxAcademicScale==0 && minSocialScale==0 && maxSocialScale==0 && minQualityLifeScale==0 && maxQualityLifeScale==0))
+					&& maxNumberOfStudents==Integer.MAX_VALUE && minPercentFemale==0 && maxPercentFemale==Integer.MAX_VALUE && minSATVerbal==0 && 
+					maxSATVerbal==Integer.MAX_VALUE && minSATMath==0 && maxSATMath==Integer.MAX_VALUE && minExpenses==0 && maxExpenses==Integer.MAX_VALUE && 
+					minPercentAid==0 && maxPercentAid==Integer.MAX_VALUE && minNumOfApplicants==0 && maxNumOfApplicants==Integer.MAX_VALUE && minPercentAdmitted==0 
+					&& maxPercentAdmitted==Integer.MAX_VALUE && minPercentEnrolled==0 && maxPercentEnrolled==Integer.MAX_VALUE && minAcademicScale==0 && 
+					maxAcademicScale==Integer.MAX_VALUE && minSocialScale==0 && maxSocialScale==Integer.MAX_VALUE && minQualityLifeScale==0 && maxQualityLifeScale==Integer.MAX_VALUE))
 				filteredList.add(school);
 		}
 		

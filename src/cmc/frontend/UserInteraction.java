@@ -103,7 +103,7 @@ public class UserInteraction {
 		}
 		System.out.print("Maximum Number of Students (leave blank to not search by this criterion): ");
 		String maxNumberOfStudentsInput = s.nextLine();
-		int maxNumberOfStudents = 0;
+		int maxNumberOfStudents = Integer.MAX_VALUE;
 		if(maxNumberOfStudentsInput!="") {
 			maxNumberOfStudents = Integer.parseInt(maxNumberOfStudentsInput);
 		}
@@ -115,7 +115,7 @@ public class UserInteraction {
 		}
 		System.out.print("Maximum Percent Female (leave blank to not search by this criterion): ");
 		String maxPercentFemaleInput = s.nextLine();
-		int maxPercentFemale = 0;
+		int maxPercentFemale = Integer.MAX_VALUE;
 		if(maxPercentFemaleInput!="") {
 			maxPercentFemale = Integer.parseInt(maxPercentFemaleInput);
 		}
@@ -127,7 +127,7 @@ public class UserInteraction {
 		}
 		System.out.print("Maximum SAT Verbal (leave blank to not search by this criterion): ");
 		String maxSATVerbalInput = s.nextLine();
-		int maxSATVerbal = 0;
+		int maxSATVerbal = Integer.MAX_VALUE;
 		if(maxSATVerbalInput!="") {
 			maxSATVerbal = Integer.parseInt(maxSATVerbalInput);
 		}
@@ -139,7 +139,7 @@ public class UserInteraction {
 		}
 		System.out.print("Maximum SAT Math (leave blank to not search by this criterion): ");
 		String maxSATMathInput = s.nextLine();
-		int maxSATMath = 0;
+		int maxSATMath = Integer.MAX_VALUE;
 		if(maxSATMathInput!="") {
 			maxSATMath = Integer.parseInt(maxSATMathInput);
 		}
@@ -151,7 +151,7 @@ public class UserInteraction {
 		}
 		System.out.print("Maximum Expenses (leave blank to not search by this criterion): ");
 		String maxExpensesInput = s.nextLine();
-		int maxExpenses = 0;
+		int maxExpenses = Integer.MAX_VALUE;
 		if(maxExpensesInput!="") {
 			maxExpenses = Integer.parseInt(maxExpensesInput);
 		}
@@ -163,7 +163,7 @@ public class UserInteraction {
 		}
 		System.out.print("Maximum Percent Financial Aid (leave blank to not search by this criterion): ");
 		String maxPercentAidInput = s.nextLine();
-		int maxPercentAid = 0;
+		int maxPercentAid = Integer.MAX_VALUE;
 		if(maxPercentAidInput!="") {
 			maxPercentAid = Integer.parseInt(maxPercentAidInput);
 		}
@@ -175,7 +175,7 @@ public class UserInteraction {
 		}
 		System.out.print("Maximum Number Of Applicants (leave blank to not search by this criterion): ");
 		String maxNumOfApplicantsInput = s.nextLine();
-		int maxNumOfApplicants = 0;
+		int maxNumOfApplicants = Integer.MAX_VALUE;
 		if(maxNumOfApplicantsInput!="") {
 			maxNumOfApplicants = Integer.parseInt(maxNumOfApplicantsInput);
 		}
@@ -187,7 +187,7 @@ public class UserInteraction {
 		}
 		System.out.print("Maximum Percent Admintted (leave blank to not search by this criterion): ");
 		String maxPercentAdmittedInput = s.nextLine();
-		int maxPercentAdmitted = 0;
+		int maxPercentAdmitted = Integer.MAX_VALUE;
 		if(maxPercentAdmittedInput!="") {
 			maxPercentAdmitted = Integer.parseInt(maxPercentAdmittedInput);
 		}
@@ -199,7 +199,7 @@ public class UserInteraction {
 		}
 		System.out.print("Maximum Percent Enrolled (leave blank to not search by this criterion): ");
 		String maxPercentEnrolledInput = s.nextLine();
-		int maxPercentEnrolled = 0;
+		int maxPercentEnrolled = Integer.MAX_VALUE;
 		if(maxPercentEnrolledInput!="") {
 			maxPercentEnrolled = Integer.parseInt(maxPercentEnrolledInput);
 		}
@@ -211,7 +211,7 @@ public class UserInteraction {
 		}
 		System.out.print("Maximum Academic Scale Enrolled (leave blank to not search by this criterion): ");
 		String maxAcademicScaleInput = s.nextLine();
-		int maxAcademicScale = 0;
+		int maxAcademicScale = Integer.MAX_VALUE;
 		if(maxAcademicScaleInput!="") {
 			maxAcademicScale = Integer.parseInt(maxAcademicScaleInput);
 		}
@@ -223,7 +223,7 @@ public class UserInteraction {
 		}
 		System.out.print("Maximum Social Scale Enrolled (leave blank to not search by this criterion): ");
 		String maxSocialScaleInput = s.nextLine();
-		int maxSocialScale = 0;
+		int maxSocialScale = Integer.MAX_VALUE;
 		if(maxSocialScaleInput!="") {
 			maxSocialScale = Integer.parseInt(maxSocialScaleInput);
 		}
@@ -235,7 +235,7 @@ public class UserInteraction {
 		}
 		System.out.print("Maximum Quality of Life Scale Enrolled (leave blank to not search by this criterion): ");
 		String maxQualityLifeScaleInput = s.nextLine();
-		int maxQualityLifeScale = 0;
+		int maxQualityLifeScale = Integer.MAX_VALUE;
 		if(maxQualityLifeScaleInput!="") {
 			maxQualityLifeScale = Integer.parseInt(maxQualityLifeScaleInput);
 		}
