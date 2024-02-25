@@ -107,8 +107,22 @@ public class UserInteraction {
 		if(maxNumberOfStudentsInput!="") {
 			maxNumberOfStudents = Integer.parseInt(maxNumberOfStudentsInput);
 		}
+		System.out.print("Minimum Percent Female (leave blank to not search by this criterion): ");
+		String minPercentFemaleInput = s.nextLine();
+		int minPercentFemale = 0;
+		if(minPercentFemaleInput!="") {
+			minPercentFemale = Integer.parseInt(minPercentFemaleInput);
+		}
+		System.out.print("Maximum Percent Female (leave blank to not search by this criterion): ");
+		String maxPercentFemaleInput = s.nextLine();
+		int maxPercentFemale = 0;
+		if(maxPercentFemaleInput!="") {
+			maxPercentFemale = Integer.parseInt(maxPercentFemaleInput);
+		}
 		
-		return SystemController.search(school, state, location, control, minNumberOfStudents, maxNumberOfStudents);
+		
+		
+		return SystemController.search(school, state, location, control, minNumberOfStudents, maxNumberOfStudents, minPercentFemale, maxPercentFemale);
 	}
 	
 	// ask for a school name to save, and attempt to save that school

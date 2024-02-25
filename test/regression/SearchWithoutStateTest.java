@@ -24,7 +24,7 @@ public class SearchWithoutStateTest {
 
 	@Test
 	public void test() {
-		List<String[]> list = SystemController.search("", "", "", "", 0, 0);
+		List<String[]> list = SystemController.search("", "", "", "", 0, 0, 0, 0);
 		Assert.assertTrue(list.size()==(DatabaseController.getAllSchools().size()));
 	}
 

@@ -77,12 +77,15 @@ public class SystemController {
 	// this REGULAR USER ONLY method searches for schools in the database
 	// based on provided criteria (just state for now)
 	public static List<String[]> search(String schoolInput, String state, String location
-			, String control, int minNumberOfStudents, int maxNumberOfStudents) {
+			, String control, int minNumberOfStudents, int maxNumberOfStudents, int minPercentFemale, int maxPercentFemale) {
 		List<String[]> schoolList = DatabaseController.getAllSchools();
 		
 		//This is if min is set to something and max is empty
 		if(minNumberOfStudents>0 && maxNumberOfStudents==0) {
 			maxNumberOfStudents = Integer.MAX_VALUE;
+		}
+		if(minPercentFemale>0 && maxPercentFemale==0) {
+			maxPercentFemale = Integer.MAX_VALUE;
 		}
 		
 		List<String[]> filteredList = new ArrayList<String[]>();
@@ -92,7 +95,9 @@ public class SystemController {
 					|| school[2].equalsIgnoreCase(location) 
 					|| school[3].equalsIgnoreCase(control)
 					|| (Integer.parseInt(school[4])>=minNumberOfStudents && Integer.parseInt(school[4])<=maxNumberOfStudents)
-					|| (schoolInput=="" && state=="" && location=="" && control=="" && minNumberOfStudents==0 && maxNumberOfStudents==0))
+					|| (Integer.parseInt(school[5])>=minPercentFemale && Integer.parseInt(school[5])<=maxPercentFemale)
+					|| (schoolInput=="" && state=="" && location=="" && control=="" && minNumberOfStudents==0 
+					&& maxNumberOfStudents==0 && minPercentFemale==0 && maxPercentFemale==0))
 				filteredList.add(school);
 		}
 		
