@@ -80,7 +80,9 @@ public class SystemController {
 			, String control, int minNumberOfStudents, int maxNumberOfStudents, int minPercentFemale, 
 			int maxPercentFemale, int minSATVerbal, int maxSATVerbal, int minSATMath, int maxSATMath,
 			int minExpenses, int maxExpenses, int minPercentAid, int maxPercentAid, 
-			int minNumOfApplicants, int maxNumOfApplicants, int minPercentAdmitted, int maxPercentAdmitted) {
+			int minNumOfApplicants, int maxNumOfApplicants, int minPercentAdmitted, int maxPercentAdmitted, 
+			int minPercentEnrolled, int maxPercentEnrolled, int minAcademicScale, int maxAcademicScale, 
+			int minSocialScale, int maxSocialScale, int minQualityLifeScale, int maxQualityLifeScale) {
 		List<String[]> schoolList = DatabaseController.getAllSchools();
 		
 		//This is if min is set to something and max is empty
@@ -108,6 +110,18 @@ public class SystemController {
 		if(minPercentAdmitted>0 && maxPercentAdmitted==0) {
 			maxPercentAid = Integer.MAX_VALUE;
 		}
+		if(minPercentEnrolled>0 && maxPercentEnrolled==0) {
+			maxPercentAid = Integer.MAX_VALUE;
+		}
+		if(minAcademicScale>0 && maxAcademicScale==0) {
+			maxPercentAid = Integer.MAX_VALUE;
+		}
+		if(minSocialScale>0 && maxSocialScale==0) {
+			maxPercentAid = Integer.MAX_VALUE;
+		}
+		if(minQualityLifeScale>0 && minQualityLifeScale==0) {
+			maxPercentAid = Integer.MAX_VALUE;
+		}
 		
 		
 		
@@ -125,11 +139,16 @@ public class SystemController {
 					|| (Integer.parseInt(school[9])>=minPercentAid && Integer.parseInt(school[9])<=maxPercentAid)
 					|| (Integer.parseInt(school[10])>=minNumOfApplicants && Integer.parseInt(school[10])<=maxNumOfApplicants)
 					|| (Integer.parseInt(school[11])>=minPercentAdmitted && Integer.parseInt(school[11])<=maxPercentAdmitted)
+					|| (Integer.parseInt(school[12])>=minPercentEnrolled && Integer.parseInt(school[12])<=maxPercentEnrolled)
+					|| (Integer.parseInt(school[13])>=minAcademicScale && Integer.parseInt(school[13])<=maxAcademicScale)
+					|| (Integer.parseInt(school[14])>=minSocialScale && Integer.parseInt(school[14])<=maxSocialScale)
+					|| (Integer.parseInt(school[15])>=minQualityLifeScale && Integer.parseInt(school[15])<=maxQualityLifeScale)
 					|| (schoolInput=="" && state=="" && location=="" && control=="" && minNumberOfStudents==0 
 					&& maxNumberOfStudents==0 && minPercentFemale==0 && maxPercentFemale==0 && minSATVerbal==0 && 
 					maxSATVerbal==0 && minSATMath==0 && maxSATMath==0 && minExpenses==0 && maxExpenses==0 && 
 					minPercentAid==0 && maxPercentAid==0 && minNumOfApplicants==0 && maxNumOfApplicants==0 && minPercentAdmitted==0 
-					&& maxPercentAdmitted==0))
+					&& maxPercentAdmitted==0 && minPercentEnrolled==0 && maxPercentEnrolled==0 && minAcademicScale==0 && 
+					maxAcademicScale==0 && minSocialScale==0 && maxSocialScale==0 && minQualityLifeScale==0 && maxQualityLifeScale==0))
 				filteredList.add(school);
 		}
 		

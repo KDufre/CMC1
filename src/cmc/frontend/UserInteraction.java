@@ -191,12 +191,61 @@ public class UserInteraction {
 		if(maxPercentAdmittedInput!="") {
 			maxPercentAdmitted = Integer.parseInt(maxPercentAdmittedInput);
 		}
+		System.out.print("Minimum Percent Enrolled ( blank to not search by this criterion): ");
+		String minPercentEnrolledInput = s.nextLine();
+		int minPercentEnrolled = 0;
+		if(minPercentEnrolledInput!="") {
+			minPercentEnrolled = Integer.parseInt(minPercentEnrolledInput);
+		}
+		System.out.print("Maximum Percent Enrolled (leave blank to not search by this criterion): ");
+		String maxPercentEnrolledInput = s.nextLine();
+		int maxPercentEnrolled = 0;
+		if(maxPercentEnrolledInput!="") {
+			maxPercentEnrolled = Integer.parseInt(maxPercentEnrolledInput);
+		}
+		System.out.print("Minimum Academic Scale ( blank to not search by this criterion): ");
+		String minAcademicScaleInput = s.nextLine();
+		int minAcademicScale = 0;
+		if(minAcademicScaleInput!="") {
+			minAcademicScale = Integer.parseInt(minAcademicScaleInput);
+		}
+		System.out.print("Maximum Academic Scale Enrolled (leave blank to not search by this criterion): ");
+		String maxAcademicScaleInput = s.nextLine();
+		int maxAcademicScale = 0;
+		if(maxAcademicScaleInput!="") {
+			maxAcademicScale = Integer.parseInt(maxAcademicScaleInput);
+		}
+		System.out.print("Minimum Social Scale ( blank to not search by this criterion): ");
+		String minSocialScaleInput = s.nextLine();
+		int minSocialScale = 0;
+		if(minSocialScaleInput!="") {
+			minSocialScale = Integer.parseInt(minSocialScaleInput);
+		}
+		System.out.print("Maximum Social Scale Enrolled (leave blank to not search by this criterion): ");
+		String maxSocialScaleInput = s.nextLine();
+		int maxSocialScale = 0;
+		if(maxSocialScaleInput!="") {
+			maxSocialScale = Integer.parseInt(maxSocialScaleInput);
+		}
+		System.out.print("Minimum Quality of Life Scale ( blank to not search by this criterion): ");
+		String minQualityLifeScaleInput = s.nextLine();
+		int minQualityLifeScale = 0;
+		if(minQualityLifeScaleInput!="") {
+			minQualityLifeScale = Integer.parseInt(minQualityLifeScaleInput);
+		}
+		System.out.print("Maximum Quality of Life Scale Enrolled (leave blank to not search by this criterion): ");
+		String maxQualityLifeScaleInput = s.nextLine();
+		int maxQualityLifeScale = 0;
+		if(maxQualityLifeScaleInput!="") {
+			maxQualityLifeScale = Integer.parseInt(maxQualityLifeScaleInput);
+		}
 		
 		
 		return SystemController.search(school, state, location, control, minNumberOfStudents, maxNumberOfStudents, 
 				minPercentFemale, maxPercentFemale, minSATVerbal, maxSATVerbal, minSATMath, maxSATMath, 
 				minExpenses, maxExpenses, minPercentAid, maxPercentAid, minNumOfApplicants, maxNumOfApplicants, 
-				minPercentAdmitted, maxPercentAdmitted);
+				minPercentAdmitted, maxPercentAdmitted, minPercentEnrolled, maxPercentEnrolled, minAcademicScale, 
+				maxAcademicScale, minSocialScale, maxSocialScale, minQualityLifeScale, maxQualityLifeScale);
 	}
 	
 	// ask for a school name to save, and attempt to save that school
