@@ -248,7 +248,7 @@ public class Driver {
 		//       so we can display some data about the school...
 		List<String> schools = UserInteraction.getSavedSchools();
 		if(schools==null) {
-			System.out.println("NO saved schools.");
+			System.out.println("No saved schools.");
 			return;
 		}
 		for (String school : schools) {

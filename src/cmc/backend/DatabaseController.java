@@ -16,7 +16,7 @@ import dblibrary.project.csci230.*;
  */
 public class DatabaseController {
 	// TODO: we'll need to update this to our team's actual database someday!
-	private static UniversityDBLibrary database = new UniversityDBLibrary("dreamteam", "csci230");
+	private static UniversityDBLibrary database = new UniversityDBLibrary("william", "csci230");
 
 	// add a user to the db
 	// TODO: it would be nice if this could take a User object instead
@@ -132,7 +132,9 @@ public class DatabaseController {
 		String[][] dbMapping = database.user_getUsernamesWithSavedSchools();
 
 		HashMap<String, List<String>> result = new HashMap<String, List<String>>();
-		
+		if(dbMapping==null) {
+			return result;
+		}
 		for (String[] entry : dbMapping) {
 			String user = entry[0];
 			String school = entry[1];
