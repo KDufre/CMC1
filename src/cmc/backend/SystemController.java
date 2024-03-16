@@ -25,12 +25,7 @@ public class SystemController {
 	 * a database entry, or null otherwise
 	 */
 	public static User login(String username, String password) {
-		String[] userData = DatabaseController.getUser(username);
-		if (userData == null)
-			return null;
-		
-		User theUser = new User(userData[2], userData[3], userData[4].charAt(0), userData[0],
-				userData[1], userData[5].charAt(0));
+		User theUser = DatabaseController.getUser(username);
 		
 		if (theUser.getActivated() != 'Y' || !theUser.password.equals(password)) {
 			return null;

@@ -48,13 +48,15 @@ public class DatabaseController {
 	}
 	
 	// get a user; null if not in DB
-	public static String[] getUser(String username) {
+	public static User getUser(String username) {
 		String[][] databaseUserStrings = database.user_getUsers();
 		
-		for (String[] singleUser : databaseUserStrings) {
-			String thisUsername = singleUser[2];
+		for (String[] userData : databaseUserStrings) {
+			String thisUsername = userData[2];
 			if (thisUsername.equals(username)) {
-				return singleUser;
+				User theUser = new User(userData[2], userData[3], userData[4].charAt(0), userData[0],
+						userData[1], userData[5].charAt(0));
+				return theUser;
 			}
 		}
 		
@@ -149,9 +151,9 @@ public class DatabaseController {
 	}
 	
 	public static boolean editPassword(String username, String newPassword) {
-		String[] userData = DatabaseController.getUser(username);
+		User userData = DatabaseController.getUser(username);
 		
-		int result = database.user_editUser(username, userData[0], userData[1], newPassword, userData[4].charAt(0), userData[5].charAt(0));
+		int result = database.user_editUser(username, userData.getFirstName(), userData.getLastName(), newPassword, userData.type, userData.activated);
 		if (result == -1) {
 			System.out.println("Error in changing password");
 			return false;
@@ -161,9 +163,9 @@ public class DatabaseController {
 		}
 	}
 	public static boolean editFirstName(String username, String newFirstName) {
-		String[] userData = DatabaseController.getUser(username);
+		User userData = DatabaseController.getUser(username);
 		
-		int result = database.user_editUser(username, newFirstName, userData[1], userData[3], userData[4].charAt(0), userData[5].charAt(0));
+		int result = database.user_editUser(username, newFirstName, userData.getLastName(), userData.getPassword(), userData.type, userData.activated);
 		if (result == -1) {
 			System.out.println("Error in changing first name");
 			return false;
@@ -173,9 +175,9 @@ public class DatabaseController {
 		}
 	}
 	public static boolean editLastName(String username, String newLastName) {
-		String[] userData = DatabaseController.getUser(username);
+		User userData = DatabaseController.getUser(username);
 		
-		int result = database.user_editUser(username, userData[0], newLastName, userData[3], userData[4].charAt(0), userData[5].charAt(0));
+		int result = database.user_editUser(username, userData.getFirstName(), newLastName, userData.getPassword(), userData.type, userData.activated);
 		if (result == -1) {
 			System.out.println("Error in changing last name");
 			return false;
@@ -186,9 +188,9 @@ public class DatabaseController {
 	}
 	
 	public static boolean deactivateUser(String username) {
-		String[] userData = DatabaseController.getUser(username);
+		User userData = DatabaseController.getUser(username);
 		
-		int result = database.user_editUser(username, userData[0], userData[1], userData[3], userData[4].charAt(0), 'N');
+		int result = database.user_editUser(username, userData.getFirstName(), userData.getLastName(), userData.getPassword(), userData.type, 'N');
 		if (result == -1) {
 			System.out.println("Error in deactivating user");
 			return false;
@@ -199,9 +201,9 @@ public class DatabaseController {
 	}
 	
 	public static boolean activateUser(String username) {
-		String[] userData = DatabaseController.getUser(username);
+		User userData = DatabaseController.getUser(username);
 		
-		int result = database.user_editUser(username, userData[0], userData[1], userData[3], userData[4].charAt(0), 'Y');
+		int result = database.user_editUser(username, userData.getFirstName(), userData.getLastName(), userData.getPassword(), userData.type, 'Y');
 		if (result == -1) {
 			System.out.println("Error in activating user");
 			return false;
