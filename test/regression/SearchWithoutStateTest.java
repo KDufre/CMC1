@@ -24,7 +24,9 @@ public class SearchWithoutStateTest {
 
 	@Test
 	public void test() {
-		List<String[]> list = SystemController.search("", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		List<String[]> list = SystemController.search("", "", "", "", 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
+		System.out.println(list.size());
+		System.out.println(DatabaseController.getAllSchools().size());
 		Assert.assertTrue(list.size()==(DatabaseController.getAllSchools().size()));
 	}
 
