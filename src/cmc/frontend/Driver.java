@@ -147,30 +147,48 @@ public class Driver {
 		}
 	}
 
+	//ADMIN MANAGING MENU
+	private static void adminManageUniversity(Scanner s) {
+		printHeader("Admin Manage Universitys");
+
+		int choice = getMenuOption(s, List.of( "Add University", "Remove University", "Edit University", "Go back"));
+
+		switch(choice) {
+		case 1:
+			if(!UserInteraction.addUniversity(s))
+				System.out.println("Error in adding university");
+			break;
+		case 2: 
+			if(!UserInteraction.deleteUniversity(s))
+				System.out.println("Error in removing university");
+			break;
+		case 3:
+			String[] school = UserInteraction.selectSchool(s);
+			if(!UserInteraction.adminEditUniversity(s, school)){
+				System.out.println("Error in editing university");
+			}
+			break;
+		case 4:
+			return;
+		default:
+			System.err.println("Internal error: Unsupported option.");
+			System.exit(1);
+		}
+	}
+	
 	private static void adminMenu(Scanner s) {
 		printHeader("Admin Menu");
 
-		int choice = getMenuOption(s, List.of("View List of Users", "Add University", "Remove University", "Edit University", "Logout"));
+		int choice = getMenuOption(s, List.of("View List of Users", "Manage Universities", "Logout"));
 
 		switch(choice) {
 		case 1:
 			adminUserListMenu(s);
 			break;
 		case 2:
-			if(!UserInteraction.addUniversity(s))
-				System.out.println("Error in adding university");
+			adminManageUniversity(s);
 			break;
-		case 3: 
-			if(!UserInteraction.deleteUniversity(s))
-				System.out.println("Error in removing university");
-			break;
-		case 4:
-			String[] school = UserInteraction.selectSchool(s);
-			if(!UserInteraction.adminEditUniversity(s, school)){
-				System.out.println("Error in editing university");
-			}
-			break;
-		case 5:
+		case 3:
 			UserInteraction.logout();
 			break;
 		default:
