@@ -18,9 +18,6 @@ public class DatabaseController {
 	private static UniversityDBLibrary database = new UniversityDBLibrary("william", "csci230");
 
 	// add a user to the db
-	// TODO: it would be nice if this could take a User object instead
-	// (so "higher-abstraction" classes don't have to worry about the order
-	//  of properties)
 	public static boolean addUser(User user){
 		int result = database.user_addUser(user.getFirstName(), user.getLastName(), user.getUsername(), user.getPassword(), user.getType());
 		

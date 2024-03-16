@@ -85,8 +85,6 @@ public class UserInteraction {
 	}
 	
 	public static List<String[]> search(Scanner s) {
-		// TODO: in the future, we would like to support searching by various
-		//       criteria, but we'll settle for just state for now
 		System.out.print("School Name (leave blank to not search by this criterion): ");
 		String school = s.nextLine();
 		System.out.print("State (leave blank to not search by this criterion): ");

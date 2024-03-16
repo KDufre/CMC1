@@ -27,7 +27,8 @@ public class SystemController {
 	public static User login(String username, String password) {
 		User theUser = DatabaseController.getUser(username);
 		
-		if (theUser.getActivated() != 'Y' || !theUser.password.equals(password)) {
+		
+		if (theUser==null || !theUser.password.equals(password) || !theUser.username.equals(username) || theUser.getActivated() != 'Y') {
 			return null;
 		}
 		else {

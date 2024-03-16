@@ -115,8 +115,6 @@ public class Driver {
 
 	private static void adminUserListMenu(Scanner s) {
 		printHeader("Admin User List");
-
-		// TODO: it would be nice if this was refactored into a list of User objects...
 		
 		List<User> allUsers = UserInteraction.getAllUsers();
 		//prints username, first name, last name
