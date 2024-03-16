@@ -44,7 +44,7 @@ public class UserInteraction {
 	}
 	
 	// for admins, this gets the list of all users in the system
-	public static List<String[]> getAllUsers() {
+	public static List<User> getAllUsers() {
 		return SystemController.getAllUsers();
 	}
 	
@@ -73,13 +73,13 @@ public class UserInteraction {
 		System.out.print("Enter index of Username: ");
 		int userIndex = s.nextInt();
 		s.nextLine();
-		List<String[]> allUsers = UserInteraction.getAllUsers();
+		List<User> allUsers = UserInteraction.getAllUsers();
 		int userAmount = allUsers.size();
 		if(userIndex>userAmount || userIndex<1) {
 			return false;
 		}
-		String[] user = allUsers.get(userIndex-1);
-		String username = user[2];
+		User user = allUsers.get(userIndex-1);
+		String username = user.getUsername();
 		
 		return SystemController.removeUser(username);
 	}
@@ -432,13 +432,13 @@ public class UserInteraction {
 		System.out.println("Enter the index for the password you want to switch: ");
 		int userIndex = s.nextInt();
 		s.nextLine();
-		List<String[]> allUsers = UserInteraction.getAllUsers();
+		List<User> allUsers = UserInteraction.getAllUsers();
 		int userAmount = allUsers.size();
 		if(userIndex<0 || userIndex>userAmount) {
 			return false;
 		}
-		String[] user = allUsers.get(userIndex-1);
-		String username = user[2];
+		User user = allUsers.get(userIndex-1);
+		String username = user.getUsername();
 		
 		System.out.println("Enter the new password");
 		String newPassword = s.nextLine();
@@ -456,13 +456,13 @@ public class UserInteraction {
 		System.out.println("Enter the index for the First Name you want to switch: ");
 		int userIndex = s.nextInt();
 		s.nextLine();
-		List<String[]> allUsers = UserInteraction.getAllUsers();
+		List<User> allUsers = UserInteraction.getAllUsers();
 		int userAmount = allUsers.size();
 		if(userIndex<1 || userIndex>userAmount) {
 			return false;
 		}
-		String[] user = allUsers.get(userIndex-1);
-		String username = user[2];
+		User user = allUsers.get(userIndex-1);
+		String username = user.getUsername();
 		
 		System.out.println("Enter the new First Name");
 		s.nextLine();
@@ -481,13 +481,13 @@ public class UserInteraction {
 		System.out.println("Enter the index for the Last Name you want to switch: ");
 		int userIndex = s.nextInt();
 		s.nextLine();
-		List<String[]> allUsers = UserInteraction.getAllUsers();
+		List<User> allUsers = UserInteraction.getAllUsers();
 		int userAmount = allUsers.size();
 		if(userIndex<1 || userIndex>userAmount) {
 			return false;
 		}
-		String[] user = allUsers.get(userIndex-1);
-		String username = user[2];
+		User user = allUsers.get(userIndex-1);
+		String username = user.getUsername();
 		
 		System.out.println("Enter the new Last Name");
 		String newLastName = s.nextLine();
@@ -500,13 +500,13 @@ public class UserInteraction {
 		}
 		System.out.println("Enter the index for the user you want to deactivate: ");
 		int userIndex = s.nextInt();
-		List<String[]> allUsers = UserInteraction.getAllUsers();
+		List<User> allUsers = UserInteraction.getAllUsers();
 		int userAmount = allUsers.size();
 		if(userIndex<1 || userIndex>userAmount) {
 			return false;
 		}
-		String[] user = allUsers.get(userIndex-1);
-		String username = user[2];
+		User user = allUsers.get(userIndex-1);
+		String username = user.getUsername();
 
 		
 		return SystemController.deactivateUser(username);
@@ -518,13 +518,13 @@ public class UserInteraction {
 		}
 		System.out.println("Enter the index for the user you want to activate: ");
 		int userIndex = s.nextInt();
-		List<String[]> allUsers = UserInteraction.getAllUsers();
+		List<User> allUsers = UserInteraction.getAllUsers();
 		int userAmount = allUsers.size();
 		if(userIndex<1 || userIndex>userAmount) {
 			return false;
 		}
-		String[] user = allUsers.get(userIndex-1);
-		String username = user[2];
+		User user = allUsers.get(userIndex-1);
+		String username = user.getUsername();
 		
 		return SystemController.activateUser(username);
 	}

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import cmc.CMCException;
+import cmc.backend.User;
 
 public class Driver {
 
@@ -70,10 +71,10 @@ public class Driver {
 	
 	private static void adminEditUser(Scanner s) {
 		printHeader("Edit User");
-		List<String[]> allUsers = UserInteraction.getAllUsers();
+		List<User> allUsers = UserInteraction.getAllUsers();
 		for (int i=0; i<allUsers.size(); i++) {
-			String[] user = allUsers.get(i);
-			System.out.println(i+1 + " | " + user[2] + " | " + user[0] + " | " + user[1]);
+			User user = allUsers.get(i);
+			System.out.println(i+1 + " | " + user.username + " | " + user.getFirstName() + " | " + user.getLastName());
 		}
 		System.out.println();
 		int choice = getMenuOption(s, List.of("Change a Password", "Change a first name", "Change a last name",  "Activate User", "Deactivate User"));
@@ -117,11 +118,11 @@ public class Driver {
 
 		// TODO: it would be nice if this was refactored into a list of User objects...
 		
-		List<String[]> allUsers = UserInteraction.getAllUsers();
+		List<User> allUsers = UserInteraction.getAllUsers();
 		//prints username, first name, last name
 		for (int i=0; i<allUsers.size(); i++) {
-			String[] user = allUsers.get(i);
-			System.out.printf("| %-3d | %-10s | %-10s | %-20s |%n", i+1, user[2], user[0], user[1]);
+			User user = allUsers.get(i);
+			System.out.printf("| %-3d | %-10s | %-10s | %-20s |%n", i+1, user.getUsername(), user.getFirstName(), user.getLastName());
 		}
 		System.out.println();
 

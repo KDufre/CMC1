@@ -11,6 +11,7 @@ import org.junit.Test;
 import cmc.CMCException;
 import cmc.backend.DatabaseController;
 import cmc.backend.SystemController;
+import cmc.backend.User;
 import junit.framework.Assert;
 
 public class RemoveUserTest {
@@ -26,10 +27,10 @@ public class RemoveUserTest {
 
 	@After
 	public void tearDown() throws Exception {
-		List<String[]> list = DatabaseController.getAllUsers();
-		for(String[] user : list) {
-			System.out.println(user[2]);	
-			if(user[2].equalsIgnoreCase(userToTest)) {
+		List<User> list = DatabaseController.getAllUsers();
+		for(User user : list) {
+			System.out.println(user.getUsername());	
+			if(user.getUsername().equalsIgnoreCase(userToTest)) {
 				DatabaseController.removeUserSavedSchools(userToTest);
 				DatabaseController.removeUser(userToTest);
 				System.out.println("successful");

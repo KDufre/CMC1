@@ -37,8 +37,8 @@ public class SystemController {
 
 	// this ADMIN ONLY method returns the list of all the users (and their data)
 	// TODO: shouldn't this return a List of User objects?
-	public static List<String[]> getAllUsers() {
-		List<String[]> usersList = DatabaseController.getAllUsers();
+	public static List<User> getAllUsers() {
+		List<User> usersList = DatabaseController.getAllUsers();
 		return usersList;
 	}
 	

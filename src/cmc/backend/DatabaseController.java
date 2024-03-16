@@ -64,11 +64,13 @@ public class DatabaseController {
 	}
 	
 	// get the list of all the users in the DB
-	public static List<String[]> getAllUsers() {
+	public static List<User> getAllUsers() {
 		String[][] dbUserList = database.user_getUsers();
 		
-		ArrayList<String[]> result = new ArrayList<String[]>();
-		for (String[] user : dbUserList) {
+		ArrayList<User> result = new ArrayList<User>();
+		for (String[] userData : dbUserList) {
+			User user = new User(userData[2], userData[3], userData[4].charAt(0), userData[0],
+					userData[1], userData[5].charAt(0));
 			result.add(user);
 		}
 		
