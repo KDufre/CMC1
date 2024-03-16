@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import cmc.backend.DatabaseController;
 import cmc.backend.SystemController;
+import cmc.backend.User;
 import junit.framework.Assert;
 
 public class AddSavedSchoolsTest {
@@ -19,7 +20,8 @@ public class AddSavedSchoolsTest {
 
 	@Before
 	public void setUp() throws Exception {
-		DatabaseController.addUser(userToTest, passToTest, 'u', userToTest, passToTest);
+		User user = new User(userToTest, passToTest, 'u', "k", "dt", 'Y');
+		DatabaseController.addUser(user);
 		DatabaseController.addUniversity(schoolToTest, passToTest, userToTest, passToTest, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 		DatabaseController.saveSchool(userToTest, schoolToTest);
 	}

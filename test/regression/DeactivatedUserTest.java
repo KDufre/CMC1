@@ -16,7 +16,8 @@ public class DeactivatedUserTest {
 	private static String passToTest = "pass3205971908475091834760957";
 	@Before
 	public void setUp() throws Exception {
-		DatabaseController.addUser(userToTest, passToTest, 'u', userToTest, passToTest);
+		User user = new User(userToTest, passToTest, 'u', "k", "dt", 'Y');
+		DatabaseController.addUser(user);
 		DatabaseController.deactivateUser(userToTest);
 	}
 

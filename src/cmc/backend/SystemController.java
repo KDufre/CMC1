@@ -36,7 +36,6 @@ public class SystemController {
 	}
 
 	// this ADMIN ONLY method returns the list of all the users (and their data)
-	// TODO: shouldn't this return a List of User objects?
 	public static List<User> getAllUsers() {
 		List<User> usersList = DatabaseController.getAllUsers();
 		return usersList;
@@ -47,13 +46,10 @@ public class SystemController {
 	public static boolean addUser(String username, String password,
 			String firstName, String lastName, boolean isAdmin) {
 		char type = (isAdmin ? 'a' : 'u');
-		try {
-			return DatabaseController.addUser(username, password, type, firstName, lastName);
-		} catch (CMCException e) {
-			// TODO: should we let the calling class report the error more
-			//       clearly by passing it on?
-			return false;
-		}
+		
+		User theUser = new User(username, password, type, firstName,
+				lastName, 'Y');
+		return DatabaseController.addUser(theUser);
 	}
 	
 	// this ADMIN ONLY method attempts to remove a user from the database

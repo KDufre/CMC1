@@ -15,19 +15,17 @@ import dblibrary.project.csci230.*;
  * @author Sally Sparrow
  */
 public class DatabaseController {
-	// TODO: we'll need to update this to our team's actual database someday!
 	private static UniversityDBLibrary database = new UniversityDBLibrary("william", "csci230");
 
 	// add a user to the db
 	// TODO: it would be nice if this could take a User object instead
 	// (so "higher-abstraction" classes don't have to worry about the order
 	//  of properties)
-	public static boolean addUser(String username, String password, char type,
-			String firstName, String lastName) throws CMCException {
-		int result = database.user_addUser(firstName, lastName, username, password, type);
+	public static boolean addUser(User user){
+		int result = database.user_addUser(user.getFirstName(), user.getLastName(), user.getUsername(), user.getPassword(), user.getType());
 		
 		if (result == -1) {
-			throw new CMCException("Error adding user to the DB");
+			return false;
 		}
 		else {
 			return true;

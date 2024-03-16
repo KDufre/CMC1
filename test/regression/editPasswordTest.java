@@ -8,6 +8,7 @@ import org.junit.Test;
 
 import cmc.backend.DatabaseController;
 import cmc.backend.SystemController;
+import cmc.backend.User;
 import cmc.frontend.UserInteraction;
 import junit.framework.Assert;
 
@@ -17,7 +18,8 @@ public class editPasswordTest {
 
 	@Before
 	public void setUp() throws Exception {
-		DatabaseController.addUser(userToTest, passToTest, 'u', userToTest, passToTest);
+		User user = new User(userToTest, passToTest, 'u', "k", "dt", 'Y');
+		DatabaseController.addUser(user);
 	}
 
 	@After
