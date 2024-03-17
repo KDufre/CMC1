@@ -6,8 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import cmc.backend.AccountController;
 import cmc.backend.DatabaseController;
-import cmc.backend.SystemController;
 import cmc.backend.User;
 import cmc.frontend.UserInteraction;
 import junit.framework.Assert;
@@ -29,7 +29,7 @@ public class editPasswordTest {
 
 	@Test
 	public void test() {
-		SystemController.editPassword(userToTest, "newPassword");
+		AccountController.editPassword(userToTest, "newPassword");
 		Assert.assertEquals(true, UserInteraction.login(userToTest, "newPassword"));
 	}
 

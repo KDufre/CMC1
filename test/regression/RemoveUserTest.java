@@ -9,8 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cmc.CMCException;
+import cmc.backend.AccountController;
 import cmc.backend.DatabaseController;
-import cmc.backend.SystemController;
 import cmc.backend.User;
 import junit.framework.Assert;
 
@@ -42,7 +42,7 @@ public class RemoveUserTest {
 
 	@Test
 	public void test() {
-		Assert.assertEquals(true, SystemController.removeUser(userToTest));
+		Assert.assertEquals(true, AccountController.removeUser(userToTest));
 	}
 
 }

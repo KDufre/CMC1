@@ -10,7 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cmc.backend.DatabaseController;
-import cmc.backend.SystemController;
+import cmc.backend.SearchController;
 
 public class SearchWithoutStateTest {
 
@@ -24,7 +24,7 @@ public class SearchWithoutStateTest {
 
 	@Test
 	public void test() {
-		List<String[]> list = SystemController.search("", "", "", "", 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
+		List<String[]> list = SearchController.search("", "", "", "", 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
 		Assert.assertTrue(list.size()==(DatabaseController.getAllSchools().size()));
 	}
 

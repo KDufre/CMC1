@@ -6,8 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import cmc.backend.AccountController;
 import cmc.backend.DatabaseController;
-import cmc.backend.SystemController;
 import cmc.backend.User;
 import junit.framework.Assert;
 
@@ -28,7 +28,7 @@ public class DeactivatedUserTest {
 
 	@Test
 	public void test() {
-		Assert.assertEquals(null, SystemController.login(userToTest, passToTest));
+		Assert.assertEquals(null, AccountController.login(userToTest, passToTest));
 	}
 
 }

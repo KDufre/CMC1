@@ -3,8 +3,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import cmc.CMCException;
 import dblibrary.project.csci230.*;
 
 /**
@@ -30,7 +28,7 @@ public class DatabaseController {
 	}
 	
 	// remove a user from the db
-	public static boolean removeUser(String username) throws CMCException {
+	public static boolean removeUser(String username){
 		removeUserSavedSchools(username);
 		int result = database.user_deleteUser(username);
 		if (result != 1) {

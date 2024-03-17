@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import cmc.backend.DatabaseController;
-import cmc.backend.SystemController;
+import cmc.backend.UniversityController;
 import cmc.backend.User;
 import junit.framework.Assert;
 
@@ -34,7 +34,7 @@ public class AddSavedSchoolsTest {
 
 	@Test
 	public void test() {
-		Assert.assertEquals(false, SystemController.saveSchool(userToTest, schoolToTest));
+		Assert.assertEquals(false, UniversityController.saveSchool(userToTest, schoolToTest));
 	}
 
 }

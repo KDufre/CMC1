@@ -2,8 +2,6 @@ package cmc.frontend;
 
 import java.util.List;
 import java.util.Scanner;
-
-import cmc.CMCException;
 import cmc.backend.User;
 
 public class Driver {
@@ -261,8 +259,6 @@ public class Driver {
 	private static void userSavedSchoolListMenu(Scanner s) {
 		printHeader("User Saved School List");
 
-		// TODO: it would be nice if this was refactored into a list of objects
-		//       so we can display some data about the school...
 		List<String> schools = UserInteraction.getSavedSchools();
 		if(schools==null) {
 			System.out.println("No saved schools.");

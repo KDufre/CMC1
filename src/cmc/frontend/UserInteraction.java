@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.Scanner;
 
 import cmc.CMCException;
+import cmc.backend.AccountController;
 import cmc.backend.DatabaseController;
-import cmc.backend.SystemController;
+import cmc.backend.SearchController;
+import cmc.backend.UniversityController;
 import cmc.backend.User;
 
 public class UserInteraction {
@@ -19,7 +21,7 @@ public class UserInteraction {
 
 	// attempt to login, print message, and return success or failure
 	public static boolean login(String username, String password) {
-		User result = SystemController.login(username, password);
+		User result = AccountController.login(username, password);
 		if (result != null) {
 			System.out.println("Login successful!");
 			loggedInUser = result;
@@ -45,7 +47,7 @@ public class UserInteraction {
 	
 	// for admins, this gets the list of all users in the system
 	public static List<User> getAllUsers() {
-		return SystemController.getAllUsers();
+		return SearchController.getAllUsers();
 	}
 	
 	// ask the admin for details and then attempt to add a user to the
@@ -64,7 +66,7 @@ public class UserInteraction {
 		if (s.nextLine().trim().equalsIgnoreCase("y"))
 			isAdmin = true;
 		
-		return SystemController.addUser(username, password, firstName, lastName, isAdmin);
+		return AccountController.addUser(username, password, firstName, lastName, isAdmin);
 	}
 	
 	// ask the admin for a username and then remove that user from the
@@ -81,7 +83,7 @@ public class UserInteraction {
 		User user = allUsers.get(userIndex-1);
 		String username = user.getUsername();
 		
-		return SystemController.removeUser(username);
+		return AccountController.removeUser(username);
 	}
 	
 	public static List<String[]> search(Scanner s) {
@@ -239,7 +241,7 @@ public class UserInteraction {
 		}
 		
 		
-		return SystemController.search(school, state, location, control, minNumberOfStudents, maxNumberOfStudents, 
+		return SearchController.search(school, state, location, control, minNumberOfStudents, maxNumberOfStudents, 
 				minPercentFemale, maxPercentFemale, minSATVerbal, maxSATVerbal, minSATMath, maxSATMath, 
 				minExpenses, maxExpenses, minPercentAid, maxPercentAid, minNumOfApplicants, maxNumOfApplicants, 
 				minPercentAdmitted, maxPercentAdmitted, minPercentEnrolled, maxPercentEnrolled, minAcademicScale, 
@@ -255,7 +257,7 @@ public class UserInteraction {
 		if (loggedInUser == null)
 			return false;
 		else
-			return SystemController.saveSchool(loggedInUser.username, schoolName);
+			return UniversityController.saveSchool(loggedInUser.username, schoolName);
 	}
 	
 	public static boolean removeSchool(Scanner s) {
@@ -266,7 +268,7 @@ public class UserInteraction {
 			return false;
 		for(String school : schools) {
 			if(schoolName.equalsIgnoreCase(school)) {
-				return SystemController.removeSchool(loggedInUser.username, schoolName);
+				return UniversityController.removeSchool(loggedInUser.username, schoolName);
 			}
 		}
 		return false;
@@ -274,7 +276,7 @@ public class UserInteraction {
 	
 	// get the list of saved school names for the currently-logged-in user
 	public static List<String> getSavedSchools() {
-		return SystemController.getSavedSchools(loggedInUser.username);
+		return SearchController.getSavedSchools(loggedInUser.username);
 	}
 
 	/**
@@ -293,7 +295,7 @@ public class UserInteraction {
 		if(loggedInUser==null) {
 			return false;
 		}
-		return SystemController.editPassword(loggedInUser.username, newPassword);
+		return AccountController.editPassword(loggedInUser.username, newPassword);
 	}
 	public static boolean editFirstName(Scanner s){
 		System.out.print("New First Name: ");
@@ -301,7 +303,7 @@ public class UserInteraction {
 		if(loggedInUser==null) {
 			return false;
 		}
-		return SystemController.editFirstName(loggedInUser.username, newFirstName);
+		return AccountController.editFirstName(loggedInUser.username, newFirstName);
 	}
 	public static boolean editLastName(Scanner s){
 		System.out.print("New Last Name: ");
@@ -309,7 +311,7 @@ public class UserInteraction {
 		if(loggedInUser==null) {
 			return false;
 		}
-		return SystemController.editLastName(loggedInUser.username, newLastName);
+		return AccountController.editLastName(loggedInUser.username, newLastName);
 	}
 	
 	public static boolean addUniversity(Scanner s) {
@@ -350,7 +352,7 @@ public class UserInteraction {
 		int qualityOfLifeScale = s.nextInt();
 		s.nextLine();
 		
-		return SystemController.addUniversity(school.toUpperCase(), state, location, control, numbersOfStudents, 
+		return UniversityController.addUniversity(school.toUpperCase(), state, location, control, numbersOfStudents, 
 				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants, 
 				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
 	}
@@ -361,7 +363,7 @@ public class UserInteraction {
 		}
 		System.out.print("School name: ");
 		String school = s.nextLine();
-		return SystemController.deleteUniversity(school.toUpperCase());
+		return UniversityController.deleteUniversity(school.toUpperCase());
 	}
 	
 	public static boolean adminEditUniversity(Scanner s, String[] school) {
@@ -418,7 +420,7 @@ public class UserInteraction {
 		int qualityOfLifeScale = s.nextInt();
 		s.nextLine();
 		
-		return SystemController.editUniversity(school[0], state, location, control, numbersOfStudents, 
+		return UniversityController.editUniversity(school[0], state, location, control, numbersOfStudents, 
 				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants, 
 				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
 	}
@@ -440,7 +442,7 @@ public class UserInteraction {
 		
 		System.out.println("Enter the new password");
 		String newPassword = s.nextLine();
-		return SystemController.editPassword(username, newPassword);
+		return AccountController.editPassword(username, newPassword);
 	}
 	
 	/*
@@ -465,7 +467,7 @@ public class UserInteraction {
 		System.out.println("Enter the new First Name");
 		s.nextLine();
 		String newFirstName = s.nextLine();
-		return SystemController.editFirstName(username, newFirstName);
+		return AccountController.editFirstName(username, newFirstName);
 	}
 	
 	/*
@@ -489,7 +491,7 @@ public class UserInteraction {
 		
 		System.out.println("Enter the new Last Name");
 		String newLastName = s.nextLine();
-		return SystemController.editLastName(username, newLastName);
+		return AccountController.editLastName(username, newLastName);
 	}
 	
 	public static boolean adminDeactivateUser(Scanner s){
@@ -507,7 +509,7 @@ public class UserInteraction {
 		String username = user.getUsername();
 
 		
-		return SystemController.deactivateUser(username);
+		return AccountController.deactivateUser(username);
 	}
 	
 	public static boolean adminActivateUser(Scanner s){
@@ -524,7 +526,7 @@ public class UserInteraction {
 		User user = allUsers.get(userIndex-1);
 		String username = user.getUsername();
 		
-		return SystemController.activateUser(username);
+		return AccountController.activateUser(username);
 	}
 	public static String[] selectSchool(Scanner s) {
 		System.out.println("Enter the school name: ");
