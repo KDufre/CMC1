@@ -32,17 +32,17 @@ public class University {
 		this.school = school;
 		this.control = control;
 		this.numStudents = numStudents;
-		PercentFemale = percentFemale;
-		SATMath = sATMath;
-		SATVerbal = sATVerbal;
+		this.PercentFemale = percentFemale;
+		this.SATMath = sATMath;
+		this.SATVerbal = sATVerbal;
 		this.expenses = expenses;
-		PercentFA = percentFA;
-		NumApplicants = numApplicants;
-		PercentAdmitted = percentAdmitted;
-		PercentEnrolled = percentEnrolled;
-		SocialScale = socialScale;
-		AcademicScale = academicScale;
-		QualLife = qualLife;
+		this.PercentFA = percentFA;
+		this.NumApplicants = numApplicants;
+		this.PercentAdmitted = percentAdmitted;
+		this.PercentEnrolled = percentEnrolled;
+		this.SocialScale = socialScale;
+		this.AcademicScale = academicScale;
+		this.QualLife = qualLife;
 	}
 	/**
 	 * @return the state
