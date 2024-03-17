@@ -230,25 +230,25 @@ public class Driver {
 			System.exit(1);
 		}
 	}
-	private static void userSelectedSavedSchoolResults(Scanner s, String[] school) {
+	private static void userSelectedSavedSchoolResults(Scanner s, University school) {
 		printHeader("Selected School Information");
 		
-		System.out.println("School Name: " + school[0]);
-		System.out.println("State: " + school[1]);
-		System.out.println("Location: " + school[2]);
-		System.out.println("Control: " + school[3]);
-		System.out.println("Number of Students: " + school[4]);
-		System.out.println("Percent Female: " + school[5]);
-		System.out.println("SAT Verbal: " + school[6]);
-		System.out.println("SAT Math: " + school[7]);
-		System.out.println("Expenses: " + school[8]);
-		System.out.println("Percent Financial Aid: " + school[9]);
-		System.out.println("Number of Applicants: " + school[10]);
-		System.out.println("Percent Admitted: " + school[11]);
-		System.out.println("Percent Enrolled: " + school[12]);
-		System.out.println("Academic Scale: " + school[13]);
-		System.out.println("Social Scale: " + school[14]);
-		System.out.println("Quality of Life Scale: " + school[15]);
+		System.out.println("School Name: " + school.getSchool());
+		System.out.println("State: " + school.getState());
+		System.out.println("Location: " + school.getLocation());
+		System.out.println("Control: " + school.getControl());
+		System.out.println("Number of Students: " + school.getNumStudents());
+		System.out.println("Percent Female: " + school.getPercentFemale());
+		System.out.println("SAT Verbal: " + school.getSATVerbal());
+		System.out.println("SAT Math: " + school.getSATMath());
+		System.out.println("Expenses: " + school.getExpenses());
+		System.out.println("Percent Financial Aid: " + school.getPercentFA());
+		System.out.println("Number of Applicants: " + school.getNumApplicants());
+		System.out.println("Percent Admitted: " + school.getPercentAdmitted());
+		System.out.println("Percent Enrolled: " + school.getPercentEnrolled());
+		System.out.println("Academic Scale: " + school.getAcademicScale());
+		System.out.println("Social Scale: " + school.getSocialScale());
+		System.out.println("Quality of Life Scale: " + school.getQualLife());
 		System.out.println();
 		
 		int choice = getMenuOption(s, List.of("Go Back"));
@@ -308,7 +308,7 @@ public class Driver {
 		case 1:
 			return;
 		case 2:
-			String[] selectedSchool = UserInteraction.selectSchool(s);
+			University selectedSchool = UserInteraction.selectSchool(s);
 			userSelectedSavedSchoolResults(s,selectedSchool);
 			break;
 		case 3:
