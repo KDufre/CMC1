@@ -71,12 +71,14 @@ public class DatabaseController {
 	}
 	
 	// get the list of all the universities in the DB
-	public static List<String[]> getAllSchools() {
+	public static List<University> getAllSchools() {
 		String[][] dbUniversityList = database.university_getUniversities();
 
-		ArrayList<String[]> result = new ArrayList<String[]>();
+		ArrayList<University> result = new ArrayList<University>();
 		for (String[] school : dbUniversityList) {
-			result.add(school);
+			University Uni = new University(school[0], school[1], school[2], school[3], Integer.parseInt(school[4]), Double.parseDouble(school[4]), Integer.parseInt(school[6]),
+					Integer.parseInt(school[7]), Double.parseDouble(school[8]), Double.parseDouble(school[9]), Integer.parseInt(school[10]), Double.parseDouble(school[11]), Double.parseDouble(school[12]), Integer.parseInt(school[13]), Integer.parseInt(school[14]), Integer.parseInt(school[15]));
+			result.add(Uni);
 		}
 
 		return result;
