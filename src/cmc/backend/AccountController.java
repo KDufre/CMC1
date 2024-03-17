@@ -34,15 +34,21 @@ public class AccountController {
 
 	//changes password
 	public static boolean editPassword(String username, String newPassword) {
-		return DatabaseController.editPassword(username, newPassword);
+		User user = DatabaseController.getUser(username);
+		User userUpdate = new User(username, newPassword, user.type, user.getFirstName(), user.getLastName(), user.activated);
+		return DatabaseController.editUser(userUpdate);
 	}
 	//changes firstName
 	public static boolean editFirstName(String username, String newFirstName) {
-		return DatabaseController.editFirstName(username, newFirstName);
+		User user = DatabaseController.getUser(username);
+		User userUpdate = new User(username, user.getPassword(), user.type, newFirstName, user.getLastName(), user.activated);
+		return DatabaseController.editUser(userUpdate);
 	}
 	//changes lastName
 	public static boolean editLastName(String username, String newLastName) {
-		return DatabaseController.editLastName(username, newLastName);
+		User user = DatabaseController.getUser(username);
+		User userUpdate = new User(username, user.getPassword(), user.type, user.getFirstName(), newLastName, user.activated);
+		return DatabaseController.editUser(userUpdate);
 	}
 
 	public static boolean deactivateUser(String username) {

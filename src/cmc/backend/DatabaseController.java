@@ -145,36 +145,11 @@ public class DatabaseController {
 		return result;
 	}
 	
-	public static boolean editPassword(String username, String newPassword) {
-		User userData = DatabaseController.getUser(username);
+	public static boolean editUser(User userData) {
 		
-		int result = database.user_editUser(username, userData.getFirstName(), userData.getLastName(), newPassword, userData.type, userData.activated);
+		int result = database.user_editUser(userData.getUsername(), userData.getFirstName(), userData.getLastName(), userData.getPassword(), userData.type, userData.activated);
 		if (result == -1) {
-			System.out.println("Error in changing password");
-			return false;
-		}
-		else {
-			return true;
-		}
-	}
-	public static boolean editFirstName(String username, String newFirstName) {
-		User userData = DatabaseController.getUser(username);
-		
-		int result = database.user_editUser(username, newFirstName, userData.getLastName(), userData.getPassword(), userData.type, userData.activated);
-		if (result == -1) {
-			System.out.println("Error in changing first name");
-			return false;
-		}
-		else {
-			return true;
-		}
-	}
-	public static boolean editLastName(String username, String newLastName) {
-		User userData = DatabaseController.getUser(username);
-		
-		int result = database.user_editUser(username, userData.getFirstName(), newLastName, userData.getPassword(), userData.type, userData.activated);
-		if (result == -1) {
-			System.out.println("Error in changing last name");
+			System.out.println("Error in editing user");
 			return false;
 		}
 		else {
