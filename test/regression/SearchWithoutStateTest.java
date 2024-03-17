@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import cmc.backend.DatabaseController;
 import cmc.backend.SearchController;
+import cmc.backend.University;
 
 public class SearchWithoutStateTest {
 
@@ -24,7 +25,7 @@ public class SearchWithoutStateTest {
 
 	@Test
 	public void test() {
-		List<String[]> list = SearchController.search("", "", "", "", 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
+		List<University> list = SearchController.search("", "", "", "", 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
 		Assert.assertTrue(list.size()==(DatabaseController.getAllSchools().size()));
 	}
 

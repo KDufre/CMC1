@@ -7,6 +7,7 @@ import cmc.CMCException;
 import cmc.backend.AccountController;
 import cmc.backend.DatabaseController;
 import cmc.backend.SearchController;
+import cmc.backend.University;
 import cmc.backend.UniversityController;
 import cmc.backend.User;
 
@@ -86,7 +87,7 @@ public class UserInteraction {
 		return AccountController.removeUser(username);
 	}
 	
-	public static List<String[]> search(Scanner s) {
+	public static List<University> search(Scanner s) {
 		System.out.print("School Name (leave blank to not search by this criterion): ");
 		String school = s.nextLine();
 		System.out.print("State (leave blank to not search by this criterion): ");
@@ -366,23 +367,23 @@ public class UserInteraction {
 		return UniversityController.deleteUniversity(school.toUpperCase());
 	}
 	
-	public static boolean adminEditUniversity(Scanner s, String[] school) {
-		System.out.println("School Name: " + school[0]);
-		System.out.println("State: " + school[1]);
-		System.out.println("Location: " + school[2]);
-		System.out.println("Control: " + school[3]);
-		System.out.println("Number of Students: " + school[4]);
-		System.out.println("Percent Female: " + school[5]);
-		System.out.println("SAT Verbal: " + school[6]);
-		System.out.println("SAT Math: " + school[7]);
-		System.out.println("Expenses: " + school[8]);
-		System.out.println("Percent Financial Aid: " + school[9]);
-		System.out.println("Number of Applicants: " + school[10]);
-		System.out.println("Percent Admitted: " + school[11]);
-		System.out.println("Percent Enrolled: " + school[12]);
-		System.out.println("Academic Scale: " + school[13]);
-		System.out.println("Social Scale: " + school[14]);
-		System.out.println("Quality of Life Scale: " + school[15]);
+	public static boolean adminEditUniversity(Scanner s, University school) {
+		System.out.println("School Name: " + school.getSchool());
+		System.out.println("State: " + school.getState());
+		System.out.println("Location: " + school.getLocation());
+		System.out.println("Control: " + school.getControl());
+		System.out.println("Number of Students: " + school.getNumStudents());
+		System.out.println("Percent Female: " + school.getPercentFemale());
+		System.out.println("SAT Verbal: " + school.getSATVerbal());
+		System.out.println("SAT Math: " + school.getSATMath());
+		System.out.println("Expenses: " + school.getExpenses());
+		System.out.println("Percent Financial Aid: " + school.getPercentFA());
+		System.out.println("Number of Applicants: " + school.getNumApplicants());
+		System.out.println("Percent Admitted: " + school.getPercentAdmitted());
+		System.out.println("Percent Enrolled: " + school.getPercentEnrolled());
+		System.out.println("Academic Scale: " + school.getAcademicScale());
+		System.out.println("Social Scale: " + school.getSocialScale());
+		System.out.println("Quality of Life Scale: " + school.getQualLife());
 		System.out.println();
 		
 		if(loggedInUser==null) {
@@ -420,7 +421,7 @@ public class UserInteraction {
 		int qualityOfLifeScale = s.nextInt();
 		s.nextLine();
 		
-		return UniversityController.editUniversity(school[0], state, location, control, numbersOfStudents, 
+		return UniversityController.editUniversity(school.getSchool(), state, location, control, numbersOfStudents, 
 				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants, 
 				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
 	}
@@ -528,13 +529,13 @@ public class UserInteraction {
 		
 		return AccountController.activateUser(username);
 	}
-	public static String[] selectSchool(Scanner s) {
+	public static University selectSchool(Scanner s) {
 		System.out.println("Enter the school name: ");
 		String schoolName = s.nextLine();
-		List<String[]> schoolList = DatabaseController.getAllSchools();
-		String[] school = null;
-		for(String[] sch : schoolList) {
-			if(sch[0].equalsIgnoreCase(schoolName)) {
+		List<University> schoolList = DatabaseController.getAllSchools();
+		University school = null;
+		for(University sch : schoolList) {
+			if(sch.getSchool().equalsIgnoreCase(schoolName)) {
 				school = sch;
 			}
 		}

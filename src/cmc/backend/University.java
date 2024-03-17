@@ -23,7 +23,7 @@ public class University {
 	public int SocialScale;
 	public int AcademicScale;
 	public int QualLife;
-	public University(String state, String location, String school, String control, int numStudents,
+	public University(String school, String state, String location, String control, int numStudents,
 			double percentFemale, int sATMath, int sATVerbal, double expenses, double percentFA, int numApplicants,
 			double percentAdmitted, double percentEnrolled, int socialScale, int academicScale, int qualLife) {
 		super();
