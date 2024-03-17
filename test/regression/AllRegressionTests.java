@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ AddSavedSchoolsTest.class, DeactivatedUserTest.class, RemoveUserTest.class,
-		SearchWithoutStateTest.class, editPasswordTest.class })
+		SearchWithoutStateTest.class, editPasswordTest.class, AddUniversityTest.class})
 public class AllRegressionTests {
 
 }

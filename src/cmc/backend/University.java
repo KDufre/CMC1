@@ -23,6 +23,27 @@ public class University {
 	public int SocialScale;
 	public int AcademicScale;
 	public int QualLife;
+	public University(String state, String location, String school, String control, int numStudents,
+			double percentFemale, int sATMath, int sATVerbal, double expenses, double percentFA, int numApplicants,
+			double percentAdmitted, double percentEnrolled, int socialScale, int academicScale, int qualLife) {
+		super();
+		this.state = state;
+		this.location = location;
+		this.school = school;
+		this.control = control;
+		this.numStudents = numStudents;
+		PercentFemale = percentFemale;
+		SATMath = sATMath;
+		SATVerbal = sATVerbal;
+		this.expenses = expenses;
+		PercentFA = percentFA;
+		NumApplicants = numApplicants;
+		PercentAdmitted = percentAdmitted;
+		PercentEnrolled = percentEnrolled;
+		SocialScale = socialScale;
+		AcademicScale = academicScale;
+		QualLife = qualLife;
+	}
 	/**
 	 * @return the state
 	 */
@@ -215,7 +236,7 @@ public class University {
 	public void setQualLife(int qualLife) {
 		QualLife = qualLife;
 	}
-	
-	
+
+
 
 }
