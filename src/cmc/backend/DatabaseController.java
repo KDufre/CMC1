@@ -1,9 +1,12 @@
   package cmc.backend;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import dblibrary.project.csci230.*;
+import java.util.Date;
 
 /**
  * The DatabaseController class is the primary interaction class with the
@@ -112,13 +115,13 @@ public class DatabaseController {
 
 	//removes all the saved schools that a username has saved
 	public static boolean removeUserSavedSchools(String username) {
-		Map<String, List<String>> result = getUserSavedSchoolMap();
-		List<String> userList = result.get(username);
+		Map<String, List<UserSchool>> result = getUserSavedSchoolMap();
+		List<UserSchool> userList = result.get(username);
 		if(userList==null) {
 			return false;
 		}
-		for(String school : userList) {
-			removeSchool(username, school);
+		for(UserSchool school : userList) {
+			removeSchool(username, school.getUniversity());
 		}
 
 		return true;
@@ -127,21 +130,32 @@ public class DatabaseController {
 	// get the mapping from users to their saved universities in the DB
 	// e.g., peter -> {CSBSJU, HARVARD}
 	//       juser -> {YALE, AUGSBURG, STANFORD}
-	public static Map<String, List<String>> getUserSavedSchoolMap() {
+	public static Map<String, List<UserSchool>> getUserSavedSchoolMap() {
 		String[][] dbMapping = database.user_getUsernamesWithSavedSchools();
 
-		HashMap<String, List<String>> result = new HashMap<String, List<String>>();
+		HashMap<String, List<UserSchool>> result = new HashMap<String, List<UserSchool>>();
 		if(dbMapping==null) {
 			return result;
 		}
 		for (String[] entry : dbMapping) {
 			String user = entry[0];
 			String school = entry[1];
+			String dateStr = entry[2];
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+            Date date = null;
+			try {
+				date = formatter.parse(dateStr);
+			} catch (ParseException e) {
+				System.out.println("Error");
+			}
+            
+            UserSchool userSchool = new UserSchool(school, date);
 
 			if (!result.containsKey(user))
-				result.put(user, new ArrayList<String>());
+				result.put(user, new ArrayList<UserSchool>());
 
-			result.get(user).add(school);
+			result.get(user).add(userSchool);
 		}
 
 		return result;
@@ -201,18 +215,18 @@ public class DatabaseController {
 	}
 
 	public static boolean deleteUniversity(String school) {
-		Map<String, List<String>> map = getUserSavedSchoolMap();
+		Map<String, List<UserSchool>> map = getUserSavedSchoolMap();
 		if(!(map==null)) {
-			for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+			for (Map.Entry<String, List<UserSchool>> entry : map.entrySet()) {
 				// Get the username from the entry key
 				String username = entry.getKey();
-				List<String> savedSchools = entry.getValue();
+				List<UserSchool> savedSchools = entry.getValue();
 
-				for (String school1 : savedSchools) {
+				for (UserSchool school1 : savedSchools) {
 					//System.out.println("User: " + username + " has saved the school: " + school1); //test
-					if(school1.equalsIgnoreCase(school)) {
+					if(school1.getUniversity().equalsIgnoreCase(school)) {
 						//System.out.println("User: " + username + " has removed the school: " + school1);
-						removeSchool(username,school1);
+						removeSchool(username,school1.getUniversity());
 					}
 				}
 			}

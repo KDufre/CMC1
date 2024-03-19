@@ -10,6 +10,7 @@ import cmc.backend.SearchController;
 import cmc.backend.University;
 import cmc.backend.UniversityController;
 import cmc.backend.User;
+import cmc.backend.UserSchool;
 
 public class UserInteraction {
 	
@@ -264,11 +265,11 @@ public class UserInteraction {
 	public static boolean removeSchool(Scanner s) {
 		System.out.print("School Name: ");
 		String schoolName = s.nextLine();
-		List<String> schools = getSavedSchools(); 
+		List<UserSchool> schools = getSavedSchools(); 
 		if (loggedInUser == null)
 			return false;
-		for(String school : schools) {
-			if(schoolName.equalsIgnoreCase(school)) {
+		for(UserSchool school : schools) {
+			if(schoolName.equalsIgnoreCase(school.getUniversity())) {
 				return UniversityController.removeSchool(loggedInUser.username, schoolName);
 			}
 		}
@@ -276,7 +277,7 @@ public class UserInteraction {
 	}
 	
 	// get the list of saved school names for the currently-logged-in user
-	public static List<String> getSavedSchools() {
+	public static List<UserSchool> getSavedSchools() {
 		return SearchController.getSavedSchools(loggedInUser.username);
 	}
 

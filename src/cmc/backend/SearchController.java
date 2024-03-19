@@ -50,8 +50,8 @@ public class SearchController {
 
 	// this REGULAR USER ONLY method attempts to retrieve the list of saved
 	// schools for the provided username
-	public static List<String> getSavedSchools(String user) {
-		Map<String, List<String>> usersToSavedSchools = DatabaseController.getUserSavedSchoolMap();
+	public static List<UserSchool> getSavedSchools(String user) {
+		Map<String, List<UserSchool>> usersToSavedSchools = DatabaseController.getUserSavedSchoolMap();
 		return usersToSavedSchools.get(user);
 	}
 

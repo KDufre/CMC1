@@ -6,11 +6,6 @@ public class UserSchool {
 	
 	public String University;
 	public Date timestamp;
-
-	public UserSchool() {
-
-	}
-
 	/**
 	 * @param university
 	 * @param timestamp

@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import cmc.backend.University;
 import cmc.backend.User;
+import cmc.backend.UserSchool;
 
 public class Driver {
 
@@ -292,13 +293,13 @@ public class Driver {
 	private static void userSavedSchoolListMenu(Scanner s) {
 		printHeader("User Saved School List");
 
-		List<String> schools = UserInteraction.getSavedSchools();
+		List<UserSchool> schools = UserInteraction.getSavedSchools();
 		if(schools==null) {
 			System.out.println("No saved schools.");
 			return;
 		}
-		for (String school : schools) {
-			System.out.printf("| %-60s |%n", school);
+		for (UserSchool school : schools) {
+			System.out.printf("| %-60s | %-25s | %n", school.getUniversity(), school.getTimestamp());
 		}
 		System.out.println();
 		

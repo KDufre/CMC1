@@ -6,10 +6,10 @@ public class UniversityController {
 	// this REGULAR USER ONLY method attempts to add the provided school
 	// to the list of saved schools for the provided username
 	public static boolean saveSchool(String user, String school) {
-		List<String> schools = SearchController.getSavedSchools(user); 
+		List<UserSchool> schools = SearchController.getSavedSchools(user); 
 		if(schools!=null) {
-			for(String s : schools) {
-				if(school.equalsIgnoreCase(s)) {
+			for(UserSchool s : schools) {
+				if(school.equalsIgnoreCase(s.getUniversity())) {
 					System.out.println("Already saved");
 					return false;	
 				}
