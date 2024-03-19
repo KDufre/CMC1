@@ -2,6 +2,8 @@ package cmc.frontend;
 
 import java.util.List;
 import java.util.Scanner;
+
+import cmc.backend.University;
 import cmc.backend.User;
 
 public class Driver {
@@ -160,7 +162,7 @@ public class Driver {
 				System.out.println("Error in removing university");
 			break;
 		case 3:
-			String[] school = UserInteraction.selectSchool(s);
+			University school = UserInteraction.selectSchool(s);
 			if(!UserInteraction.adminEditUniversity(s, school)){
 				System.out.println("Error in editing university");
 			}
@@ -193,32 +195,32 @@ public class Driver {
 			System.exit(1);
 		}
 	}
-	private static void userSelectedSchoolResults(Scanner s, String[] school) {
+	private static void userSelectedSchoolResults(Scanner s, University school) {
 		printHeader("Selected School Information");
 		
-		System.out.println("School Name: " + school[0]);
-		System.out.println("State: " + school[1]);
-		System.out.println("Location: " + school[2]);
-		System.out.println("Control: " + school[3]);
-		System.out.println("Number of Students: " + school[4]);
-		System.out.println("Percent Female: " + school[5]);
-		System.out.println("SAT Verbal: " + school[6]);
-		System.out.println("SAT Math: " + school[7]);
-		System.out.println("Expenses: " + school[8]);
-		System.out.println("Percent Financial Aid: " + school[9]);
-		System.out.println("Number of Applicants: " + school[10]);
-		System.out.println("Percent Admitted: " + school[11]);
-		System.out.println("Percent Enrolled: " + school[12]);
-		System.out.println("Academic Scale: " + school[13]);
-		System.out.println("Social Scale: " + school[14]);
-		System.out.println("Quality of Life Scale: " + school[15]);
+		System.out.println("School Name: " + school.getSchool());
+		System.out.println("State: " + school.getState());
+		System.out.println("Location: " + school.getLocation());
+		System.out.println("Control: " + school.getControl());
+		System.out.println("Number of Students: " + school.getNumStudents());
+		System.out.println("Percent Female: " + school.getPercentFemale());
+		System.out.println("SAT Verbal: " + school.getSATVerbal());
+		System.out.println("SAT Math: " + school.getSATMath());
+		System.out.println("Expenses: " + school.getExpenses());
+		System.out.println("Percent Financial Aid: " + school.getPercentFA());
+		System.out.println("Number of Applicants: " + school.getNumApplicants());
+		System.out.println("Percent Admitted: " + school.getPercentAdmitted());
+		System.out.println("Percent Enrolled: " + school.getPercentEnrolled());
+		System.out.println("Academic Scale: " + school.getAcademicScale());
+		System.out.println("Social Scale: " + school.getSocialScale());
+		System.out.println("Quality of Life Scale: " + school.getQualLife());
 		System.out.println();
 		
 		int choice = getMenuOption(s, List.of("Save School", "Go Back"));
 		
 		switch(choice) {
 		case 1:
-			if (!UserInteraction.saveSchool(s, school[0]))
+			if (!UserInteraction.saveSchool(s, school.getSchool()))
 				System.out.println("Failed to save school.  (Already in saved list?)");
 			break;
 		case 2:
@@ -228,12 +230,43 @@ public class Driver {
 			System.exit(1);
 		}
 	}
+	private static void userSelectedSavedSchoolResults(Scanner s, University school) {
+		printHeader("Selected School Information");
+		
+		System.out.println("School Name: " + school.getSchool());
+		System.out.println("State: " + school.getState());
+		System.out.println("Location: " + school.getLocation());
+		System.out.println("Control: " + school.getControl());
+		System.out.println("Number of Students: " + school.getNumStudents());
+		System.out.println("Percent Female: " + school.getPercentFemale());
+		System.out.println("SAT Verbal: " + school.getSATVerbal());
+		System.out.println("SAT Math: " + school.getSATMath());
+		System.out.println("Expenses: " + school.getExpenses());
+		System.out.println("Percent Financial Aid: " + school.getPercentFA());
+		System.out.println("Number of Applicants: " + school.getNumApplicants());
+		System.out.println("Percent Admitted: " + school.getPercentAdmitted());
+		System.out.println("Percent Enrolled: " + school.getPercentEnrolled());
+		System.out.println("Academic Scale: " + school.getAcademicScale());
+		System.out.println("Social Scale: " + school.getSocialScale());
+		System.out.println("Quality of Life Scale: " + school.getQualLife());
+		System.out.println();
+		
+		int choice = getMenuOption(s, List.of("Go Back"));
+		
+		switch(choice) {
+		case 1:
+			return;
+		default:
+			System.err.println("Internal error: Unsupported option.");
+			System.exit(1);
+		}
+	}
 
-	private static void searchResultsMenu(Scanner s, List<String[]> results) {
+	private static void searchResultsMenu(Scanner s, List<University> results) {
 		printHeader("Search Results");
 
-		for (String[] school : results) {
-			System.out.printf("| %-60s | %-20s | %-10s |%n", school[0], school[1], school[3]);
+		for (University school : results) {
+			System.out.printf("| %-60s | %-20s | %-10s |%n", school.getSchool(), school.getState(), school.getLocation());
 		}
 		System.out.println();
 
@@ -241,7 +274,7 @@ public class Driver {
 
 		switch(choice) {
 		case 1:
-			String[] selectedSchool = UserInteraction.selectSchool(s);
+			University selectedSchool = UserInteraction.selectSchool(s);
 			if(selectedSchool == null) {
 				System.out.println("Failed to select school (entered wrong)");
 				break;
@@ -268,13 +301,17 @@ public class Driver {
 			System.out.printf("| %-60s |%n", school);
 		}
 		System.out.println();
-
-		int choice = getMenuOption(s, List.of("Go Back", "Remove school"));
+		
+		int choice = getMenuOption(s, List.of("Go Back", "Select Saved School to View Stats", "Remove school"));
 
 		switch(choice) {
 		case 1:
 			return;
 		case 2:
+			University selectedSchool = UserInteraction.selectSchool(s);
+			userSelectedSavedSchoolResults(s,selectedSchool);
+			break;
+		case 3:
 			if(!UserInteraction.removeSchool(s))
 				System.out.println("Failed to remove school");
 			break;
@@ -314,9 +351,7 @@ public class Driver {
 
 		switch(choice) {
 		case 1:
-			// TODO: it would be cleaner to use objects here (rather than
-			//       arrays of strings)
-			List<String[]> searchResult = UserInteraction.search(s);
+			List<University> searchResult = UserInteraction.search(s);
 			searchResultsMenu(s, searchResult);
 			break;
 		case 2:
@@ -365,5 +400,4 @@ public class Driver {
 				regularUserMenu(s);
 		}
 	}
-
 }

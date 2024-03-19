@@ -18,7 +18,7 @@ public class DatabaseController {
 	// add a user to the db
 	public static boolean addUser(User user){
 		int result = database.user_addUser(user.getFirstName(), user.getLastName(), user.getUsername(), user.getPassword(), user.getType());
-		
+
 		if (result == -1) {
 			return false;
 		}
@@ -26,7 +26,7 @@ public class DatabaseController {
 			return true;
 		}
 	}
-	
+
 	// remove a user from the db
 	public static boolean removeUser(String username){
 		removeUserSavedSchools(username);
@@ -39,11 +39,11 @@ public class DatabaseController {
 			return true;
 		}
 	}
-	
+
 	// get a user; null if not in DB
 	public static User getUser(String username) {
 		String[][] databaseUserStrings = database.user_getUsers();
-		
+
 		for (String[] userData : databaseUserStrings) {
 			String thisUsername = userData[2];
 			if (thisUsername.equals(username)) {
@@ -52,36 +52,38 @@ public class DatabaseController {
 				return theUser;
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	// get the list of all the users in the DB
 	public static List<User> getAllUsers() {
 		String[][] dbUserList = database.user_getUsers();
-		
+
 		ArrayList<User> result = new ArrayList<User>();
 		for (String[] userData : dbUserList) {
 			User user = new User(userData[2], userData[3], userData[4].charAt(0), userData[0],
 					userData[1], userData[5].charAt(0));
 			result.add(user);
 		}
-		
+
 		return result;
 	}
-	
+
 	// get the list of all the universities in the DB
-	public static List<String[]> getAllSchools() {
+	public static List<University> getAllSchools() {
 		String[][] dbUniversityList = database.university_getUniversities();
 
-		ArrayList<String[]> result = new ArrayList<String[]>();
+		ArrayList<University> result = new ArrayList<University>();
 		for (String[] school : dbUniversityList) {
-			result.add(school);
+			University Uni = new University(school[0], school[1], school[2], school[3], Integer.parseInt(school[4]), Double.parseDouble(school[5]), Integer.parseInt(school[6]),
+					Integer.parseInt(school[7]), Double.parseDouble(school[8]), Double.parseDouble(school[9]), Integer.parseInt(school[10]), Double.parseDouble(school[11]), Double.parseDouble(school[12]), Integer.parseInt(school[13]), Integer.parseInt(school[14]), Integer.parseInt(school[15]));
+			result.add(Uni);
 		}
 
 		return result;
 	}
-	
+
 	// save a school to a particular user's list
 	// TODO: It feels like we should be able to do this as part of
 	//       "updating" a user in the DB.
@@ -95,7 +97,7 @@ public class DatabaseController {
 			return true;
 		}
 	}
-	
+
 	//Removes saved school for particular username entered
 	public static boolean removeSchool(String username, String schoolName) {
 		int result = database.user_removeSchool(username, schoolName);
@@ -107,7 +109,7 @@ public class DatabaseController {
 			return true;
 		}
 	}
-	
+
 	//removes all the saved schools that a username has saved
 	public static boolean removeUserSavedSchools(String username) {
 		Map<String, List<String>> result = getUserSavedSchoolMap();
@@ -118,10 +120,10 @@ public class DatabaseController {
 		for(String school : userList) {
 			removeSchool(username, school);
 		}
-		
+
 		return true;
 	}
-	
+
 	// get the mapping from users to their saved universities in the DB
 	// e.g., peter -> {CSBSJU, HARVARD}
 	//       juser -> {YALE, AUGSBURG, STANFORD}
@@ -135,18 +137,18 @@ public class DatabaseController {
 		for (String[] entry : dbMapping) {
 			String user = entry[0];
 			String school = entry[1];
-			
+
 			if (!result.containsKey(user))
 				result.put(user, new ArrayList<String>());
-			
+
 			result.get(user).add(school);
 		}
 
 		return result;
 	}
-	
+
 	public static boolean editUser(User userData) {
-		
+
 		int result = database.user_editUser(userData.getUsername(), userData.getFirstName(), userData.getLastName(), userData.getPassword(), userData.type, userData.activated);
 		if (result == -1) {
 			System.out.println("Error in editing user");
@@ -156,10 +158,10 @@ public class DatabaseController {
 			return true;
 		}
 	}
-	
+
 	public static boolean deactivateUser(String username) {
 		User userData = DatabaseController.getUser(username);
-		
+
 		int result = database.user_editUser(username, userData.getFirstName(), userData.getLastName(), userData.getPassword(), userData.type, 'N');
 		if (result == -1) {
 			System.out.println("Error in deactivating user");
@@ -169,10 +171,10 @@ public class DatabaseController {
 			return true;
 		}
 	}
-	
+
 	public static boolean activateUser(String username) {
 		User userData = DatabaseController.getUser(username);
-		
+
 		int result = database.user_editUser(username, userData.getFirstName(), userData.getLastName(), userData.getPassword(), userData.type, 'Y');
 		if (result == -1) {
 			System.out.println("Error in activating user");
@@ -182,13 +184,13 @@ public class DatabaseController {
 			return true;
 		}
 	}
-	
+
 	public static boolean addUniversity(String school, String state, String location, String control, int numbersOfStudents, 
 			double percentFemales, double SATVerbal, double SATMath, double expenses, double percentFinancialAid, int numberOfApplicants, 
 			double percentAdmitted, double percentEnrolled, int academicsScale, int socialScale, int qualityOfLifeScale) {
 		int result = database.university_addUniversity(school, state, location, control, numbersOfStudents, percentAdmitted, 
-								SATVerbal, SATMath, expenses, percentFinancialAid, 
-				                numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+				SATVerbal, SATMath, expenses, percentFinancialAid, 
+				numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
 		if(result==-1) {
 			System.out.println("Error in adding school");
 			return false;
@@ -197,24 +199,26 @@ public class DatabaseController {
 			return true;
 		}
 	}
-	
+
 	public static boolean deleteUniversity(String school) {
 		Map<String, List<String>> map = getUserSavedSchoolMap();
-		for (Map.Entry<String, List<String>> entry : map.entrySet()) {
-	        // Get the username from the entry key
-	        String username = entry.getKey();
-	        List<String> savedSchools = entry.getValue();
+		if(!(map==null)) {
+			for (Map.Entry<String, List<String>> entry : map.entrySet()) {
+				// Get the username from the entry key
+				String username = entry.getKey();
+				List<String> savedSchools = entry.getValue();
 
-	        for (String school1 : savedSchools) {
-	            //System.out.println("User: " + username + " has saved the school: " + school1); //test
-	            if(school1.equalsIgnoreCase(school)) {
-		            //System.out.println("User: " + username + " has removed the school: " + school1);
-	            	removeSchool(username,school1);
-	            }
-	        }
-	    }
+				for (String school1 : savedSchools) {
+					//System.out.println("User: " + username + " has saved the school: " + school1); //test
+					if(school1.equalsIgnoreCase(school)) {
+						//System.out.println("User: " + username + " has removed the school: " + school1);
+						removeSchool(username,school1);
+					}
+				}
+			}
+		}
 		removeUniversityEmphases(school);
-		
+
 		int result = database.university_deleteUniversity(school);
 		if(result==-1) {
 			System.out.println("Error in removing university");
@@ -224,7 +228,7 @@ public class DatabaseController {
 			return true;
 		}
 	}
-	
+
 	public static boolean removeUniversityEmphases(String school) {
 		String[][] list = database.university_getNamesWithEmphases();
 		int result = 0;
@@ -247,8 +251,8 @@ public class DatabaseController {
 			double percentFemales, double SATVerbal, double SATMath, double expenses, double percentFinancialAid, int numberOfApplicants, 
 			double percentAdmitted, double percentEnrolled, int academicsScale, int socialScale, int qualityOfLifeScale) {
 		int result = database.university_editUniversity(school, state, location, control, numbersOfStudents, percentAdmitted, 
-								SATVerbal, SATMath, expenses, percentFinancialAid, 
-				                numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+				SATVerbal, SATMath, expenses, percentFinancialAid, 
+				numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
 		if(result==-1) {
 			System.out.println("Error in adding school");
 			return false;

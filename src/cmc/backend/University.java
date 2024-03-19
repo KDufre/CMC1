@@ -23,7 +23,7 @@ public class University {
 	public int SocialScale;
 	public int AcademicScale;
 	public int QualLife;
-	public University(String state, String location, String school, String control, int numStudents,
+	public University(String school, String state, String location, String control, int numStudents,
 			double percentFemale, int sATMath, int sATVerbal, double expenses, double percentFA, int numApplicants,
 			double percentAdmitted, double percentEnrolled, int socialScale, int academicScale, int qualLife) {
 		super();
@@ -32,17 +32,17 @@ public class University {
 		this.school = school;
 		this.control = control;
 		this.numStudents = numStudents;
-		PercentFemale = percentFemale;
-		SATMath = sATMath;
-		SATVerbal = sATVerbal;
+		this.PercentFemale = percentFemale;
+		this.SATMath = sATMath;
+		this.SATVerbal = sATVerbal;
 		this.expenses = expenses;
-		PercentFA = percentFA;
-		NumApplicants = numApplicants;
-		PercentAdmitted = percentAdmitted;
-		PercentEnrolled = percentEnrolled;
-		SocialScale = socialScale;
-		AcademicScale = academicScale;
-		QualLife = qualLife;
+		this.PercentFA = percentFA;
+		this.NumApplicants = numApplicants;
+		this.PercentAdmitted = percentAdmitted;
+		this.PercentEnrolled = percentEnrolled;
+		this.SocialScale = socialScale;
+		this.AcademicScale = academicScale;
+		this.QualLife = qualLife;
 	}
 	/**
 	 * @return the state
