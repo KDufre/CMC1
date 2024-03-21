@@ -233,6 +233,10 @@ public class Driver {
 	}
 	private static void userSelectedSavedSchoolResults(Scanner s, University school) {
 		printHeader("Selected School Information");
+		if(school==null) {
+			System.out.println("Not a school that is saved");
+			return;
+		}
 		
 		System.out.println("School Name: " + school.getSchool());
 		System.out.println("State: " + school.getState());
