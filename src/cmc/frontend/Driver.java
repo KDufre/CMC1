@@ -149,7 +149,7 @@ public class Driver {
 
 	//ADMIN MANAGING MENU
 	private static void adminManageUniversity(Scanner s) {
-		printHeader("Admin Manage Universitys");
+		printHeader("Admin Manage Universities");
 
 		int choice = getMenuOption(s, List.of( "Add University", "Remove University", "Edit University", "Go back"));
 

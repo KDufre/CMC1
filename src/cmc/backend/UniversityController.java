@@ -10,6 +10,7 @@ public class UniversityController {
 		if(schools!=null) {
 			for(UserSchool s : schools) {
 				if(school.equalsIgnoreCase(s.getUniversity())) {
+					
 					System.out.println("Already saved");
 					return false;	
 				}
