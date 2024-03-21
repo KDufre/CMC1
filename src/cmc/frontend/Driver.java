@@ -164,6 +164,10 @@ public class Driver {
 			break;
 		case 3:
 			University school = UserInteraction.selectSchool(s);
+			if(school==null) {
+				System.out.println("Unavailable");
+				break;
+			}
 			if(!UserInteraction.adminEditUniversity(s, school)){
 				System.out.println("Error in editing university");
 			}
