@@ -131,10 +131,12 @@ public class Driver {
 		case 1:
 			if (!UserInteraction.addUser(s))
 				System.out.println("Failed to add new user.  (Username already exists?)");
+			s.nextLine();
 			break;
 		case 2:
 			if (!UserInteraction.removeUser(s))
-				System.out.println("Failed to remove user.  (Out of range)");
+				System.out.println("Failed to remove user.");
+			s.nextLine();
 			break;
 		case 3:
 			adminEditUser(s);

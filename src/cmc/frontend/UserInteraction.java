@@ -1,5 +1,6 @@
 package cmc.frontend;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -75,7 +76,14 @@ public class UserInteraction {
 	// database
 	public static boolean removeUser(Scanner s) {
 		System.out.print("Enter index of Username: ");
-		int userIndex = s.nextInt();
+		int userIndex = 0;
+		if(s.hasNextInt()){
+			userIndex = s.nextInt();
+		}
+		else {
+			System.out.println("Invalid index");
+			return false;
+		}
 		s.nextLine();
 		List<User> allUsers = UserInteraction.getAllUsers();
 		int userAmount = allUsers.size();
