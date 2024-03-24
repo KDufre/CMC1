@@ -86,6 +86,27 @@ public class DatabaseController {
 
 		return result;
 	}
+	
+	public static HashMap<String, List<String>> getEmphasis() {
+		String[][] dbEmphasisList = database.university_getNamesWithEmphases();
+		
+		HashMap<String, List<String>> result = new HashMap<String, List<String>>();
+		
+		if(dbEmphasisList==null) {
+			return result;
+		}
+		for (String[] entry : dbEmphasisList) {
+			String school = entry[0];
+			String emphasis = entry[1];
+			
+			if (!result.containsKey(school))
+				result.put(school, new ArrayList<String>());
+
+			result.get(school).add(emphasis);
+		}
+
+		return result;
+	}
 
 	// save a school to a particular user's list
 	// TODO: It feels like we should be able to do this as part of

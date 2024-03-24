@@ -249,13 +249,27 @@ public class UserInteraction {
 		if(maxQualityLifeScaleInput!="") {
 			maxQualityLifeScale = Integer.parseInt(maxQualityLifeScaleInput);
 		}
+		System.out.print("School Emphasis 1 (leave blank to not search by this criterion): ");
+		String emphasis1 = s.nextLine();
+		
+		System.out.print("School Emphasis 2 (leave blank to not search by this criterion): ");
+		String emphasis2 = s.nextLine();
+		
+		System.out.print("School Emphasis 3 (leave blank to not search by this criterion): ");
+		String emphasis3 = s.nextLine();
+		
+		System.out.print("School Emphasis 4 (leave blank to not search by this criterion): ");
+		String emphasis4 = s.nextLine();
+		
+		System.out.print("School Emphasis 5 (leave blank to not search by this criterion): ");
+		String emphasis5 = s.nextLine();
 		
 		
 		return SearchController.search(school, state, location, control, minNumberOfStudents, maxNumberOfStudents, 
 				minPercentFemale, maxPercentFemale, minSATVerbal, maxSATVerbal, minSATMath, maxSATMath, 
 				minExpenses, maxExpenses, minPercentAid, maxPercentAid, minNumOfApplicants, maxNumOfApplicants, 
 				minPercentAdmitted, maxPercentAdmitted, minPercentEnrolled, maxPercentEnrolled, minAcademicScale, 
-				maxAcademicScale, minSocialScale, maxSocialScale, minQualityLifeScale, maxQualityLifeScale);
+				maxAcademicScale, minSocialScale, maxSocialScale, minQualityLifeScale, maxQualityLifeScale, emphasis1, emphasis2, emphasis3, emphasis4, emphasis5);
 	}
 	
 	// ask for a school name to save, and attempt to save that school
