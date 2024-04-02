@@ -221,6 +221,7 @@ public class Driver {
 		System.out.println("Academic Scale: " + school.getAcademicScale());
 		System.out.println("Social Scale: " + school.getSocialScale());
 		System.out.println("Quality of Life Scale: " + school.getQualLife());
+		System.out.println("Graduation Rate: " + school.getGradRate());
 		System.out.println();
 		
 		int choice = getMenuOption(s, List.of("Save School", "Go Back"));
@@ -260,6 +261,7 @@ public class Driver {
 		System.out.println("Academic Scale: " + school.getAcademicScale());
 		System.out.println("Social Scale: " + school.getSocialScale());
 		System.out.println("Quality of Life Scale: " + school.getQualLife());
+		System.out.println("Graduation Rate: " + school.getGradRate());
 		System.out.println();
 		
 		int choice = getMenuOption(s, List.of("Go Back"));
@@ -313,19 +315,19 @@ public class Driver {
 		}
 		System.out.println();
 		
-		int choice = getMenuOption(s, List.of("Go Back", "Select Saved School to View Stats", "Remove school"));
+		int choice = getMenuOption(s, List.of("Remove school", "Select Saved School to View Stats", "Go back"));
 
 		switch(choice) {
 		case 1:
-			return;
+			if(!UserInteraction.removeSchool(s))
+				System.out.println("Failed to remove school");
+			break;
 		case 2:
 			University selectedSchool = UserInteraction.selectSchool(s);
 			userSelectedSavedSchoolResults(s,selectedSchool);
 			break;
 		case 3:
-			if(!UserInteraction.removeSchool(s))
-				System.out.println("Failed to remove school");
-			break;
+			return;
 		default:
 			System.err.println("Internal error: Unsupported option.");
 			System.exit(1);

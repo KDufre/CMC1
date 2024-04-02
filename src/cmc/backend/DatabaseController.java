@@ -80,7 +80,11 @@ public class DatabaseController {
 		ArrayList<University> result = new ArrayList<University>();
 		for (String[] school : dbUniversityList) {
 			University Uni = new University(school[0], school[1], school[2], school[3], Integer.parseInt(school[4]), Double.parseDouble(school[5]), Integer.parseInt(school[6]),
-					Integer.parseInt(school[7]), Double.parseDouble(school[8]), Double.parseDouble(school[9]), Integer.parseInt(school[10]), Double.parseDouble(school[11]), Double.parseDouble(school[12]), Integer.parseInt(school[13]), Integer.parseInt(school[14]), Integer.parseInt(school[15]));
+					Integer.parseInt(school[7]), Double.parseDouble(school[8]), 
+					Double.parseDouble(school[9]), Integer.parseInt(school[10]), 
+					Double.parseDouble(school[11]), Double.parseDouble(school[12]), 
+					Integer.parseInt(school[13]), Integer.parseInt(school[14]), 
+					Integer.parseInt(school[15]), Double.parseDouble(school[16]), school[17]);
 			result.add(Uni);
 		}
 

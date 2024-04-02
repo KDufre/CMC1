@@ -23,9 +23,12 @@ public class University {
 	public int SocialScale;
 	public int AcademicScale;
 	public int QualLife;
+	public double gradRate;
+	public String link;
 	public University(String school, String state, String location, String control, int numStudents,
 			double percentFemale, int sATMath, int sATVerbal, double expenses, double percentFA, int numApplicants,
-			double percentAdmitted, double percentEnrolled, int socialScale, int academicScale, int qualLife) {
+			double percentAdmitted, double percentEnrolled, int socialScale, int academicScale, int qualLife, 
+			double gradRate, String link) {
 		super();
 		this.state = state;
 		this.location = location;
@@ -43,6 +46,8 @@ public class University {
 		this.SocialScale = socialScale;
 		this.AcademicScale = academicScale;
 		this.QualLife = qualLife;
+		this.gradRate = gradRate;
+		this.link = link;
 	}
 	/**
 	 * @return the state
@@ -235,6 +240,18 @@ public class University {
 	 */
 	public void setQualLife(int qualLife) {
 		QualLife = qualLife;
+	}
+	public double getGradRate() {
+		return gradRate;
+	}
+	public void setGradRate(double gradRate) {
+		this.gradRate = gradRate;
+	}
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
 	}
 
 
