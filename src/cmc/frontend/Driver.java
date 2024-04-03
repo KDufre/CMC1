@@ -222,6 +222,7 @@ public class Driver {
 		System.out.println("Social Scale: " + school.getSocialScale());
 		System.out.println("Quality of Life Scale: " + school.getQualLife());
 		System.out.println("Graduation Rate: " + school.getGradRate());
+		System.out.println("Link to college page: " + school.getLink());
 		System.out.println();
 		
 		int choice = getMenuOption(s, List.of("Save School", "Go Back"));
@@ -262,6 +263,7 @@ public class Driver {
 		System.out.println("Social Scale: " + school.getSocialScale());
 		System.out.println("Quality of Life Scale: " + school.getQualLife());
 		System.out.println("Graduation Rate: " + school.getGradRate());
+		System.out.println("Link to college page: " + school.getLink());
 		System.out.println();
 		
 		int choice = getMenuOption(s, List.of("Go Back"));
