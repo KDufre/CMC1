@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class SearchController {
 	// this REGULAR USER ONLY method searches for schools in the database
@@ -99,5 +100,33 @@ public class SearchController {
 	public static List<User> getAllUsers() {
 		List<User> usersList = DatabaseController.getAllUsers();
 		return usersList;
+	}
+	
+	public static List<University> getFiveSimilarSchools(University school){
+		HashMap<University, Integer> map = new HashMap<>();
+		List<University> allSchools = DatabaseController.getAllSchools();
+		
+		for(University uni : allSchools) {
+			int score = 0;
+			if(uni.getState()==school.getState()) {
+				score++;
+			}
+			if(uni.getLocation()==school.getLocation()) {
+				score++;
+			}
+			map.put(uni, score);
+		}
+		// Get the top 5 objects based on their integer values
+        List<University> top5Objects = map.entrySet().stream()
+                // Sort the entries by their value (integer) in descending order
+                .sorted((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()))
+                // Limit the stream to the first 5 entries
+                .limit(5)
+                // Extract the key from each entry
+                .map(Map.Entry::getKey)
+                // Collect the keys into a List<Object>
+                .collect(Collectors.toList());
+		return top5Objects;
+		
 	}
 }
