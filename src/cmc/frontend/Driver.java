@@ -202,6 +202,34 @@ public class Driver {
 			System.exit(1);
 		}
 	}
+	
+	private static void showFiveSimilarSchools(Scanner s, List<University> unis) {
+		printHeader("Five Similar Schools");
+		
+		System.out.println("School Name: " + unis.get(0).getSchool());
+		System.out.println("School Name: " + unis.get(1).getSchool());
+		System.out.println("School Name: " + unis.get(2).getSchool());
+		System.out.println("School Name: " + unis.get(3).getSchool());
+		System.out.println("School Name: " + unis.get(4).getSchool());
+		
+		int choice = getMenuOption(s, List.of("Select School", "Go Back"));
+		
+		switch(choice) {
+		case 1:
+			University selectedSchool = UserInteraction.selectSchool(s);
+			if(selectedSchool == null) {
+				System.out.println("Failed to select school (entered wrong)");
+				break;
+			}
+			userSelectedSchoolResults(s, selectedSchool);
+			break;
+		case 2:
+			return;
+		default:
+			System.err.println("Internal error: Unsupported option.");
+			System.exit(1);
+		}
+	}
 	private static void userSelectedSchoolResults(Scanner s, University school) {
 		printHeader("Selected School Information");
 		
@@ -225,7 +253,7 @@ public class Driver {
 		System.out.println("Link to college page: " + school.getLink());
 		System.out.println();
 		
-		int choice = getMenuOption(s, List.of("Save School", "Go Back"));
+		int choice = getMenuOption(s, List.of("Save School", "View 5 similar schools", "Go Back"));
 		
 		switch(choice) {
 		case 1:
@@ -233,6 +261,10 @@ public class Driver {
 				System.out.println("Failed to save school.  (Already in saved list?)");
 			break;
 		case 2:
+			List<University> unis = UserInteraction.getFiveSimilarSchools(school);
+			showFiveSimilarSchools(s, unis);
+			break;
+		case 3:
 			return;
 		default:
 			System.err.println("Internal error: Unsupported option.");
