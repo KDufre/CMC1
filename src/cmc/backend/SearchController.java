@@ -114,6 +114,53 @@ public class SearchController {
 			if(uni.getLocation()==school.getLocation()) {
 				score++;
 			}
+			if(uni.getControl()==school.getControl()) {
+				score++;
+			}
+			if(Math.abs(uni.getNumStudents()-school.getNumStudents())<=500) {
+				score++;
+			}
+			if(Math.abs(uni.getPercentFemale()-school.getPercentFemale())<=10) {
+				score++;
+			}
+			if(Math.abs(uni.getSATMath()-school.getSATMath())<=20) {
+				score++;
+			}
+			if(Math.abs(uni.getSATVerbal()-school.getSATVerbal())<=20) {
+				score++;
+			}
+			if(Math.abs(uni.getExpenses()-school.getExpenses())<=2500) {
+				score++;
+			}
+			if(Math.abs(uni.getPercentFA()-school.getPercentFA())<=15) {
+				score++;
+			}
+			if(Math.abs(uni.getNumApplicants()-school.getNumApplicants())<=10) {
+				score++;
+			}
+			if(Math.abs(uni.getPercentAdmitted()-school.getPercentAdmitted())<=10) {
+				score++;
+			}
+			if(Math.abs(uni.getPercentEnrolled()-school.getPercentEnrolled())<=10) {
+				score++;
+			}
+			if(Math.abs(uni.getSocialScale()-school.getSocialScale())<=0) {
+				score++;
+			}
+			if(Math.abs(uni.getAcademicScale()-school.getAcademicScale())<=0) {
+				score++;
+			}
+			if(Math.abs(uni.getQualLife()-school.getQualLife())<=0) {
+				score++;
+			}
+			if(Math.abs(uni.getGradRate()-school.getGradRate())<=10) {
+				score++;
+			}
+
+			
+			
+			
+			
 			map.put(uni, score);
 		}
 		// Get the top 5 objects based on their integer values
