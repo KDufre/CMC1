@@ -7,7 +7,6 @@ import org.junit.Test;
 
 public class UserTest {
 	private static User testUser;
-
 	private static String testUname = "testuname";
 	private static String testPass = "testpass";
 	private static char testType = 'u';
