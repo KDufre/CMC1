@@ -2,6 +2,8 @@ package cmc.backend;
 
 import java.util.List;
 
+import cmc.backend.entities.UserSchool;
+
 public class UniversityController {
 	// this REGULAR USER ONLY method attempts to add the provided school
 	// to the list of saved schools for the provided username

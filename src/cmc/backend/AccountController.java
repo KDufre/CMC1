@@ -2,6 +2,8 @@ package cmc.backend;
 
 import java.util.List;
 
+import cmc.backend.entities.User;
+
 public class AccountController {
 	public static User login(String username, String password) {
 		User theUser = DatabaseController.getUser(username);

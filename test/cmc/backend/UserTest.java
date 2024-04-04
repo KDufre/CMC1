@@ -5,6 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import cmc.backend.entities.User;
+
 public class UserTest {
 	private static User testUser;
 	private static String testUname = "testuname";

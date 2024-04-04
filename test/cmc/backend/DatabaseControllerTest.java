@@ -6,6 +6,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import cmc.backend.entities.University;
+import cmc.backend.entities.User;
 import cmc.frontend.UserInteraction;
 import junit.framework.Assert;
 
@@ -45,11 +47,17 @@ public class DatabaseControllerTest {
 		testUser = new User(testUname, testPass, testType, testFName, testLName, testActivated);
 		testUser2 = new User(testUname2, testPass, testType, testFName, testLName, testActivated);
 		DatabaseController.addUser(testUser2);
+		
+		uni = new University (school, state, location, control, numStudents,
+				PercentFemale, SATMath, SATVerbal, expenses, PercentFA, NumApplicants,
+				PercentAdmitted, PercentEnrolled, SocialScale, AcademicScale, QualLife, 
+				gradRate,link);
 	}
 
 	@After
 	public void tearDown() throws Exception {
 		DatabaseController.removeUser(testUname);
+		DatabaseController.removeUser(testUname2);
 	}
 
 	@Test
@@ -64,7 +72,7 @@ public class DatabaseControllerTest {
 	@Test
 	public void testRemoveUser() {
 		//removeUser
-		Assert.assertEquals(true, DatabaseController.removeUser(testUname));
+		Assert.assertEquals(true, DatabaseController.removeUser(testUname2));
 		Assert.assertEquals(false, UserInteraction.login(testUname, testPass));
 	}
 	
@@ -80,20 +88,20 @@ public class DatabaseControllerTest {
 	@Test
 	public void testGetAllUsers() {
 		Assert.assertNotNull(DatabaseController.getAllUsers());}
-/*
+
 	@Test
 	public void testGetAllSchools() {
-		fail("Not yet implemented");
+		Assert.assertNotNull(DatabaseController.getAllSchools());
 	}
 
 	@Test
 	public void testGetEmphasis() {
-		fail("Not yet implemented");
+		Assert.assertNotNull(DatabaseController.getEmphasis());
 	}
-
+/*
 	@Test
 	public void testSaveSchool() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test

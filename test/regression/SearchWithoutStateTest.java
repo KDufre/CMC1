@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import cmc.backend.DatabaseController;
 import cmc.backend.SearchController;
-import cmc.backend.University;
+import cmc.backend.entities.University;
 
 public class SearchWithoutStateTest {
 

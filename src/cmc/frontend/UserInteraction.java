@@ -11,10 +11,10 @@ import cmc.CMCException;
 import cmc.backend.AccountController;
 import cmc.backend.DatabaseController;
 import cmc.backend.SearchController;
-import cmc.backend.University;
 import cmc.backend.UniversityController;
-import cmc.backend.User;
-import cmc.backend.UserSchool;
+import cmc.backend.entities.University;
+import cmc.backend.entities.User;
+import cmc.backend.entities.UserSchool;
 
 public class UserInteraction {
 	

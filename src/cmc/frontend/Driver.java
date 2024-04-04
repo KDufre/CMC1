@@ -3,9 +3,9 @@ package cmc.frontend;
 import java.util.List;
 import java.util.Scanner;
 
-import cmc.backend.University;
-import cmc.backend.User;
-import cmc.backend.UserSchool;
+import cmc.backend.entities.University;
+import cmc.backend.entities.User;
+import cmc.backend.entities.UserSchool;
 
 public class Driver {
 

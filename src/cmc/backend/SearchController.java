@@ -6,6 +6,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import cmc.backend.entities.University;
+import cmc.backend.entities.User;
+import cmc.backend.entities.UserSchool;
+
 public class SearchController {
 	// this REGULAR USER ONLY method searches for schools in the database
 	// based on provided criteria (just state for now)
