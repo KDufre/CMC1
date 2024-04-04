@@ -11,7 +11,7 @@ import org.junit.Test;
 import cmc.CMCException;
 import cmc.backend.AccountController;
 import cmc.backend.DatabaseController;
-import cmc.backend.User;
+import cmc.backend.entities.User;
 import junit.framework.Assert;
 
 public class RemoveUserTest {

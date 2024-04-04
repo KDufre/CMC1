@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import cmc.backend.entities.University;
+import cmc.backend.entities.User;
+import cmc.backend.entities.UserSchool;
 import dblibrary.project.csci230.*;
 import java.util.Date;
 

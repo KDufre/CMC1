@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import cmc.backend.entities.UserSchool;
 import junit.framework.Assert;
 
 public class UserSchoolTest {
