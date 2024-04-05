@@ -377,11 +377,15 @@ public class UserInteraction {
 		int socialScale = s.nextInt();
 		System.out.println("Quality Of Life Scale: ");
 		int qualityOfLifeScale = s.nextInt();
+		System.out.println("Graduation Rate: ");
+		int gradRate = s.nextInt();
+		System.out.println("Web Link: ");
 		s.nextLine();
+		String link = s.nextLine();
 		
 		return UniversityController.addUniversity(school.toUpperCase(), state, location, control, numbersOfStudents, 
 				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants, 
-				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale, gradRate, link);
 	}
 	
 	public static boolean deleteUniversity(Scanner s) {
@@ -445,11 +449,15 @@ public class UserInteraction {
 		int socialScale = s.nextInt();
 		System.out.println("Quality Of Life Scale: ");
 		int qualityOfLifeScale = s.nextInt();
+		System.out.println("Graduation Rate: ");
+		int gradRate = s.nextInt();
+		System.out.println("Web Link: ");
 		s.nextLine();
+		String link = s.nextLine();
 		
 		return UniversityController.editUniversity(school.getSchool(), state, location, control, numbersOfStudents, 
 				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants, 
-				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale, gradRate, link);
 	}
 	
 	public static boolean adminChangePassword(Scanner s){

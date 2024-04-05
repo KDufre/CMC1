@@ -21,7 +21,7 @@ public class AddUniversityTest {
 
 	@Test
 	public void test() {
-		UniversityController.addUniversity("Texas123hieh99393939344", "Cali", "Mexico", "Japan", 10000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		UniversityController.addUniversity("Texas123hieh99393939344", "Cali", "Mexico", "Japan", 10000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, "google.com");
 		Assert.assertEquals(1, SearchController.search("Texas123hieh99393939344", "", "", "", 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, "", "", "", "", "").size());
 	}
 

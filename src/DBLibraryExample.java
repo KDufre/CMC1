@@ -46,16 +46,16 @@ public class DBLibraryExample {
     try{
       int topx = -1;
       DBLibraryExample dbld = new DBLibraryExample(args[0],args[1]);
-      System.out.println("university_addUniversity(x,x,x,x,1,1,1,1,1,1,1,1,1,1,1,1) : " + dbld.getUnivDBlib().university_addUniversity("x","x","x","x",1,1,1,1,1,1,1,1,1,1,1,1));
+      System.out.println("university_addUniversity(x,x,x,x,1,1,1,1,1,1,1,1,1,1,1,1) : " + dbld.getUnivDBlib().university_addUniversity("x","x","x","x",1,1,1,1,1,1,1,1,1,1,1,1,1, "x"));
       System.out.println("university_deleteUniversity(x) : " + dbld.getUnivDBlib().university_deleteUniversity("x"));
-      System.out.println("university_addUniversity(x,x,x,x,1,1,1,1,1,1,1,1,1,1,1,1) : " + dbld.getUnivDBlib().university_addUniversity("x","x","x","x",1,1,1,1,1,1,1,1,1,1,1,1));
+      System.out.println("university_addUniversity(x,x,x,x,1,1,1,1,1,1,1,1,1,1,1,1) : " + dbld.getUnivDBlib().university_addUniversity("x","x","x","x",1,1,1,1,1,1,1,1,1,1,1,1, 1, "x"));
       System.out.println("university_addUniversityEmphasis(x, 1224):"+dbld.getUnivDBlib().university_addUniversityEmphasis("x","1224"));
       System.out.println("university_addUniversityEmphasis(x, 1122):"+dbld.getUnivDBlib().university_addUniversityEmphasis("x","1122"));
       System.out.println("university_deleteUniversity(x) : " + dbld.getUnivDBlib().university_deleteUniversity("x"));
       System.out.println("university_removeUniversityEmphasis(x, 1224):"+dbld.getUnivDBlib().university_removeUniversityEmphasis("x","1224"));
       System.out.println("university_removeUniversityEmphasis(x, 1122):"+dbld.getUnivDBlib().university_removeUniversityEmphasis("x","1122"));      
       System.out.println("university_deleteUniversity(x) : " + dbld.getUnivDBlib().university_deleteUniversity("x"));      
-      System.out.println("university_addUniversity(x,x,x,x,1,1,1,1,1,1,1,1,1,1,1,1) : " + dbld.getUnivDBlib().university_addUniversity("x","x","x","x",1,1,1,1,1,1,1,1,1,1,1,1));      
+      System.out.println("university_addUniversity(x,x,x,x,1,1,1,1,1,1,1,1,1,1,1,1) : " + dbld.getUnivDBlib().university_addUniversity("x","x","x","x",1,1,1,1,1,1,1,1,1,1,1,1, 1, "x"));      
      
       System.out.println("user_addUser(yy, yy, yy, yy, 'a'): " + dbld.getUnivDBlib().user_addUser("yy", "yy", "yy", "yy", 'a'));
       System.out.println("user_deleteUser(yy) : " + dbld.getUnivDBlib().user_deleteUser("yy"));
