@@ -22,7 +22,7 @@ public class RemoveUserTest {
 	public void setUp() throws Exception {
 		User user = new User(userToTest, passToTest, 'u', "k", "dt", 'Y');
 		DatabaseController.addUser(user);
-		DatabaseController.addUniversity(schoolToTest, passToTest, userToTest, passToTest, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		DatabaseController.addUniversity(schoolToTest, passToTest, userToTest, passToTest, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "");
 		DatabaseController.saveSchool(userToTest, schoolToTest);
 	}
 

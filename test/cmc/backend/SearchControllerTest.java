@@ -8,6 +8,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import cmc.backend.entities.University;
 import junit.framework.Assert;
 
 public class SearchControllerTest {
@@ -16,7 +17,7 @@ public class SearchControllerTest {
 	@Before
 	public void setUp() throws Exception {
 		//AccountController.addUser("5thPrez", "Monroedoctrine", "James", "Monroe", false);
-		UniversityController.addUniversity("JamesMonroeUniversity", "Virginia", "MonroeHall", "Control", 1758, 0.0, 900.1, 1200.5, 71831.3, 40.1, 10000, 60.3, 90.1, 8, 7, 5);
+		UniversityController.addUniversity("JamesMonroeUniversity", "Virginia", "MonroeHall", "Control", 1758, 0.0, 900.1, 1200.5, 71831.3, 40.1, 10000, 60.3, 90.1, 8, 7, 5, 0, "google.com");
 		
 	}
 

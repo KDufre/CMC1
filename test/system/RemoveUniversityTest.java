@@ -14,7 +14,7 @@ public class RemoveUniversityTest {
 
 	@Before
 	public void setUp() throws Exception {
-		UniversityController.addUniversity("school2324", "R&B", "Trap", "POP", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+		UniversityController.addUniversity("school2324", "R&B", "Trap", "POP", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,"");
 	}
 
 	@After
