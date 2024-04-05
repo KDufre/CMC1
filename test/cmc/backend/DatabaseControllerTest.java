@@ -58,6 +58,7 @@ public class DatabaseControllerTest {
 	public void tearDown() throws Exception {
 		DatabaseController.removeUser(testUname);
 		DatabaseController.removeUser(testUname2);
+		DatabaseController.deleteUniversity(school);
 	}
 
 	@Test
@@ -98,7 +99,7 @@ public class DatabaseControllerTest {
 	public void testGetEmphasis() {
 		Assert.assertNotNull(DatabaseController.getEmphasis());
 	}
-/*
+
 	@Test
 	public void testSaveSchool() {
 		
@@ -106,52 +107,52 @@ public class DatabaseControllerTest {
 
 	@Test
 	public void testRemoveSchool() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testRemoveUserSavedSchools() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testGetUserSavedSchoolMap() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testEditUser() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testDeactivateUser() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testActivateUser() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testAddUniversity() {
-		fail("Not yet implemented");
+		Assert.assertTrue(DatabaseController.addUniversity(school, state, location, control, numStudents, PercentFemale, SATVerbal, SATMath, expenses, PercentFA, NumApplicants, PercentAdmitted, PercentEnrolled, AcademicScale, SocialScale, NumApplicants, AcademicScale, link));
 	}
 
 	@Test
 	public void testDeleteUniversity() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testRemoveUniversityEmphases() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testEditUniversity() {
-		fail("Not yet implemented");
+		
 	}
-	 */
+	 
 }
