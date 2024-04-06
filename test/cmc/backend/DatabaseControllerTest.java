@@ -14,7 +14,8 @@ import junit.framework.Assert;
 public class DatabaseControllerTest {
 	private String state = "Minnesota";
 	private String location = "city";
-	private String school = "pp";
+	private String school = "43908579348759374985";
+	private String school2 = "28475908347598";
 	private String control = "rt";
 	private int numStudents = 12;
 	private double PercentFemale = 12.5;
@@ -31,6 +32,7 @@ public class DatabaseControllerTest {
 	private double gradRate = 2.3;
 	private String link = "";
 	private University uni;
+	private University uni2;
 
 	private static User testUser;
 	private static User testUser2;
@@ -52,6 +54,11 @@ public class DatabaseControllerTest {
 				PercentFemale, SATMath, SATVerbal, expenses, PercentFA, NumApplicants,
 				PercentAdmitted, PercentEnrolled, SocialScale, AcademicScale, QualLife, 
 				gradRate,link);
+		
+		uni2 = new University (school2, state, location, control, numStudents,
+				PercentFemale, SATMath, SATVerbal, expenses, PercentFA, NumApplicants,
+				PercentAdmitted, PercentEnrolled, SocialScale, AcademicScale, QualLife, 
+				gradRate,link);
 	}
 
 	@After
@@ -59,6 +66,7 @@ public class DatabaseControllerTest {
 		DatabaseController.removeUser(testUname);
 		DatabaseController.removeUser(testUname2);
 		DatabaseController.deleteUniversity(school);
+		DatabaseController.deleteUniversity(school2);
 	}
 
 	@Test
@@ -79,6 +87,9 @@ public class DatabaseControllerTest {
 	
 	@Test
 	public void testGetUser() {
+		//black box
+		//user that is in the database
+		//user that is not in the database
 		DatabaseController.addUser(testUser);
 		Assert.assertEquals(testUser.getFirstName(), DatabaseController.getUser(testUname).getFirstName());
 		
@@ -102,6 +113,7 @@ public class DatabaseControllerTest {
 
 	@Test
 	public void testSaveSchool() {
+		//Black box
 		
 	}
 
@@ -137,7 +149,7 @@ public class DatabaseControllerTest {
 
 	@Test
 	public void testAddUniversity() {
-		Assert.assertTrue(DatabaseController.addUniversity(school, state, location, control, numStudents, PercentFemale, SATVerbal, SATMath, expenses, PercentFA, NumApplicants, PercentAdmitted, PercentEnrolled, AcademicScale, SocialScale, NumApplicants, AcademicScale, link));
+		Assert.assertTrue(DatabaseController.addUniversity(uni2));
 	}
 
 	@Test

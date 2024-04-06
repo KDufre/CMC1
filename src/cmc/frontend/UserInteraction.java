@@ -358,9 +358,9 @@ public class UserInteraction {
 		System.out.println("Percent Female: ");
 		double percentFemales = s.nextDouble();
 		System.out.println("SAT Verbal: ");
-		double SATVerbal = s.nextDouble();
+		int SATVerbal = s.nextInt();
 		System.out.println("SAT Math: ");
-		double SATMath = s.nextDouble();
+		int SATMath = s.nextInt();
 		System.out.println("Expenses: ");
 		double expenses = s.nextDouble();
 		System.out.println("Percent Financial Aid: ");
@@ -383,9 +383,11 @@ public class UserInteraction {
 		s.nextLine();
 		String link = s.nextLine();
 		
-		return UniversityController.addUniversity(school.toUpperCase(), state, location, control, numbersOfStudents, 
+		University uni = new University(school, state, location, control, numbersOfStudents, 
 				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants, 
 				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale, gradRate, link);
+		
+		return UniversityController.addUniversity(uni);
 	}
 	
 	public static boolean deleteUniversity(Scanner s) {
@@ -430,9 +432,9 @@ public class UserInteraction {
 		System.out.println("Percent Female: ");
 		double percentFemales = s.nextDouble();
 		System.out.println("SAT Verbal: ");
-		double SATVerbal = s.nextDouble();
+		int SATVerbal = s.nextInt();
 		System.out.println("SAT Math: ");
-		double SATMath = s.nextDouble();
+		int SATMath = s.nextInt();
 		System.out.println("Expenses: ");
 		double expenses = s.nextDouble();
 		System.out.println("Percent Financial Aid: ");
@@ -455,9 +457,11 @@ public class UserInteraction {
 		s.nextLine();
 		String link = s.nextLine();
 		
-		return UniversityController.editUniversity(school.getSchool(), state, location, control, numbersOfStudents, 
+		University uni = new University(school.getSchool(), state, location, control, numbersOfStudents, 
 				percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, numberOfApplicants, 
 				percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale, gradRate, link);
+		
+		return UniversityController.editUniversity(uni);
 	}
 	
 	public static boolean adminChangePassword(Scanner s){

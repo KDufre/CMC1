@@ -1,7 +1,8 @@
 package cmc.backend;
 
-import java.util.List;
+import java.util.List; 
 
+import cmc.backend.entities.University;
 import cmc.backend.entities.UserSchool;
 
 public class UniversityController {
@@ -24,24 +25,13 @@ public class UniversityController {
 		return DatabaseController.removeSchool(user, school);
 	}
 
-	public static boolean addUniversity(String school, String state, String location, String control, int numbersOfStudents, 
-			double percentFemales, double SATVerbal, double SATMath, double expenses, double percentFinancialAid, int numberOfApplicants, 
-			double percentAdmitted, double percentEnrolled, int academicsScale, int socialScale, int qualityOfLifeScale, int gradRate, String link) {
-
-		return DatabaseController.addUniversity(school, state, location, control, numbersOfStudents, percentAdmitted, 
-				SATVerbal, SATMath, expenses, percentFinancialAid, 
-				numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale
-				, gradRate, link);
+	public static boolean addUniversity(University uni) {
+		return DatabaseController.addUniversity(uni);
 	}
 	public static boolean deleteUniversity(String school) {
 		return DatabaseController.deleteUniversity(school);
 	}
-	public static boolean editUniversity(String school, String state, String location, String control, int numbersOfStudents, 
-			double percentFemales, double SATVerbal, double SATMath, double expenses, double percentFinancialAid, int numberOfApplicants, 
-			double percentAdmitted, double percentEnrolled, int academicsScale, int socialScale, int qualityOfLifeScale, int gradRate, String link) {
-
-		return DatabaseController.editUniversity(school, state, location, control, numbersOfStudents, percentAdmitted, 
-				SATVerbal, SATMath, expenses, percentFinancialAid, 
-				numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale, gradRate, link);
+	public static boolean editUniversity(University uni) {
+		return DatabaseController.editUniversity(uni);
 	}
 }

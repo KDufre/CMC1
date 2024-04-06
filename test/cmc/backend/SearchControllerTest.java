@@ -14,13 +14,35 @@ import cmc.backend.entities.UserSchool;
 import junit.framework.Assert;
 
 public class SearchControllerTest {
-	
+	private String state = "Virginia";
+	private String location = "MonroeHall";
+	private String school = "43908579348759374985";
+	private String control = "rt";
+	private int numStudents = 12;
+	private double PercentFemale = 12.5;
+	private int SATMath = 123;
+	private int SATVerbal = 12;
+	private double expenses = 1234.0;
+	private double PercentFA = 234.0;
+	private int NumApplicants = 2;
+	private double PercentAdmitted = 2.0;
+	private double PercentEnrolled = 232.0;
+	private int SocialScale = 12;
+	private int AcademicScale = 1;
+	private int QualLife = 2;
+	private double gradRate = 2.3;
+	private String link = "";
+	private University uni;
 	
 	@Before
 	public void setUp() throws Exception {
+		uni = new University (school, state, location, control, numStudents,
+				PercentFemale, SATMath, SATVerbal, expenses, PercentFA, NumApplicants,
+				PercentAdmitted, PercentEnrolled, SocialScale, AcademicScale, QualLife, 
+				gradRate,link);
 		AccountController.addUser("5thPrez", "Monroedoctrine", "James", "Monroe", false);
-		UniversityController.addUniversity("JamesMonroeUniversity", "Virginia", "MonroeHall", "Public", 1758, 0.0, 900, 1200, 71831, 40, 10000, 60, 90, 8, 7, 5, 0, "google.com");
-		UniversityController.saveSchool("5thPrez", "JamesMonroeUniversity");
+		UniversityController.addUniversity(uni);
+		UniversityController.saveSchool("5thPrez", school);
 	}
 
 	@After

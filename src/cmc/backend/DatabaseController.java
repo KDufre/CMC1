@@ -228,12 +228,12 @@ public class DatabaseController {
 		}
 	}
 
-	public static boolean addUniversity(String school, String state, String location, String control, int numbersOfStudents, 
-			double percentFemales, double SATVerbal, double SATMath, double expenses, double percentFinancialAid, int numberOfApplicants, 
-			double percentAdmitted, double percentEnrolled, int academicsScale, int socialScale, int qualityOfLifeScale, int gradRate, String link) {
-		int result = database.university_addUniversity(school, state, location, control, numbersOfStudents, percentAdmitted, 
-				SATVerbal, SATMath, expenses, percentFinancialAid, 
-				numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale, gradRate, link);
+	public static boolean addUniversity(University uni) {
+		int result = database.university_addUniversity(uni.getSchool(), uni.getState(), uni.getLocation(), uni.getControl(), uni.getNumStudents(), uni.getPercentAdmitted(), 
+				uni.getSATVerbal(), uni.getSATMath(), uni.getExpenses(), uni.getPercentFA(), 
+				uni.getNumApplicants(), uni.getPercentAdmitted(), uni.getPercentEnrolled(), 
+				uni.getAcademicScale(), uni.getSocialScale(), uni.getQualLife(), 
+				(int) uni.getGradRate(), uni.getLink());
 		if(result==-1) {
 			System.out.println("Error in adding school");
 			return false;
@@ -290,12 +290,13 @@ public class DatabaseController {
 			return true;
 		}
 	}
-	public static boolean editUniversity(String school, String state, String location, String control, int numbersOfStudents, 
-			double percentFemales, double SATVerbal, double SATMath, double expenses, double percentFinancialAid, int numberOfApplicants, 
-			double percentAdmitted, double percentEnrolled, int academicsScale, int socialScale, int qualityOfLifeScale, int gradRate, String link) {
-		int result = database.university_editUniversity(school, state, location, control, numbersOfStudents, percentAdmitted, 
-				SATVerbal, SATMath, expenses, percentFinancialAid, 
-				numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale, gradRate, link);
+	public static boolean editUniversity(University uni) {
+		
+		int result = database.university_editUniversity(uni.getSchool(), uni.getState(), uni.getLocation(), uni.getControl(), uni.getNumStudents(), uni.getPercentAdmitted(), 
+				uni.getSATVerbal(), uni.getSATMath(), uni.getExpenses(), uni.getPercentFA(), 
+				uni.getNumApplicants(), uni.getPercentAdmitted(), uni.getPercentEnrolled(), 
+				uni.getAcademicScale(), uni.getSocialScale(), uni.getQualLife(), 
+				uni.getGradRate(), uni.getLink());
 		if(result==-1) {
 			System.out.println("Error in adding school");
 			return false;
