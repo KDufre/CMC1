@@ -146,11 +146,12 @@ public class DatabaseController {
 	public static boolean removeUserSavedSchools(String username) {
 		Map<String, List<UserSchool>> result = getUserSavedSchoolMap();
 		List<UserSchool> userList = result.get(username);
+		boolean r = true;
 		if(userList==null) {
-			return false;
+			return r;
 		}
 		for(UserSchool school : userList) {
-			removeSchool(username, school.getUniversity());
+			r = removeSchool(username, school.getUniversity());
 		}
 
 		return true;

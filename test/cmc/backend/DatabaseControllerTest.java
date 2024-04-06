@@ -31,9 +31,10 @@ public class DatabaseControllerTest {
 	private int QualLife = 2;
 	private double gradRate = 2.3;
 	private String link = "";
-	private University uni;
-	private University uni2;
-
+	private University uni; //This one gets added to database in setup
+	private University uni2; // This one doesn't get added to database in setup
+	private University uni3; //This one gets added and saved by testUser2
+	
 	private static User testUser;
 	private static User testUser2;
 	private static String testUname = "testuname09387490183275";
@@ -54,19 +55,27 @@ public class DatabaseControllerTest {
 				PercentFemale, SATMath, SATVerbal, expenses, PercentFA, NumApplicants,
 				PercentAdmitted, PercentEnrolled, SocialScale, AcademicScale, QualLife, 
 				gradRate,link);
+		DatabaseController.addUniversity(uni);
 		
 		uni2 = new University (school2, state, location, control, numStudents,
 				PercentFemale, SATMath, SATVerbal, expenses, PercentFA, NumApplicants,
 				PercentAdmitted, PercentEnrolled, SocialScale, AcademicScale, QualLife, 
 				gradRate,link);
+		
+		uni3 = new University (school2, state, location, control, numStudents,
+				PercentFemale, SATMath, SATVerbal, expenses, PercentFA, NumApplicants,
+				PercentAdmitted, PercentEnrolled, SocialScale, AcademicScale, QualLife, 
+				gradRate,link);
+		DatabaseController.addUniversity(uni);
+		DatabaseController.saveSchool(testUser2.getUsername(), uni3.getSchool());
 	}
 
 	@After
 	public void tearDown() throws Exception {
 		DatabaseController.removeUser(testUname);
 		DatabaseController.removeUser(testUname2);
-		DatabaseController.deleteUniversity(school);
-		DatabaseController.deleteUniversity(school2);
+		DatabaseController.deleteUniversity(uni.getSchool());
+		DatabaseController.deleteUniversity(uni2.getSchool());
 	}
 
 	@Test
@@ -113,38 +122,40 @@ public class DatabaseControllerTest {
 
 	@Test
 	public void testSaveSchool() {
-		//Black box
-		
+		Assert.assertTrue(DatabaseController.saveSchool(testUser2.getUsername(), uni.getSchool()));
+		Assert.assertFalse(DatabaseController.saveSchool(testUser2.getUsername(), uni2.getSchool()));
 	}
 
 	@Test
 	public void testRemoveSchool() {
-		
+		Assert.assertTrue(DatabaseController.removeSchool(testUser2.getUsername(), uni3.getSchool()));
 	}
 
 	@Test
 	public void testRemoveUserSavedSchools() {
-		
+		Assert.assertTrue(DatabaseController.removeUserSavedSchools(testUser2.getUsername()));
 	}
 
 	@Test
 	public void testGetUserSavedSchoolMap() {
-		
+		Assert.assertNotNull(DatabaseController.getUserSavedSchoolMap());
 	}
 
 	@Test
 	public void testEditUser() {
-		
+		Assert.assertTrue(DatabaseController.editUser(testUser2));
 	}
 
 	@Test
 	public void testDeactivateUser() {
-		
+		Assert.assertTrue(DatabaseController.deactivateUser(testUser2.getUsername()));
+		Assert.assertFalse(UserInteraction.login(testUser2.getUsername(), testUser2.getPassword()));
 	}
 
 	@Test
 	public void testActivateUser() {
-		
+		Assert.assertTrue(DatabaseController.activateUser(testUser2.getUsername()));
+		Assert.assertTrue(UserInteraction.login(testUser2.getUsername(), testUser2.getPassword()));
 	}
 
 	@Test
@@ -154,17 +165,17 @@ public class DatabaseControllerTest {
 
 	@Test
 	public void testDeleteUniversity() {
-		
+		Assert.assertTrue(DatabaseController.deleteUniversity(uni2.getSchool()));
 	}
 
 	@Test
 	public void testRemoveUniversityEmphases() {
-		
+		Assert.assertTrue(DatabaseController.removeUniversityEmphases(uni2.getSchool()));
 	}
 
 	@Test
 	public void testEditUniversity() {
-		
+		Assert.assertTrue(DatabaseController.editUniversity(uni2));
 	}
 	 
 }
