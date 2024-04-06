@@ -60,6 +60,7 @@ public class Driver {
 	}
 
 	// print the header for the current menu
+	// @param String title for what title the method will print 
 	private static void printHeader(String title) {
 		String dashes = "";
 		for (int i = 0; i < title.length(); i++)
@@ -71,6 +72,8 @@ public class Driver {
 	}
 	
 	/*
+	 * This is the admin edit user menu. 
+	 * It allows the admin to change a user's password, first name or last name
 	 * @param Scanner s is to pass to UserInteraction to get user input
 	 */
 	private static void adminEditUser(Scanner s) {
@@ -118,6 +121,8 @@ public class Driver {
 	}
 
 	/*
+	 * Admin User List menu. 
+	 * This menu let's the admin choose whether they would like to add a user, remove user, edit user, or go back.
 	 * @param Scanner s is to pass to UserInteraction to get user input
 	 */
 	private static void adminUserListMenu(Scanner s) {
@@ -156,7 +161,8 @@ public class Driver {
 	}
 
 	/*
-	 * ADMIN MANAGING MENU
+	 * ADMIN MANAGING MENU.
+	 * Let's admin add uni, remove uni, edit university, or go back.
 	 * @param Scanner s is to pass to UserInteraction to get user input
 	 */
 	private static void adminManageUniversity(Scanner s) {
@@ -192,6 +198,8 @@ public class Driver {
 	}
 	
 	/*
+	 * the admin menu is the main menu that is shown when logging in as an admin.
+	 * Allows admin to view list of users or manage universities.
 	 * @param Scanner s is to pass to UserInteraction to get user input
 	 */
 	private static void adminMenu(Scanner s) {
@@ -216,6 +224,7 @@ public class Driver {
 	}
 	
 	/*
+	 * This menu shows five similar schools and gives option to select or go back.
 	 * @param Scanner s is to pass to UserInteraction to get user input
 	 */
 	private static void showFiveSimilarSchools(Scanner s, List<University> unis) {
@@ -247,6 +256,8 @@ public class Driver {
 	}
 	
 	/*
+	 * This menu shows the user selected school results of the the school selected.
+	 * Options: save school, view 5 similar schools, or go back.
 	 * @param Scanner s is to pass to UserInteraction to get user input
 	 */
 	private static void userSelectedSchoolResults(Scanner s, University school) {
@@ -292,6 +303,8 @@ public class Driver {
 	}
 	
 	/*
+	 * This menu is the user selected saved school results menu.
+	 * Options: go back.
 	 * @param Scanner s is to pass to UserInteraction to get user input
 	 */
 	private static void userSelectedSavedSchoolResults(Scanner s, University school) {
@@ -333,6 +346,8 @@ public class Driver {
 	}
 
 	/*
+	 * This menu is the search results menu for when a user searches for unis.
+	 * Options: select school or go back.
 	 * @param Scanner s is to pass to UserInteraction to get user input
 	 */
 	private static void searchResultsMenu(Scanner s, List<University> results) {
@@ -398,6 +413,8 @@ public class Driver {
 	}
 	
 	/*
+	 * This is the edit user menu
+	 * Options: edit password, edit first name, edit last name, or go back.s
 	 * @param Scanner s is to pass to UserInteraction to get user input
 	 */
 	private static void editUser(Scanner s) {
@@ -424,12 +441,14 @@ public class Driver {
 	}
 
 	/*
+	 * This is the regular user menu shown when logging in to a user profile.
+	 * Options: Search, view saved schools, edit user, logout
 	 * @param Scanner s is to pass to UserInteraction to get user input
 	 */
 	private static void regularUserMenu(Scanner s) {
 		printHeader("User Menu");
 
-		int choice = getMenuOption(s, List.of("Search", "View Saved Schools", "Edit User","Logout"));
+		int choice = getMenuOption(s, List.of("Search", "View Saved Schools", "Edit User", "Logout"));
 
 		switch(choice) {
 		case 1:
@@ -452,6 +471,7 @@ public class Driver {
 	}
 
 	/*
+	 * This menu asks for username and password and attempts to log in
 	 * @param Scanner s is to pass to UserInteraction to get user input
 	 */
 	private static void topMenu(Scanner s) {
