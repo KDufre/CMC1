@@ -16,6 +16,9 @@ import cmc.backend.entities.University;
 import cmc.backend.entities.User;
 import cmc.backend.entities.UserSchool;
 
+/**
+ * 
+ */
 public class UserInteraction {
 	
 	private static User loggedInUser = null;
@@ -26,6 +29,12 @@ public class UserInteraction {
 	}
 
 	// attempt to login, print message, and return success or failure
+	/**
+	 * 
+	 * @param username
+	 * @param password
+	 * @return true if successful
+	 */
 	public static boolean login(String username, String password) {
 		User result = AccountController.login(username, password);
 		if (result != null) {
@@ -41,6 +50,10 @@ public class UserInteraction {
 	}
 	
 	// returns true if there is a user to log out, otherwise false
+	/**
+	 * 
+	 * @return true if successful
+	 */
 	public static boolean logout() {
 		if (loggedInUser == null) {
 			return false;
@@ -52,12 +65,21 @@ public class UserInteraction {
 	}
 	
 	// for admins, this gets the list of all users in the system
+	/**
+	 * 
+	 * @return list of all users
+	 */
 	public static List<User> getAllUsers() {
 		return SearchController.getAllUsers();
 	}
 	
 	// ask the admin for details and then attempt to add a user to the
 	// database
+	/**
+	 * 
+	 * @param s
+	 * @return true if successful
+	 */
 	public static boolean addUser(Scanner s) {
 		System.out.print("Username: ");
 		String username = s.nextLine();
@@ -77,6 +99,11 @@ public class UserInteraction {
 	
 	// ask the admin for a username and then remove that user from the
 	// database
+	/**
+	 * 
+	 * @param s
+	 * @return true if successful
+	 */
 	public static boolean removeUser(Scanner s) {
 		System.out.print("Enter index of Username: ");
 		int userIndex = 0;
@@ -99,6 +126,11 @@ public class UserInteraction {
 		return AccountController.removeUser(username);
 	}
 	
+	/**
+	 * search for universities that fit criteria
+	 * @param s Scanner is for getting user input
+	 * @return List of universitys based off the user input criteria
+	 */
 	public static List<University> search(Scanner s) {
 		System.out.print("School Name (leave blank to not search by this criterion): ");
 		String school = s.nextLine();
@@ -277,6 +309,13 @@ public class UserInteraction {
 	
 	// ask for a school name to save, and attempt to save that school
 	// to the list for the currently-logged-in user
+	/**
+	 * save school attemps to save a school for the logged in user
+	 * @param s
+	 * @param schoolName
+	 * @return true if successful
+	 */
+	
 	public static boolean saveSchool(Scanner s, String schoolName) {
 		//System.out.print("School Name: ");
 		//String schoolName = s.nextLine();
@@ -287,6 +326,11 @@ public class UserInteraction {
 			return UniversityController.saveSchool(loggedInUser.username, schoolName);
 	}
 	
+	/**
+	 * 
+	 * @param s
+	 * @return true if successful
+	 */
 	public static boolean removeSchool(Scanner s) {
 		System.out.print("School Name: ");
 		String schoolName = s.nextLine();
@@ -302,6 +346,10 @@ public class UserInteraction {
 	}
 	
 	// get the list of saved school names for the currently-logged-in user
+	/**
+	 * 
+	 * @return the list of saved schools with time stamps for a user
+	 */
 	public static List<UserSchool> getSavedSchools() {
 		return SearchController.getSavedSchools(loggedInUser.username);
 	}
@@ -316,6 +364,11 @@ public class UserInteraction {
 		return loggedInUser;
 	}
 	
+	/**
+	 * 
+	 * @param s
+	 * @return true if successful
+	 */
 	public static boolean editPassword(Scanner s){
 		System.out.print("New Password: ");
 		String newPassword = s.nextLine();
@@ -324,6 +377,12 @@ public class UserInteraction {
 		}
 		return AccountController.editPassword(loggedInUser.username, newPassword);
 	}
+	
+	/**
+	 * 
+	 * @param s
+	 * @return true if successful
+	 */
 	public static boolean editFirstName(Scanner s){
 		System.out.print("New First Name: ");
 		String newFirstName = s.nextLine();
@@ -332,6 +391,12 @@ public class UserInteraction {
 		}
 		return AccountController.editFirstName(loggedInUser.username, newFirstName);
 	}
+	
+	/**
+	 * 
+	 * @param s
+	 * @return true if successful
+	 */
 	public static boolean editLastName(Scanner s){
 		System.out.print("New Last Name: ");
 		String newLastName = s.nextLine();
@@ -341,6 +406,11 @@ public class UserInteraction {
 		return AccountController.editLastName(loggedInUser.username, newLastName);
 	}
 	
+	/**
+	 * 
+	 * @param s
+	 * @return true if successful
+	 */
 	public static boolean addUniversity(Scanner s) {
 		if(loggedInUser==null) {
 			return false;
@@ -390,6 +460,11 @@ public class UserInteraction {
 		return UniversityController.addUniversity(uni);
 	}
 	
+	/**
+	 * 
+	 * @param s
+	 * @return true if successful
+	 */
 	public static boolean deleteUniversity(Scanner s) {
 		if(loggedInUser==null) {
 			return false;
@@ -399,6 +474,12 @@ public class UserInteraction {
 		return UniversityController.deleteUniversity(school.toUpperCase());
 	}
 	
+	/**
+	 * 
+	 * @param s
+	 * @param school
+	 * @return true if successful
+	 */
 	public static boolean adminEditUniversity(Scanner s, University school) {
 		System.out.println("School Name: " + school.getSchool());
 		System.out.println("State: " + school.getState());
@@ -464,6 +545,11 @@ public class UserInteraction {
 		return UniversityController.editUniversity(uni);
 	}
 	
+	/**
+	 * 
+	 * @param s
+	 * @return true if successful
+	 */
 	public static boolean adminChangePassword(Scanner s){
 		if(loggedInUser==null) {
 			return false;
@@ -487,6 +573,7 @@ public class UserInteraction {
 	/*
 	 * For the admin to enter the user to change then enter the new first name for that user
 	 * @param s is the scanner for the admin to enter user and new first name
+	 * @return true if successful
 	 */
 	public static boolean adminChangeFirstName(Scanner s){
 		if(loggedInUser==null) {
@@ -512,6 +599,7 @@ public class UserInteraction {
 	/*
 	 * For the admin to enter the user to change then enter the new first name for that user
 	 * @param s is the scanner for the admin to enter user and new first name
+	 * @return true if successful
 	 */
 	public static boolean adminChangeLastName(Scanner s){
 		if(loggedInUser==null) {
@@ -533,6 +621,11 @@ public class UserInteraction {
 		return AccountController.editLastName(username, newLastName);
 	}
 	
+	/**
+	 * 
+	 * @param s
+	 * @return true if successful
+	 */
 	public static boolean adminDeactivateUser(Scanner s){
 		if(loggedInUser==null) {
 			return false;
@@ -551,6 +644,11 @@ public class UserInteraction {
 		return AccountController.deactivateUser(username);
 	}
 	
+	/**
+	 * 
+	 * @param s
+	 * @return true if successful
+	 */
 	public static boolean adminActivateUser(Scanner s){
 		if(loggedInUser==null) {
 			return false;
@@ -567,6 +665,12 @@ public class UserInteraction {
 		
 		return AccountController.activateUser(username);
 	}
+	
+	/**
+	 * 
+	 * @param s
+	 * @return the university selected or null
+	 */
 	public static University selectSchool(Scanner s) {
 		System.out.println("Enter the school name: ");
 		String schoolName = s.nextLine();
@@ -580,6 +684,11 @@ public class UserInteraction {
 		return school;
 	}
 	
+	/**
+	 * 
+	 * @param school
+	 * @return true if successful
+	 */
 	public static List<University> getFiveSimilarSchools(University school){
 		return SearchController.getFiveSimilarSchools(school);
 		
