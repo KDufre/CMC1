@@ -14,6 +14,43 @@ import cmc.backend.entities.UserSchool;
 public class SearchController {
 	// this REGULAR USER ONLY method searches for schools in the database
 	// based on provided criteria (just state for now)
+	/**
+	 * 
+	 * @param schoolInput
+	 * @param state
+	 * @param location
+	 * @param control
+	 * @param minNumberOfStudents
+	 * @param maxNumberOfStudents
+	 * @param minPercentFemale
+	 * @param maxPercentFemale
+	 * @param minSATVerbal
+	 * @param maxSATVerbal
+	 * @param minSATMath
+	 * @param maxSATMath
+	 * @param minExpenses
+	 * @param maxExpenses
+	 * @param minPercentAid
+	 * @param maxPercentAid
+	 * @param minNumOfApplicants
+	 * @param maxNumOfApplicants
+	 * @param minPercentAdmitted
+	 * @param maxPercentAdmitted
+	 * @param minPercentEnrolled
+	 * @param maxPercentEnrolled
+	 * @param minAcademicScale
+	 * @param maxAcademicScale
+	 * @param minSocialScale
+	 * @param maxSocialScale
+	 * @param minQualityLifeScale
+	 * @param maxQualityLifeScale
+	 * @param emphasis1
+	 * @param emphasis2
+	 * @param emphasis3
+	 * @param emphasis4
+	 * @param emphasis5
+	 * @return list of universities that fit criteria based off user input
+	 */
 	public static List<University> search(String schoolInput, String state, String location
 			, String control, int minNumberOfStudents, int maxNumberOfStudents, int minPercentFemale, 
 			int maxPercentFemale, int minSATVerbal, int maxSATVerbal, int minSATMath, int maxSATMath,
@@ -96,17 +133,31 @@ public class SearchController {
 
 	// this REGULAR USER ONLY method attempts to retrieve the list of saved
 	// schools for the provided username
+	/**
+	 * 
+	 * @param user
+	 * @return list of saved schools with time stamps for a particular user
+	 */
 	public static List<UserSchool> getSavedSchools(String user) {
 		Map<String, List<UserSchool>> usersToSavedSchools = DatabaseController.getUserSavedSchoolMap();
 		return usersToSavedSchools.get(user);
 	}
 
 	// this ADMIN ONLY method returns the list of all the users (and their data)
+	/**
+	 * 
+	 * @return list of all users
+	 */
 	public static List<User> getAllUsers() {
 		List<User> usersList = DatabaseController.getAllUsers();
 		return usersList;
 	}
 	
+	/**
+	 * 
+	 * @param school
+	 * @return list of 5 similar schools
+	 */
 	public static List<University> getFiveSimilarSchools(University school){
 		HashMap<University, Integer> map = new HashMap<>();
 		List<University> allSchools = DatabaseController.getAllSchools();
