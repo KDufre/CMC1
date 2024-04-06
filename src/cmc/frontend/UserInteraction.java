@@ -31,8 +31,8 @@ public class UserInteraction {
 	// attempt to login, print message, and return success or failure
 	/**
 	 * 
-	 * @param username
-	 * @param password
+	 * @param username is the username being used to sign in
+	 * @param password is the password being used to password
 	 * @return true if successful
 	 */
 	public static boolean login(String username, String password) {
@@ -77,7 +77,7 @@ public class UserInteraction {
 	// database
 	/**
 	 * 
-	 * @param s
+	 * @param s gets user input
 	 * @return true if successful
 	 */
 	public static boolean addUser(Scanner s) {
@@ -101,7 +101,7 @@ public class UserInteraction {
 	// database
 	/**
 	 * 
-	 * @param s
+	 * @param s gets user input
 	 * @return true if successful
 	 */
 	public static boolean removeUser(Scanner s) {
@@ -311,7 +311,7 @@ public class UserInteraction {
 	// to the list for the currently-logged-in user
 	/**
 	 * save school attemps to save a school for the logged in user
-	 * @param s
+	 * @param s gets user input
 	 * @param schoolName
 	 * @return true if successful
 	 */
@@ -328,7 +328,7 @@ public class UserInteraction {
 	
 	/**
 	 * 
-	 * @param s
+	 * @param s gets user input
 	 * @return true if successful
 	 */
 	public static boolean removeSchool(Scanner s) {
@@ -366,7 +366,7 @@ public class UserInteraction {
 	
 	/**
 	 * 
-	 * @param s
+	 * @param s gets user input
 	 * @return true if successful
 	 */
 	public static boolean editPassword(Scanner s){
@@ -380,7 +380,7 @@ public class UserInteraction {
 	
 	/**
 	 * 
-	 * @param s
+	 * @param s gets user input
 	 * @return true if successful
 	 */
 	public static boolean editFirstName(Scanner s){
@@ -394,7 +394,7 @@ public class UserInteraction {
 	
 	/**
 	 * 
-	 * @param s
+	 * @param s gets user input
 	 * @return true if successful
 	 */
 	public static boolean editLastName(Scanner s){
@@ -408,7 +408,7 @@ public class UserInteraction {
 	
 	/**
 	 * 
-	 * @param s
+	 * @param s gets user input
 	 * @return true if successful
 	 */
 	public static boolean addUniversity(Scanner s) {
@@ -462,7 +462,7 @@ public class UserInteraction {
 	
 	/**
 	 * 
-	 * @param s
+	 * @param s gets user input
 	 * @return true if successful
 	 */
 	public static boolean deleteUniversity(Scanner s) {
@@ -476,7 +476,7 @@ public class UserInteraction {
 	
 	/**
 	 * 
-	 * @param s
+	 * @param s gets user input
 	 * @param school
 	 * @return true if successful
 	 */
@@ -547,7 +547,7 @@ public class UserInteraction {
 	
 	/**
 	 * 
-	 * @param s
+	 * @param s gets user input
 	 * @return true if successful
 	 */
 	public static boolean adminChangePassword(Scanner s){
@@ -623,7 +623,7 @@ public class UserInteraction {
 	
 	/**
 	 * 
-	 * @param s
+	 * @param s gets user input
 	 * @return true if successful
 	 */
 	public static boolean adminDeactivateUser(Scanner s){
@@ -646,7 +646,7 @@ public class UserInteraction {
 	
 	/**
 	 * 
-	 * @param s
+	 * @param s gets user input
 	 * @return true if successful
 	 */
 	public static boolean adminActivateUser(Scanner s){
@@ -668,7 +668,7 @@ public class UserInteraction {
 	
 	/**
 	 * 
-	 * @param s
+	 * @param s gets user input
 	 * @return the university selected or null
 	 */
 	public static University selectSchool(Scanner s) {
@@ -686,7 +686,7 @@ public class UserInteraction {
 	
 	/**
 	 * 
-	 * @param school
+	 * @param school is the school that is being used to find 5 similar schools
 	 * @return true if successful
 	 */
 	public static List<University> getFiveSimilarSchools(University school){

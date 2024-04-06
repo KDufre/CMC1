@@ -15,9 +15,9 @@ import java.util.Date;
 /**
  * The DatabaseController class is the primary interaction class with the
  * database library.  It currently just calls the lower-level methods and
- * forwards the result (possibly throwing some exceptions along the way).
+ * forwards the result.
  * 
- * @author Sally Sparrow
+ * @author Team William
  */
 public class DatabaseController {
 	private static UniversityDBLibrary database = new UniversityDBLibrary("william", "csci230");
@@ -119,7 +119,7 @@ public class DatabaseController {
 	}
 	
 	/**
-	 * 
+	 * This method gets the emphases for every university.
 	 * @return HashMap with University and a list of all of their emphases
 	 */
 	public static HashMap<String, List<String>> getEmphasis() {
@@ -144,8 +144,6 @@ public class DatabaseController {
 	}
 
 	// save a school to a particular user's list
-	// TODO: It feels like we should be able to do this as part of
-	//       "updating" a user in the DB.
 	/**
 	 * 
 	 * @param username is the user saving the school
@@ -240,7 +238,7 @@ public class DatabaseController {
 	}
 
 	/**
-	 * 
+	 * This method edits a particular user
 	 * @param userData is the user being edited
 	 * @return true if successful
 	 */
@@ -257,7 +255,7 @@ public class DatabaseController {
 	}
 
 	/**
-	 * 
+	 * This method deactivates a user
 	 * @param username is the user being deactivated
 	 * @return true if successful
 	 */
@@ -275,7 +273,7 @@ public class DatabaseController {
 	}
 
 	/**
-	 * 
+	 * This method activates a user
 	 * @param username is the user being activated
 	 * @return true if successful
 	 */
@@ -293,7 +291,7 @@ public class DatabaseController {
 	}
 
 	/**
-	 * 
+	 * This method adds a university
 	 * @param uni is the university being added to database
 	 * @return true if successful
 	 */
@@ -313,7 +311,7 @@ public class DatabaseController {
 	}
 
 	/**
-	 * 
+	 * This method deletes a university
 	 * @param school is the school being deleted from the database
 	 * @return true if successful
 	 */
@@ -347,7 +345,7 @@ public class DatabaseController {
 	}
 
 	/**
-	 * 
+	 * This method removes all the emphases of a particular school
 	 * @param school is the school having it's emphases removed
 	 * @return true if successful
 	 */
@@ -370,7 +368,7 @@ public class DatabaseController {
 		}
 	}
 	/**
-	 * 
+	 * This method edits a university
 	 * @param uni is the university being edited
 	 * @return true if successful
 	 */

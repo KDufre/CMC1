@@ -135,7 +135,7 @@ public class SearchController {
 	// schools for the provided username
 	/**
 	 * 
-	 * @param user
+	 * @param user is the user being used to find the saved schools for
 	 * @return list of saved schools with time stamps for a particular user
 	 */
 	public static List<UserSchool> getSavedSchools(String user) {
@@ -154,8 +154,8 @@ public class SearchController {
 	}
 	
 	/**
-	 * 
-	 * @param school
+	 * This method finds 5 similar schools
+	 * @param school is the school being used to find the 5 similar schools
 	 * @return list of 5 similar schools
 	 */
 	public static List<University> getFiveSimilarSchools(University school){
