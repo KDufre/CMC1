@@ -23,6 +23,11 @@ public class DatabaseController {
 	private static UniversityDBLibrary database = new UniversityDBLibrary("william", "csci230");
 
 	// add a user to the db
+	/**
+	 * 
+	 * @param user User is the user being added to the database
+	 * @return true if successful
+	 */
 	public static boolean addUser(User user){
 		int result = database.user_addUser(user.getFirstName(), user.getLastName(), user.getUsername(), user.getPassword(), user.getType());
 
@@ -35,6 +40,11 @@ public class DatabaseController {
 	}
 
 	// remove a user from the db
+	/**
+	 * 
+	 * @param username String is the user being removed from the database
+	 * @return true if successful
+	 */
 	public static boolean removeUser(String username){
 		removeUserSavedSchools(username);
 		int result = database.user_deleteUser(username);
@@ -48,6 +58,11 @@ public class DatabaseController {
 	}
 
 	// get a user; null if not in DB
+	/**
+	 * 
+	 * @param username String is the username being found in the database
+	 * @return the user object if username is in the database, else null
+	 */
 	public static User getUser(String username) {
 		String[][] databaseUserStrings = database.user_getUsers();
 
@@ -64,6 +79,10 @@ public class DatabaseController {
 	}
 
 	// get the list of all the users in the DB
+	/**
+	 * 
+	 * @return List of user objects for all users in database
+	 */
 	public static List<User> getAllUsers() {
 		String[][] dbUserList = database.user_getUsers();
 
@@ -78,6 +97,10 @@ public class DatabaseController {
 	}
 
 	// get the list of all the universities in the DB
+	/**
+	 * 
+	 * @return list of Universities containing all the schools in the database
+	 */
 	public static List<University> getAllSchools() {
 		String[][] dbUniversityList = database.university_getUniversities();
 
@@ -95,6 +118,10 @@ public class DatabaseController {
 		return result;
 	}
 	
+	/**
+	 * 
+	 * @return HashMap with University and a list of all of their emphases
+	 */
 	public static HashMap<String, List<String>> getEmphasis() {
 		String[][] dbEmphasisList = database.university_getNamesWithEmphases();
 		
@@ -119,6 +146,12 @@ public class DatabaseController {
 	// save a school to a particular user's list
 	// TODO: It feels like we should be able to do this as part of
 	//       "updating" a user in the DB.
+	/**
+	 * 
+	 * @param username is the user saving the school
+	 * @param schoolName is the school being saved
+	 * @return true if successful
+	 */
 	public static boolean saveSchool(String username, String schoolName) {
 		int result = database.user_saveSchool(username, schoolName);
 		if (result != 1) {
@@ -131,6 +164,12 @@ public class DatabaseController {
 	}
 
 	//Removes saved school for particular username entered
+	/**
+	 * 
+	 * @param username is the user removing a school from their saved schools
+	 * @param schoolName is the school being unsaved
+	 * @return true if successful
+	 */
 	public static boolean removeSchool(String username, String schoolName) {
 		int result = database.user_removeSchool(username, schoolName);
 		if (result == -1) {
@@ -143,6 +182,11 @@ public class DatabaseController {
 	}
 
 	//removes all the saved schools that a username has saved
+	/**
+	 * 
+	 * @param username is the user that is having all of their saved schools removed
+	 * @return true if successful
+	 */
 	public static boolean removeUserSavedSchools(String username) {
 		Map<String, List<UserSchool>> result = getUserSavedSchoolMap();
 		List<UserSchool> userList = result.get(username);
@@ -160,6 +204,10 @@ public class DatabaseController {
 	// get the mapping from users to their saved universities in the DB
 	// e.g., peter -> {CSBSJU, HARVARD}
 	//       juser -> {YALE, AUGSBURG, STANFORD}
+	/**
+	 * 
+	 * @return Map with Users with their list of saved schools (university, timestamp)
+	 */
 	public static Map<String, List<UserSchool>> getUserSavedSchoolMap() {
 		String[][] dbMapping = database.user_getUsernamesWithSavedSchools();
 
@@ -191,6 +239,11 @@ public class DatabaseController {
 		return result;
 	}
 
+	/**
+	 * 
+	 * @param userData is the user being edited
+	 * @return true if successful
+	 */
 	public static boolean editUser(User userData) {
 
 		int result = database.user_editUser(userData.getUsername(), userData.getFirstName(), userData.getLastName(), userData.getPassword(), userData.type, userData.activated);
@@ -203,6 +256,11 @@ public class DatabaseController {
 		}
 	}
 
+	/**
+	 * 
+	 * @param username is the user being deactivated
+	 * @return true if successful
+	 */
 	public static boolean deactivateUser(String username) {
 		User userData = DatabaseController.getUser(username);
 
@@ -216,6 +274,11 @@ public class DatabaseController {
 		}
 	}
 
+	/**
+	 * 
+	 * @param username is the user being activated
+	 * @return true if successful
+	 */
 	public static boolean activateUser(String username) {
 		User userData = DatabaseController.getUser(username);
 
@@ -229,6 +292,11 @@ public class DatabaseController {
 		}
 	}
 
+	/**
+	 * 
+	 * @param uni is the university being added to database
+	 * @return true if successful
+	 */
 	public static boolean addUniversity(University uni) {
 		int result = database.university_addUniversity(uni.getSchool(), uni.getState(), uni.getLocation(), uni.getControl(), uni.getNumStudents(), uni.getPercentAdmitted(), 
 				uni.getSATVerbal(), uni.getSATMath(), uni.getExpenses(), uni.getPercentFA(), 
@@ -244,6 +312,11 @@ public class DatabaseController {
 		}
 	}
 
+	/**
+	 * 
+	 * @param school is the school being deleted from the database
+	 * @return true if successful
+	 */
 	public static boolean deleteUniversity(String school) {
 		Map<String, List<UserSchool>> map = getUserSavedSchoolMap();
 		if(!(map==null)) {
@@ -273,6 +346,11 @@ public class DatabaseController {
 		}
 	}
 
+	/**
+	 * 
+	 * @param school is the school having it's emphases removed
+	 * @return true if successful
+	 */
 	public static boolean removeUniversityEmphases(String school) {
 		String[][] list = database.university_getNamesWithEmphases();
 		int result = 0;
@@ -291,6 +369,11 @@ public class DatabaseController {
 			return true;
 		}
 	}
+	/**
+	 * 
+	 * @param uni is the university being edited
+	 * @return true if successful
+	 */
 	public static boolean editUniversity(University uni) {
 		
 		int result = database.university_editUniversity(uni.getSchool(), uni.getState(), uni.getLocation(), uni.getControl(), uni.getNumStudents(), uni.getPercentAdmitted(), 
