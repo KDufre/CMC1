@@ -70,6 +70,9 @@ public class Driver {
 		System.out.println(dashes);
 	}
 	
+	/*
+	 * @param Scanner s is to pass to UserInteraction to get user input
+	 */
 	private static void adminEditUser(Scanner s) {
 		printHeader("Edit User");
 		List<User> allUsers = UserInteraction.getAllUsers();
@@ -114,6 +117,9 @@ public class Driver {
 		}
 	}
 
+	/*
+	 * @param Scanner s is to pass to UserInteraction to get user input
+	 */
 	private static void adminUserListMenu(Scanner s) {
 		printHeader("Admin User List");
 		
@@ -149,7 +155,10 @@ public class Driver {
 		}
 	}
 
-	//ADMIN MANAGING MENU
+	/*
+	 * ADMIN MANAGING MENU
+	 * @param Scanner s is to pass to UserInteraction to get user input
+	 */
 	private static void adminManageUniversity(Scanner s) {
 		printHeader("Admin Manage Universities");
 
@@ -182,6 +191,9 @@ public class Driver {
 		}
 	}
 	
+	/*
+	 * @param Scanner s is to pass to UserInteraction to get user input
+	 */
 	private static void adminMenu(Scanner s) {
 		printHeader("Admin Menu");
 
@@ -203,6 +215,9 @@ public class Driver {
 		}
 	}
 	
+	/*
+	 * @param Scanner s is to pass to UserInteraction to get user input
+	 */
 	private static void showFiveSimilarSchools(Scanner s, List<University> unis) {
 		printHeader("Five Similar Schools");
 		
@@ -230,6 +245,10 @@ public class Driver {
 			System.exit(1);
 		}
 	}
+	
+	/*
+	 * @param Scanner s is to pass to UserInteraction to get user input
+	 */
 	private static void userSelectedSchoolResults(Scanner s, University school) {
 		printHeader("Selected School Information");
 		
@@ -271,6 +290,10 @@ public class Driver {
 			System.exit(1);
 		}
 	}
+	
+	/*
+	 * @param Scanner s is to pass to UserInteraction to get user input
+	 */
 	private static void userSelectedSavedSchoolResults(Scanner s, University school) {
 		printHeader("Selected School Information");
 		if(school==null) {
@@ -309,6 +332,9 @@ public class Driver {
 		}
 	}
 
+	/*
+	 * @param Scanner s is to pass to UserInteraction to get user input
+	 */
 	private static void searchResultsMenu(Scanner s, List<University> results) {
 		printHeader("Search Results");
 
@@ -336,6 +362,9 @@ public class Driver {
 		}
 	}
 
+	/*
+	 * @param Scanner s is to pass to UserInteraction to get user input
+	 */
 	private static void userSavedSchoolListMenu(Scanner s) {
 		printHeader("User Saved School List");
 
@@ -368,6 +397,9 @@ public class Driver {
 		}
 	}
 	
+	/*
+	 * @param Scanner s is to pass to UserInteraction to get user input
+	 */
 	private static void editUser(Scanner s) {
 		printHeader("Edit User");
 		int choice = getMenuOption(s, List.of("Edit Password", "Edit First Name", "Edit Last Name", "Go Back" ));
@@ -391,6 +423,9 @@ public class Driver {
 			
 	}
 
+	/*
+	 * @param Scanner s is to pass to UserInteraction to get user input
+	 */
 	private static void regularUserMenu(Scanner s) {
 		printHeader("User Menu");
 
@@ -416,6 +451,9 @@ public class Driver {
 		}
 	}
 
+	/*
+	 * @param Scanner s is to pass to UserInteraction to get user input
+	 */
 	private static void topMenu(Scanner s) {
 		printHeader("Welcome to Choose My College (CMC)!");
 		System.out.println("Please log in.");
@@ -434,7 +472,9 @@ public class Driver {
 			System.out.println("Redirecting to main menu.");
 	}
 
-	// main just forever prints the relevant menu
+	/*
+	 * main just forever prints the relevant menu
+	 */
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
 
