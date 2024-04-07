@@ -70,6 +70,11 @@ public class SearchControllerTest {
 		Assert.assertNotNull(list3.size());
 	}
 	
+	@Test
+	public void testGetFiveSimilarSchools() {
+		List<University> list4 = SearchController.getFiveSimilarSchools(uni);
+		Assert.assertNotNull(list4);
+	}
 
 }
 
