@@ -231,10 +231,35 @@ public class Driver {
 		printHeader("Five Similar Schools");
 		
 		System.out.println("School Name: " + unis.get(0).getSchool());
+		System.out.println("State: " + unis.get(0).getState());
+		System.out.println("Location: " + unis.get(0).getLocation());
+		System.out.println("Control: " + unis.get(0).getControl());
+		System.out.println("Number of Students: " + unis.get(0).getNumStudents());
+		System.out.println();
 		System.out.println("School Name: " + unis.get(1).getSchool());
+		System.out.println("State: " + unis.get(1).getState());
+		System.out.println("Location: " + unis.get(1).getLocation());
+		System.out.println("Control: " + unis.get(1).getControl());
+		System.out.println("Number of Students: " + unis.get(1).getNumStudents());
+		System.out.println();
 		System.out.println("School Name: " + unis.get(2).getSchool());
+		System.out.println("State: " + unis.get(2).getState());
+		System.out.println("Location: " + unis.get(2).getLocation());
+		System.out.println("Control: " + unis.get(2).getControl());
+		System.out.println("Number of Students: " + unis.get(2).getNumStudents());
+		System.out.println();
 		System.out.println("School Name: " + unis.get(3).getSchool());
+		System.out.println("State: " + unis.get(3).getState());
+		System.out.println("Location: " + unis.get(3).getLocation());
+		System.out.println("Control: " + unis.get(3).getControl());
+		System.out.println("Number of Students: " + unis.get(3).getNumStudents());
+		System.out.println();
 		System.out.println("School Name: " + unis.get(4).getSchool());
+		System.out.println("State: " + unis.get(4).getState());
+		System.out.println("Location: " + unis.get(4).getLocation());
+		System.out.println("Control: " + unis.get(4).getControl());
+		System.out.println("Number of Students: " + unis.get(4).getNumStudents());
+		System.out.println();
 		
 		int choice = getMenuOption(s, List.of("Select School", "Go Back"));
 		
