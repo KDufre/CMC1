@@ -212,6 +212,9 @@ public class SearchController {
 			if(Math.abs(uni.getGradRate()-school.getGradRate())<=10) {
 				score++;
 			}
+			if(uni.getSchool().equalsIgnoreCase(school.getSchool())) {
+				score=0;
+			}
 
 			
 			
