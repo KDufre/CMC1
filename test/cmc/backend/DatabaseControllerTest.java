@@ -16,6 +16,7 @@ public class DatabaseControllerTest {
 	private String location = "city";
 	private String school = "43908579348759374985";
 	private String school2 = "28475908347598";
+	private String school3 = "2847239857609823655908347598";
 	private String control = "rt";
 	private int numStudents = 12;
 	private double PercentFemale = 12.5;
@@ -62,7 +63,7 @@ public class DatabaseControllerTest {
 				PercentAdmitted, PercentEnrolled, SocialScale, AcademicScale, QualLife, 
 				gradRate,link);
 		
-		uni3 = new University (school2, state, location, control, numStudents,
+		uni3 = new University (school3, state, location, control, numStudents,
 				PercentFemale, SATMath, SATVerbal, expenses, PercentFA, NumApplicants,
 				PercentAdmitted, PercentEnrolled, SocialScale, AcademicScale, QualLife, 
 				gradRate,link);
@@ -122,8 +123,11 @@ public class DatabaseControllerTest {
 
 	@Test
 	public void testSaveSchool() {
+		//White Box
+		
 		Assert.assertTrue(DatabaseController.saveSchool(testUser2.getUsername(), uni.getSchool()));
 		Assert.assertFalse(DatabaseController.saveSchool(testUser2.getUsername(), uni2.getSchool()));
+		
 	}
 
 	@Test
@@ -165,7 +169,14 @@ public class DatabaseControllerTest {
 
 	@Test
 	public void testDeleteUniversity() {
-		Assert.assertTrue(DatabaseController.deleteUniversity(uni2.getSchool()));
+		//Black Box
+		//user that is in the database
+		//university is not in the database
+		
+		Assert.assertEquals(true, DatabaseController.deleteUniversity(uni.getSchool()));
+		
+		
+		Assert.assertEquals(true, DatabaseController.deleteUniversity(uni2.getSchool()));
 	}
 
 	@Test
