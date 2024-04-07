@@ -262,6 +262,9 @@ public class DatabaseController {
 	public static boolean deactivateUser(String username) {
 		User userData = DatabaseController.getUser(username);
 
+		if(userData==null) {
+			return false;
+		}
 		int result = database.user_editUser(username, userData.getFirstName(), userData.getLastName(), userData.getPassword(), userData.type, 'N');
 		if (result == -1) {
 			System.out.println("Error in deactivating user");
@@ -280,6 +283,9 @@ public class DatabaseController {
 	public static boolean activateUser(String username) {
 		User userData = DatabaseController.getUser(username);
 
+		if(userData==null) {
+			return false;
+		}
 		int result = database.user_editUser(username, userData.getFirstName(), userData.getLastName(), userData.getPassword(), userData.type, 'Y');
 		if (result == -1) {
 			System.out.println("Error in activating user");
