@@ -43,11 +43,6 @@ public class UniversityTest {
 	}
 
 	@Test
-	public void testUniversity() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	public void testGetState() {
 		Assert.assertEquals("Minnesota", uni.getState());
 	}
