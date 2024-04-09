@@ -69,7 +69,7 @@ public class UserTest {
 	
 	@Test
 	public void TestgetFirstName() {
-		Assert.assertEquals(testPass, testUser.getFirstName());
+		Assert.assertEquals("Test", testUser.getFirstName());
 	}
 	
 	@Test
@@ -80,7 +80,7 @@ public class UserTest {
 	
 	@Test
 	public void TestgetLastName() {
-		Assert.assertEquals(testPass, testUser.getLastName());
+		Assert.assertEquals("AUser", testUser.getLastName());
 	}
 	
 	@Test
@@ -91,7 +91,7 @@ public class UserTest {
 	
 	@Test
 	public void TestgetActivated() {
-		Assert.assertEquals(testPass, testUser.getActivated());
+		Assert.assertEquals('Y', testUser.getActivated());
 	}
 	
 	@Test
