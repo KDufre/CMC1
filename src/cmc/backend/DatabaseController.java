@@ -170,6 +170,11 @@ public class DatabaseController {
 	 */
 	public static boolean removeSchool(String username, String schoolName) {
 		int result = database.user_removeSchool(username, schoolName);
+		User u = getUser(username);
+		
+		if(u==null) {
+			return false;
+		}
 		if (result == -1) {
 			System.out.println("Error in removing School!!!");
 			return false;
