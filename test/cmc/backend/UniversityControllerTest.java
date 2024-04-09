@@ -18,6 +18,7 @@ public class UniversityControllerTest {
 	private String location = "city";
 	private String school = "43908579348759374985";
 	private String school2 = "56347t72t02t3t2";
+	private String school3 = "893t429t5248ty4";
 	private String control = "rt";
 	private int numStudents = 12;
 	private double PercentFemale = 12.5;
@@ -35,8 +36,12 @@ public class UniversityControllerTest {
 	private String link = "";
 	private University uni;
 	private University uni1;
+	private University uni2;
 	
+	private static User testUser;
+	private static User testUser2;
 	private static String testUname = "testuname09387490183275";
+	private static String testUname2 = "testuname283252t5285";
 	private static String testPass = "testpass";
 	private static char testType = 'u';
 	private static String testFName = "Test";
@@ -53,16 +58,28 @@ public class UniversityControllerTest {
 				gradRate,link);
 		DatabaseController.addUniversity(uni);
 		
+		testUser = new User(testUname, testPass, testType, testFName, testLName, testActivated);
+		DatabaseController.addUser(testUser);
+		
 		uni1 = new University (school2, state, location, control, numStudents,
 				PercentFemale, SATMath, SATVerbal, expenses, PercentFA, NumApplicants,
 				PercentAdmitted, PercentEnrolled, SocialScale, AcademicScale, QualLife, 
 				gradRate,link);
 		DatabaseController.addUniversity(uni1);
+		
+		uni2 = new University (school3, state, location, control, numStudents,
+				PercentFemale, SATMath, SATVerbal, expenses, PercentFA, NumApplicants,
+				PercentAdmitted, PercentEnrolled, SocialScale, AcademicScale, QualLife, 
+				gradRate,link);
+		
+		DatabaseController.saveSchool(testUser.getUsername(), uni1.getSchool());
 	}
 
 	@After
 	public void tearDown() throws Exception {
 		DatabaseController.deleteUniversity(uni.getSchool());
+		DatabaseController.deleteUniversity(uni1.getSchool());
+		DatabaseController.deleteUniversity(uni2.getSchool());
 		DatabaseController.removeUser(testUname);
 	}
 
@@ -71,7 +88,7 @@ public class UniversityControllerTest {
 
 	//Test save school
 	public void testSaveSchool() {
-		Assert.assertEquals(false, UniversityController.saveSchool(testUname, uni.getSchool()));
+		Assert.assertEquals(true, UniversityController.saveSchool(testUname, uni.getSchool()));
 	}
 	 
 	
@@ -79,6 +96,8 @@ public class UniversityControllerTest {
 	//Testing method for removing a school
 	public void testRemoveSchool() {
 		Assert.assertEquals(true, UniversityController.removeSchool(testUname, uni.getSchool()));
+		Assert.assertEquals(true, UniversityController.removeSchool(testUname, uni1.getSchool()));
+		
 	}
 	
 	
@@ -86,12 +105,17 @@ public class UniversityControllerTest {
 	//Testing method for adding university
 	public void testAddUniversity() {
 		Assert.assertFalse(UniversityController.addUniversity(uni1));
+		
 	}
 	
 	@Test
 	//Testing method for deleting the University in the database
+	//Black Box Testing 
+	//Tests and looks for a school thats been deleted from the database
 	public void testDeleteUniversity() {
 		Assert.assertTrue(UniversityController.deleteUniversity(uni.getSchool()));
+		Assert.assertEquals(true, UniversityController.deleteUniversity(uni1.getSchool()));
+		Assert.assertTrue(UniversityController.deleteUniversity(uni2.getSchool()));
 	}
 
 	
@@ -99,6 +123,9 @@ public class UniversityControllerTest {
 	//Testing method for editing the University
 	public void testEditUniversity() {
 		Assert.assertTrue(UniversityController.editUniversity(uni));
+		Assert.assertTrue(UniversityController.editUniversity(uni1));
+		Assert.assertTrue(UniversityController.editUniversity(uni2));
+		
 	}
 
 
