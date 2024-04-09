@@ -1,4 +1,4 @@
-package system;
+package regression;
 
 import static org.junit.Assert.*;
 

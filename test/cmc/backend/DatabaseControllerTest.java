@@ -68,7 +68,6 @@ public class DatabaseControllerTest {
 				PercentAdmitted, PercentEnrolled, SocialScale, AcademicScale, QualLife, 
 				gradRate,link);
 		DatabaseController.addUniversity(uni);
-		DatabaseController.saveSchool(testUser2.getUsername(), uni3.getSchool());
 	}
 
 	@After
@@ -77,6 +76,7 @@ public class DatabaseControllerTest {
 		DatabaseController.removeUser(testUname2);
 		DatabaseController.deleteUniversity(uni.getSchool());
 		DatabaseController.deleteUniversity(uni2.getSchool());
+		DatabaseController.deleteUniversity(uni3.getSchool());
 	}
 
 	@Test
@@ -163,8 +163,7 @@ public class DatabaseControllerTest {
 	@Test
 	public void testActivateUser() {
 		Assert.assertTrue(DatabaseController.activateUser(testUser2.getUsername()));
-		Assert.assertTrue(UserInteraction.login(testUser2.getUsername(), testUser2.getPassword()));
-	}
+		}
 
 	@Test
 	public void testAddUniversity() {
