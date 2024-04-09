@@ -83,6 +83,8 @@ public class DatabaseControllerTest {
 	public void testAddUser() {
 		//AddUser
 		//WhiteBox
+		//One for the if to be true
+		//One for the if to be false
 		Assert.assertEquals(true, DatabaseController.addUser(testUser));
 		Assert.assertEquals(true, UserInteraction.login(testUname, testPass));
 		Assert.assertEquals(false, DatabaseController.addUser(testUser));
@@ -124,6 +126,8 @@ public class DatabaseControllerTest {
 	@Test
 	public void testSaveSchool() {
 		//White Box
+		//One for if to be true 
+		//One for it to be false
 		
 		Assert.assertTrue(DatabaseController.saveSchool(testUser2.getUsername(), uni.getSchool()));
 		Assert.assertFalse(DatabaseController.saveSchool(testUser2.getUsername(), uni2.getSchool()));
@@ -170,7 +174,7 @@ public class DatabaseControllerTest {
 	@Test
 	public void testDeleteUniversity() {
 		//Black Box
-		//user that is in the database
+		//university that is in the database
 		//university is not in the database
 		
 		Assert.assertEquals(true, DatabaseController.deleteUniversity(uni.getSchool()));
