@@ -18,7 +18,8 @@ import system.*;
 @SuiteClasses({ DatabaseControllerTest.class, SearchControllerTest.class, UniversityTest.class, UserSchoolTest.class,
 		UserTest.class, DeactivatedUserTest.class, RemoveUserTest.class, SearchWithoutStateTest.class, ActivateUserTest.class
 		, AddSavedSchoolsTest.class, AddUniversityTest.class, AddUserTest.class, EditUserTest.class, LoggingUserTest.class
-		, RemoveUniversityTest.class, UniversityTest.class, AccountControllerTest.class, UniversityControllerTest.class})
+		, RemoveUniversityTest.class, UniversityTest.class, AccountControllerTest.class, UniversityControllerTest.class
+		, ViewSavedSchoolsNoneTest.class})
 public class AllTests {
 
 }
