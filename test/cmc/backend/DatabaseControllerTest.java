@@ -142,6 +142,9 @@ public class DatabaseControllerTest {
 
 	@Test
 	public void testRemoveSchool() {
+		//White Box
+		//One for if to be true
+		//One for it to be false
 		Assert.assertTrue(DatabaseController.removeSchool(testUser2.getUsername(), uni3.getSchool()));
 		Assert.assertFalse(DatabaseController.removeSchool(testUser3.getUsername(), uni2.getSchool()));
 	}
@@ -174,7 +177,11 @@ public class DatabaseControllerTest {
 
 	@Test
 	public void testAddUniversity() {
+		//Black Box
+		//uni that is in the database
+		//uni2 that is NOT in the database
 		Assert.assertTrue(DatabaseController.addUniversity(uni2));
+		Assert.assertFalse(DatabaseController.addUniversity(uni));
 	}
 
 	@Test
