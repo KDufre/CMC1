@@ -13,10 +13,12 @@ public class UserSchoolTest {
 	private String University = "William";
 	private Date timestamp = new Date(234);
 	private UserSchool userschool;
+	private Date newdate;
 
 	@Before
 	public void setUp() throws Exception {
 		userschool = new UserSchool(University, timestamp);
+		Date newdate = new Date(123);
 	}
 
 	@After
@@ -25,16 +27,25 @@ public class UserSchoolTest {
 	}
 
 	@Test
-	public void testUserSchool() {
+	public void testgetUniversity() {
 		Assert.assertEquals("William", userschool.getUniversity());
+	}
+	
+	@Test
+	public void testsetUniversity() {
 		userschool.setUniversity("Valverde");
 		Assert.assertEquals("Valverde",userschool.getUniversity());
-		
-		Date newdate = new Date(123);
+	}
+	
+	@Test
+	public void testgetTimestamp() {
 		Assert.assertEquals(timestamp, userschool.getTimestamp());
+	}
+	
+	@Test
+	public void testsetTimestamp() {
 		userschool.setTimestamp(newdate);
 		Assert.assertEquals(newdate, userschool.getTimestamp());
-		
 	}
 
 
