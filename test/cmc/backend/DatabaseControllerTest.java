@@ -38,8 +38,10 @@ public class DatabaseControllerTest {
 	
 	private static User testUser;
 	private static User testUser2;
+	private static User testUser3;
 	private static String testUname = "testuname09387490183275";
 	private static String testUname2 = "testuname09387490183232985709237575";
+	private static String testUname3 = "testuname093874901832329857092375750953410292";
 	private static String testPass = "testpass";
 	private static char testType = 'u';
 	private static String testFName = "Test";
@@ -50,6 +52,7 @@ public class DatabaseControllerTest {
 	public void setUp() throws Exception {
 		testUser = new User(testUname, testPass, testType, testFName, testLName, testActivated);
 		testUser2 = new User(testUname2, testPass, testType, testFName, testLName, testActivated);
+		testUser3 = new User(testUname3, testPass, testType, testFName, testLName, testActivated);
 		DatabaseController.addUser(testUser2);
 		
 		uni = new University (school, state, location, control, numStudents,
@@ -67,7 +70,7 @@ public class DatabaseControllerTest {
 				PercentFemale, SATMath, SATVerbal, expenses, PercentFA, NumApplicants,
 				PercentAdmitted, PercentEnrolled, SocialScale, AcademicScale, QualLife, 
 				gradRate,link);
-		DatabaseController.addUniversity(uni);
+		DatabaseController.addUniversity(uni3);
 		DatabaseController.saveSchool(testUser2.getUsername(), uni3.getSchool());
 	}
 
@@ -137,6 +140,7 @@ public class DatabaseControllerTest {
 	@Test
 	public void testRemoveSchool() {
 		Assert.assertTrue(DatabaseController.removeSchool(testUser2.getUsername(), uni3.getSchool()));
+		Assert.assertFalse(DatabaseController.removeSchool(testUser3.getUsername(), uni2.getSchool()));
 	}
 
 	@Test
