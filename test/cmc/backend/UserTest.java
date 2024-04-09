@@ -30,7 +30,6 @@ public class UserTest {
 	public void testConstructor() {
 		Assert.assertEquals(testFName, testUser.getFirstName());
 		Assert.assertEquals(testLName, testUser.getLastName());
-		// ...
 		Assert.assertEquals('Y', testUser.getActivated());
 	}
 
@@ -39,6 +38,66 @@ public class UserTest {
 		Assert.assertFalse(testUser.isAdmin());
 		testUser.setType('a');
 		Assert.assertTrue(testUser.isAdmin());
+	}
+	
+	@Test
+	public void testGetUsername() {
+		Assert.assertEquals(testUname, testUser.getUsername());
+	}
+	
+	@Test
+	public void testGetPassword() {
+		Assert.assertEquals(testPass, testUser.getPassword());
+	}
+	
+	@Test
+	public void testSetPassword() {
+		testUser.setPassword("Lalo");
+		Assert.assertEquals("Lalo", testUser.getPassword());
+	}
+	
+	@Test
+	public void testGetType() {
+		Assert.assertEquals(testPass, testUser.getPassword());
+	}
+	
+	@Test
+	public void testSetType() {
+		testUser.setType('u');
+		Assert.assertEquals('u', testUser.getType());
+	}
+	
+	@Test
+	public void TestgetFirstName() {
+		Assert.assertEquals(testPass, testUser.getFirstName());
+	}
+	
+	@Test
+	public void TestsetFirstName() {
+		testUser.setFirstName("Will.I.Am");
+		Assert.assertEquals("Will.I.Am", testUser.getFirstName());
+	}
+	
+	@Test
+	public void TestgetLastName() {
+		Assert.assertEquals(testPass, testUser.getLastName());
+	}
+	
+	@Test
+	public void TestsetLastName() {
+		testUser.setLastName("Valverde01");
+		Assert.assertEquals("Valverde01", testUser.getLastName());
+	}
+	
+	@Test
+	public void TestgetActivated() {
+		Assert.assertEquals(testPass, testUser.getActivated());
+	}
+	
+	@Test
+	public void TestsetActivated() {
+		testUser.setActivated('Y');
+		Assert.assertEquals('Y', testUser.getActivated());
 	}
 
 }
