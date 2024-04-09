@@ -84,7 +84,7 @@ public class Driver {
 			System.out.println(i+1 + " | " + user.username + " | " + user.getFirstName() + " | " + user.getLastName());
 		}
 		System.out.println();
-		int choice = getMenuOption(s, List.of("Change a Password", "Change a first name", "Change a last name",  "Activate User", "Deactivate User"));
+		int choice = getMenuOption(s, List.of("Change a Password", "Change a first name", "Change a last name",  "Activate User", "Deactivate User", "Go back"));
 		
 		switch(choice) {
 		case 1:
@@ -117,6 +117,11 @@ public class Driver {
 			}
 			s.nextLine();
 			break;
+		case 6:
+			return;
+		default:
+			System.err.println("Internal error: Unsupported option.");
+			System.exit(1);
 		}
 	}
 
