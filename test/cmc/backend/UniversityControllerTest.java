@@ -103,8 +103,12 @@ public class UniversityControllerTest {
 	
 	@Test
 	//Testing method for adding university
+	//White Box testing 
+	//INput A is false if the University is in the database
+	//Input B is true if the University if its in the database
 	public void testAddUniversity() {
 		Assert.assertFalse(UniversityController.addUniversity(uni1));
+		Assert.assertTrue(UniversityController.addUniversity(uni2));
 		
 	}
 	
@@ -112,6 +116,9 @@ public class UniversityControllerTest {
 	//Testing method for deleting the University in the database
 	//Black Box Testing 
 	//Tests and looks for a school thats been deleted from the database
+	//Input A is true if a University was deleted from the database
+	//Input B is true created a university that was created and stored in the database
+	//Input C created a university without saving it in the database and returns true
 	public void testDeleteUniversity() {
 		Assert.assertTrue(UniversityController.deleteUniversity(uni.getSchool()));
 		Assert.assertEquals(true, UniversityController.deleteUniversity(uni1.getSchool()));
