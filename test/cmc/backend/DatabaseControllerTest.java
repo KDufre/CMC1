@@ -48,6 +48,9 @@ public class DatabaseControllerTest {
 	private static String testLName = "AUser";
 	private static char testActivated = 'Y';
 
+	/**
+	 * @throws java.lang.Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 		testUser = new User(testUname, testPass, testType, testFName, testLName, testActivated);
@@ -76,6 +79,9 @@ public class DatabaseControllerTest {
 
 	}
 
+	/**
+	 * @throws java.lang.Exception
+	 */
 	@After
 	public void tearDown() throws Exception {
 		DatabaseController.removeUser(testUname);
@@ -85,6 +91,9 @@ public class DatabaseControllerTest {
 		DatabaseController.deleteUniversity(uni3.getSchool());
 	}
 
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#addUser(cmc.backend.entities.User)}.
+	 */
 	@Test
 	public void testAddUser() {
 		//AddUser
@@ -95,7 +104,10 @@ public class DatabaseControllerTest {
 		Assert.assertEquals(true, UserInteraction.login(testUname, testPass));
 		Assert.assertEquals(false, DatabaseController.addUser(testUser));
 	}
-
+	
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#removeUser(java.lang.String)}.
+	 */
 	@Test
 	public void testRemoveUser() {
 		//removeUser
@@ -103,6 +115,9 @@ public class DatabaseControllerTest {
 		Assert.assertEquals(false, UserInteraction.login(testUname, testPass));
 	}
 	
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#getUser(java.lang.String)}.
+	 */
 	@Test
 	public void testGetUser() {
 		//black box
@@ -115,20 +130,31 @@ public class DatabaseControllerTest {
 		Assert.assertEquals(null, DatabaseController.getUser(testUname));
 	}
 
-	@Test
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#getAllUsers()}.
+	 */
 	public void testGetAllUsers() {
 		Assert.assertNotNull(DatabaseController.getAllUsers());}
 
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#getAllSchools()}.
+	 */
 	@Test
 	public void testGetAllSchools() {
 		Assert.assertNotNull(DatabaseController.getAllSchools());
 	}
 
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#getEmphasis()}.
+	 */
 	@Test
 	public void testGetEmphasis() {
 		Assert.assertNotNull(DatabaseController.getEmphasis());
 	}
 
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#saveSchool(java.lang.String, java.lang.String)}.
+	 */
 	@Test
 	public void testSaveSchool() {
 		//White Box
@@ -140,6 +166,9 @@ public class DatabaseControllerTest {
 		
 	}
 
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#removeSchool(java.lang.String, java.lang.String)}.
+	 */
 	@Test
 	public void testRemoveSchool() {
 		//White Box
@@ -149,32 +178,50 @@ public class DatabaseControllerTest {
 		Assert.assertFalse(DatabaseController.removeSchool(testUser3.getUsername(), uni2.getSchool()));
 	}
 
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#removeUserSavedSchools(java.lang.String)}.
+	 */
 	@Test
 	public void testRemoveUserSavedSchools() {
 		Assert.assertTrue(DatabaseController.removeUserSavedSchools(testUser2.getUsername()));
 	}
 
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#getUserSavedSchoolMap()}.
+	 */
 	@Test
 	public void testGetUserSavedSchoolMap() {
 		Assert.assertNotNull(DatabaseController.getUserSavedSchoolMap());
 	}
 
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#editUser(cmc.backend.entities.User)}.
+	 */
 	@Test
 	public void testEditUser() {
 		Assert.assertTrue(DatabaseController.editUser(testUser2));
 	}
 
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#deactivateUser(java.lang.String)}.
+	 */
 	@Test
 	public void testDeactivateUser() {
 		Assert.assertTrue(DatabaseController.deactivateUser(testUser2.getUsername()));
 		Assert.assertFalse(UserInteraction.login(testUser2.getUsername(), testUser2.getPassword()));
 	}
 
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#activateUser(java.lang.String)}.
+	 */
 	@Test
 	public void testActivateUser() {
 		Assert.assertTrue(DatabaseController.activateUser(testUser2.getUsername()));
 		}
 
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#addUniversity(cmc.backend.entities.University)}.
+	 */
 	@Test
 	public void testAddUniversity() {
 		//Black Box
@@ -184,6 +231,9 @@ public class DatabaseControllerTest {
 		Assert.assertFalse(DatabaseController.addUniversity(uni));
 	}
 
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#deleteUniversity(java.lang.String)}.
+	 */
 	@Test
 	public void testDeleteUniversity() {
 		//Black Box
@@ -196,11 +246,17 @@ public class DatabaseControllerTest {
 		Assert.assertEquals(true, DatabaseController.deleteUniversity(uni2.getSchool()));
 	}
 
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#removeUniversityEmphases(java.lang.String)}.
+	 */
 	@Test
 	public void testRemoveUniversityEmphases() {
 		Assert.assertTrue(DatabaseController.removeUniversityEmphases(uni2.getSchool()));
 	}
 
+	/**
+	 * Test method for {@link cmc.backend.DatabaseController#editUniversity(cmc.backend.entities.University)}.
+	 */
 	@Test
 	public void testEditUniversity() {
 		Assert.assertTrue(DatabaseController.editUniversity(uni2));
