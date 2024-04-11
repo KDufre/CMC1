@@ -1,4 +1,4 @@
-package cmc.backend;
+package cmc.backend.entities;
 
 import org.junit.After;
 import org.junit.Assert;

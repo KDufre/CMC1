@@ -1,4 +1,4 @@
-package cmc.backend;
+package cmc.backend.entities;
 
 import static org.junit.Assert.*;
 

@@ -8,9 +8,9 @@ import cmc.backend.AccountControllerTest;
 import cmc.backend.DatabaseControllerTest;
 import cmc.backend.SearchControllerTest;
 import cmc.backend.UniversityControllerTest;
-import cmc.backend.UniversityTest;
-import cmc.backend.UserSchoolTest;
-import cmc.backend.UserTest;
+import cmc.backend.entities.UniversityTest;
+import cmc.backend.entities.UserSchoolTest;
+import cmc.backend.entities.UserTest;
 import regression.*;
 import system.*;
 

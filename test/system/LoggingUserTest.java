@@ -28,12 +28,12 @@ public class LoggingUserTest {
 	}
 
 	@Test
-	public void test1() {
+	public void testSuccessful() {
 		Assert.assertEquals(true, UserInteraction.login(username, password));
 		
 	}
 	@Test
-	public void test2() {
+	public void testWrongPassword() {
 		Assert.assertEquals(false, UserInteraction.login(username, "hello"));
 		
 	}
