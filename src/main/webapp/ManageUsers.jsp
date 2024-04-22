@@ -6,7 +6,7 @@
 <title></title>
 </head>
 <body>
-<%@include file="VerifyLogin.jsp" %>
+<%@include file="VerifyLoginAdmin.jsp" %>
 
 Hello <%= user.getFirstName() %>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
