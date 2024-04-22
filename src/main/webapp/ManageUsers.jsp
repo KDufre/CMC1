@@ -8,7 +8,10 @@
 <body>
 <% 
 AccountController ui = new AccountController();
-User user =ui.getUser((String)session.getAttribute("loggedInUser"));
+User user = ui.getUser((String)session.getAttribute("loggedInUser"));
+if(user==null){
+	response.sendRedirect("Login.jsp");
+}
 %>
 
 Hello <%= user.getFirstName() %>

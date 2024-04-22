@@ -7,6 +7,19 @@
 <title>Log in</title>
 </head>
 <body>
+<% 
+
+String error = request.getParameter("error");
+if(error==null){
+	
+}
+
+else if (error.equals("1")){
+	%>
+	<p>Invalid Login</p>
+	<% 
+}
+%>
 <form method="get" action="Login_action.jsp" name="Login"><br>
 <table style="text-align: left; width: 266px; height: 228px;"
 border="1" cellpadding="2" cellspacing="2">
