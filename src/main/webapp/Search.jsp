@@ -9,7 +9,7 @@
 <title>Search for Schools</title>
 </head>
 <body>
-	<form method="post" action="Search_action.jsp" name="Search"><br>
+	<form method="post" action="SearchResults.jsp" name="Search"><br>
 	<table style="text-align: center; width: 1000px;"
 	border="1" cellpadding="2" cellspacing="2">
 	<tbody>
@@ -110,10 +110,10 @@
 	</td>
 	<td style="vertical-align: top;">between
 	</td>
-	<td style="vertical-align: top;"><input name="PercentAdmitted"> </td>
+	<td style="vertical-align: top;"><input name="MinPercentAdmitted"> </td>
 	<td style="vertical-align: top;">and
 	</td>
-	<td style="vertical-align: top;"><input name="MaxNumStudents"> </td>
+	<td style="vertical-align: top;"><input name="MaxPercentAdmitted"> </td>
 	</tr>
 	<tr>
 	<td style="vertical-align: top;">Percent Enrolled<br>
@@ -124,6 +124,61 @@
 	<td style="vertical-align: top;">and
 	</td>
 	<td style="vertical-align: top;"><input name="MaxPercentEnrolled"> </td>
+	</tr>
+	<tr>
+	<td style="vertical-align: top;">Academics<br>
+	</td>
+	<td style="vertical-align: top;">between (1-5)
+	</td>
+	<td style="vertical-align: top;"><input name="MinAcademics"> </td>
+	<td style="vertical-align: top;">and
+	</td>
+	<td style="vertical-align: top;"><input name="MaxAcademics"> </td>
+	</tr>
+	<tr>
+	<td style="vertical-align: top;">Social<br>
+	</td>
+	<td style="vertical-align: top;">between (1-5)
+	</td>
+	<td style="vertical-align: top;"><input name="MinSocial"> </td>
+	<td style="vertical-align: top;">and
+	</td>
+	<td style="vertical-align: top;"><input name="MaxSocial"> </td>
+	</tr>
+	<tr>
+	<td style="vertical-align: top;">Quality of Life<br>
+	</td>
+	<td style="vertical-align: top;">between (1-5)
+	</td>
+	<td style="vertical-align: top;"><input name="MinQualityOfLife"> </td>
+	<td style="vertical-align: top;">and
+	</td>
+	<td style="vertical-align: top;"><input name="MaxQualityOfLife"> </td>
+	</tr>
+	<tr>
+	<td style="vertical-align: top;">Emphasis (up to five)<br>
+	</td>
+	<td style="vertical-align: top;"><input name="Emphasis1"> </td>
+	</tr>
+	<tr>
+	<td style="vertical-align: top;"><br>
+	</td>
+	<td style="vertical-align: top;"><input name="Emphasis2"> </td>
+	</tr>
+	<tr>
+	<td style="vertical-align: top;"><br>
+	</td>
+	<td style="vertical-align: top;"><input name="Emphasis3"> </td>
+	</tr>
+	<tr>
+	<td style="vertical-align: top;"><br>
+	</td>
+	<td style="vertical-align: top;"><input name="Emphasis4"> </td>
+	</tr>
+	<tr>
+	<td style="vertical-align: top;"><br>
+	</td>
+	<td style="vertical-align: top;"><input name="Emphasis5"> </td>
 	</tr>
 	<td style="vertical-align: top;"><input value="Search"
 	name="Search" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>

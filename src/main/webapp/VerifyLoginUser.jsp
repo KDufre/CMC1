@@ -3,8 +3,8 @@
 <%@ page import="cmc.backend.entities.*" import="cmc.backend.*" import="java.util.*"%>
 
 <% 
-AccountController ui = new AccountController();
-User user = ui.getUser((String)session.getAttribute("loggedInUser"));
+AccountController controller = new AccountController();
+User user = controller.getUser((String)session.getAttribute("loggedInUser"));
 if(user==null){
 	response.sendRedirect("Login.jsp");
 }

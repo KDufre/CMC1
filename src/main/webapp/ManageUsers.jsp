@@ -1,12 +1,12 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="cmc.backend.entities.*" import="cmc.backend.*" import="java.util.*"%>
+<%@include file="VerifyLoginAdmin.jsp" %>
 <html>
 <head>
 <title></title>
 </head>
 <body>
-<%@include file="VerifyLoginAdmin.jsp" %>
 
 Hello <%= user.getFirstName() %>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
@@ -37,7 +37,7 @@ Edit</td>
 </tr>
 
 <% 
-List<User> allUsers = ui.getAllUsers();
+List<User> allUsers = controller.getAllUsers();
 
 
 for(User u : allUsers){
