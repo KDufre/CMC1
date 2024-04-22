@@ -22,7 +22,7 @@ cellspacing="2">
 </tr>
 <tr align="center">
 	<td colspan="8" rowspan="1" style="vertical-align: top;"><a
-	href="Logout.jsp">Logout</a>
+	href="Logout_action.jsp">Logout</a>
 	</td>
 </tr>
 </body>
