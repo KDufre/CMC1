@@ -20,6 +20,7 @@ td{
   padding: 8px;
 }
 th {
+	border-width: 2px;
 	font-weight: bold;
 }
 

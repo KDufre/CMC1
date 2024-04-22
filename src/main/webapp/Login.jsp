@@ -4,7 +4,45 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Log in</title>
+<title>CMC Login Page</title>
+<h1> Welcome to CMC cuh</h1>
+<style>
+		body{
+			background-color: #777;
+		}
+		h1 {
+			position: absolute;
+  			top: 10%;
+  			left: 50%;
+  			transform: translate(-50%, -50%);
+  			color: lightgreen;
+		}
+		table {
+  			position: absolute;
+  			top: 50%;
+  			left: 50%;
+  			transform: translate(-50%, -50%);
+  			border-style: solid;
+  			border: 3px solid #000;
+			}
+
+		td	{
+  			border: 1px solid #dddddd;
+  			text-align: left;
+  			padding: 16px;
+			}
+		th {
+			border-width: 4px;
+			font-weight: bold;
+			}
+
+		tr:nth-child(odd) {
+  			background-color: #dddddd;
+			}
+		tr:nth-child(even) {
+  			background-color: rgb(211, 250, 211);;
+			}
+</style>
 </head>
 <body>
 <% 
