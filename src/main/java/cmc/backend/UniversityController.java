@@ -60,4 +60,7 @@ public class UniversityController {
 	public static boolean editUniversity(University uni) {
 		return DatabaseController.editUniversity(uni);
 	}
+	public static University getSchool(String school) {
+		return DatabaseController.getSchool(school);
+	}
 }
