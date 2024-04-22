@@ -8,6 +8,7 @@ String password = request.getParameter("Password");
 AccountController controller = new AccountController();
 User u = controller.login(username,password);
 
+
 if(u!=null){
 	if(u.getType()=='u'){
 		response.sendRedirect("UserMenu.jsp");

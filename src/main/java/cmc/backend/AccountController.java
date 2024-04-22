@@ -106,4 +106,11 @@ public class AccountController {
 	public static boolean activateUser(String username) {
 		return DatabaseController.activateUser(username);
 	}
+	
+	public static User getUser(String username) {
+		return DatabaseController.getUser(username);
+	}
+	public static List<User> getAllUsers(){
+		return DatabaseController.getAllUsers();
+	}
 }
