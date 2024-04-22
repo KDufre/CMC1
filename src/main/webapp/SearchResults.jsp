@@ -5,9 +5,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Search Results Menu</title>
+    <meta charset="UTF-8">
+    <title>Search Results Menu</title>
+    <style>
+		table {
+  			font-family: arial, sans-serif;
+  			border-collapse: collapse;
+  			width: 100%;
+			}
+
+td{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+th {
+	font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 </head>
+
 <body>
 	<%
 	SearchController searchC = new SearchController();
@@ -152,24 +173,22 @@
 cellspacing="2">
 <tbody>
 <tr>
-<td style="vertical-align: top; text-align: center;">University
+<th style="vertical-align: top; text-align: center;">University
+</th>
+<th style="vertical-align: top; text-align: center;">State
 </td>
-<td style="vertical-align: top; text-align: center;">State
-</td>
-<td style="vertical-align: top; text-align: center;">Students
-</td>
-<td style="vertical-align: top; text-align: center;">Expenses
-</td>
-<td style="vertical-align: top; text-align: center;">5 Similar
-</td>
-<td style="vertical-align: top;">Add
-</td>
+<th style="vertical-align: top; text-align: center;">Students
+</th>
+<th style="vertical-align: top; text-align: center;">Expenses
+</th>
+<th style="vertical-align: top; text-align: center;">5 Similar
+</th>
+<th style="vertical-align: top; text-align: center;" > Add
+</th>
 </tr>
 	
 	<%
 	for(University uni : sList){
-		
-	
 	%>
 	
 <tr>
