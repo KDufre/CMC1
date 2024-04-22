@@ -77,6 +77,24 @@ public class DatabaseController {
 
 		return null;
 	}
+	public static University getSchool(String sch) {
+		String[][] databaseSchoolStrings = database.university_getUniversities();
+
+		for (String[] school : databaseSchoolStrings) {
+			String thisSchool = school[0];
+			if (thisSchool.equals(sch)) {
+				University uni = new University(school[0], school[1], school[2], school[3], Integer.parseInt(school[4]), Double.parseDouble(school[5]), Integer.parseInt(school[6]),
+						Integer.parseInt(school[7]), Double.parseDouble(school[8]), 
+						Double.parseDouble(school[9]), Integer.parseInt(school[10]), 
+						Double.parseDouble(school[11]), Double.parseDouble(school[12]), 
+						Integer.parseInt(school[13]), Integer.parseInt(school[14]), 
+						Integer.parseInt(school[15]), Double.parseDouble(school[16]), school[17]);
+				return uni;
+			}
+		}
+
+		return null;
+	}
 
 	// get the list of all the users in the DB
 	/**

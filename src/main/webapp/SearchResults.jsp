@@ -185,11 +185,13 @@ cellspacing="2">
 <td style="vertical-align: top;">
 <form method="post" action="FiveSimilarSchool.jsp" name="Similar">
     <input name="Similar" value="Similar" type="submit">
+    <input name="School" value="<%= uni.getSchool() %>" type="hidden">
 </form>
 </td>
 <td style="vertical-align: top;">
-<form method="post" action="SaveSchool.jsp" name="Add">
+<form method="post" action="SaveSchool_action.jsp" name="Add">
     <input name="Add" value="Add" type="submit">
+    <input name="School" value="<%= uni.getSchool() %>" type="hidden">
 </form>
 </td>
 	<%} %>
