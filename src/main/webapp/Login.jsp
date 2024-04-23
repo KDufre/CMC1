@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>CMC Login Page</title>
-<h1> Welcome to CMC cuh</h1>
+<h1> Welcome to Choose My College!</h1>
 <style>
 		body{
 			background-color: #777;
