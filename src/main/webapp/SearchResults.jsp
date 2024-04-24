@@ -31,6 +31,10 @@ tr:nth-child(even) {
 </head>
 
 <body>
+<form method="post" action="Search.jsp" name="Back">
+    <input name="Back" value="Back" type="submit">
+    <input name="Back" type="hidden">
+</form>
 	<%
 	SearchController searchC = new SearchController();
 	
