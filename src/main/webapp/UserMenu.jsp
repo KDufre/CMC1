@@ -52,6 +52,7 @@
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>
+
 <h1>Welcome back <%= user.getFirstName() %></h1>
 <tr align="center">
 	<td colspan="8" rowspan="1" style="vertical-align: top;"><a
@@ -65,7 +66,7 @@ cellspacing="2">
 </tr>
 <tr align="center">
 	<td colspan="8" rowspan="1" style="vertical-align: top;"><a
-	href="EditUser.jsp">Edit Profile</a>
+	href="EditProfile.jsp">Edit Profile</a>
 	</td>
 </tr>
 <tr align="center">

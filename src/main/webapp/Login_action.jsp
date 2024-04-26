@@ -21,7 +21,7 @@ if(u!=null){
 		return;
 	}
 }
-response.sendRedirect("Login.jsp?error=1");
+response.sendRedirect("Login.jsp?error=-1");
 
 
 %>
