@@ -3,6 +3,7 @@ package cmc.backend;
 import java.util.List;
 
 import cmc.backend.entities.User;
+import cmc.backend.entities.UserSchool;
 
 public class AccountController {
 	/**

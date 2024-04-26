@@ -16,7 +16,7 @@ cellspacing="2">
 <tr align="center">
 
 <td colspan="8" rowspan="1" style="vertical-align: top;"><a
-href="Add.jsp">ADD A UNIVERSITY</a>
+href="AddUniversity.jsp">ADD A UNIVERSITY</a>
 </td>
 
 </tr>
@@ -43,9 +43,9 @@ for(University uni : list){
 %>
 <tr>
 <td style="vertical-align: top;">
-<form method="post" action="Edit.jsp" name="Edit">
+<form method="post" action="EditUniversity.jsp" name="Edit">
     <input name="Edit" value="Edit" type="submit">
-    <input name="Username" value="<%= uni.getSchool() %>" type="hidden">
+    <input name="University" value="<%= uni.getSchool() %>" type="hidden">
 </form>
 </td>
 <td style="vertical-align: top;"><%= uni.getSchool() %>
@@ -65,5 +65,7 @@ for(University uni : list){
 </tr>
 
 <%} %>
+</tbody>
+</table>
 </body>
 </html>
