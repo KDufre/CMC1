@@ -52,9 +52,14 @@ if(error==null){
 	
 }
 
-else if (error.equals("1")){
+else if (error.equals("-1")){
 	%>
-	<p>Invalid Login</p>
+	<p>Invalid Username/Password</p>
+	<% 
+}
+else if (error.equals("-2")){
+	%>
+	<p>Invalid Login Credentials</p>
 	<% 
 }
 %>
