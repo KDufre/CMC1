@@ -63,4 +63,7 @@ public class UniversityController {
 	public static University getSchool(String school) {
 		return DatabaseController.getSchool(school);
 	}
+	public static List<University> getAllSchools() {
+		return DatabaseController.getAllSchools();
+	}
 }

@@ -48,7 +48,7 @@
 </style>
 </head>
 <body>
-<h1> Welcome back <%= "loggedInUser" %></h1>
+<h1> Welcome back <%= user.getFirstName() %></h1>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>

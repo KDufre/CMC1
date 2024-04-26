@@ -8,7 +8,6 @@
 </head>
 <body>
 
-Hello <%= user.getFirstName() %>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>
