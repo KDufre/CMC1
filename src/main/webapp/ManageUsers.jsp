@@ -7,8 +7,11 @@
 <title></title>
 </head>
 <body>
-
-Hello <%= user.getFirstName() %>
+</form>
+	<form method="post" action="AdminMenu.jsp" name="Back">
+    <input name="Back" value="Back To Main Menu" type="submit">
+    <input name="Back" type="hidden">
+	</form>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>

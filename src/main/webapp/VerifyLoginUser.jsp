@@ -6,9 +6,11 @@
 AccountController controller = new AccountController();
 User user = controller.getUser((String)session.getAttribute("loggedInUser"));
 if(user==null){
-	response.sendRedirect("Login.jsp");
+	response.sendRedirect("Login.jsp?error=-2");
+	return;
 }
 else if(user.isAdmin()==true){
-	response.sendRedirect("AdminMenu.jsp");
+	response.sendRedirect("AdminMenu.jsp?error=-1");
+	return;
 }
 %>

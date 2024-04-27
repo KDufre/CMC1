@@ -63,6 +63,8 @@ cellspacing="2">
 </td>
 	<%} %>
 </body>
-
-</body>
+<form method="post" action="UserMenu.jsp" name="Back">
+    <input name="Back" value="Back To Main Menu" type="submit">
+    <input name="Back" type="hidden">
+	</form>
 </html>

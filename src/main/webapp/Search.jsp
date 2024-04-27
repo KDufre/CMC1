@@ -260,5 +260,9 @@ border: 1px solid #dddddd;
 	</table>
 	<br>
 	</form>
+	<form method="post" action="UserMenu.jsp" name="Back">
+    <input name="Back" value="Back To Main Menu" type="submit">
+    <input name="Back" type="hidden">
+	</form>
 </body>
 </html>
