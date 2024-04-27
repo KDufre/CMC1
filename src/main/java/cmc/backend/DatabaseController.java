@@ -326,7 +326,8 @@ public class DatabaseController {
 	 * @return true if successful
 	 */
 	public static boolean addUniversity(University uni) {
-		int result = database.university_addUniversity(uni.getSchool(), uni.getState(), uni.getLocation(), uni.getControl(), uni.getNumStudents(), uni.getPercentAdmitted(), 
+		int result = database.university_addUniversity(uni.getSchool(), uni.getState(), uni.getLocation(),
+				uni.getControl(), uni.getNumStudents(), uni.getPercentAdmitted(), 
 				uni.getSATVerbal(), uni.getSATMath(), uni.getExpenses(), uni.getPercentFA(), 
 				uni.getNumApplicants(), uni.getPercentAdmitted(), uni.getPercentEnrolled(), 
 				uni.getAcademicScale(), uni.getSocialScale(), uni.getQualLife(), 

@@ -84,43 +84,42 @@ border: 1px solid #dddddd;
 border="1" >
 <tbody>
 <tr>
-<td style="vertical-align: top;">First Name<br>
+<td style="vertical-align: center;">First Name<br>
 </td>
-<td style="vertical-align: top;"><input name="FirstName" value="<%=user.getFirstName()%>"><br>
-</td>
-</tr>
-<tr>
-<tr>
-<td style="vertical-align: top;">Last Name<br>
-</td>
-<td style="vertical-align: top;"><input name="LastName" value="<%=user.getLastName()%>"><br>
+<td style="vertical-align: center;"><input name="FirstName" value="<%=user.getFirstName()%>"><br>
 </td>
 </tr>
 <tr>
-<td style="vertical-align: top;">Username<br>
+<td style="vertical-align: center;">Last Name<br>
 </td>
-<td style="vertical-align: top;"><input name="Username" value="<%=user.getUsername()%>" readonly> </td>
+<td style="vertical-align: center;"><input name="LastName" value="<%=user.getLastName()%>"><br>
+</td>
 </tr>
 <tr>
-<td style="vertical-align: top;">Password<br>
+<td style="vertical-align: center;">Username<br>
 </td>
-<td style="vertical-align: top;"><input name="Password" value="<%=user.getPassword()%>"> </td>
+<td style="vertical-align: center;"><input name="Username" value="<%=user.getUsername()%>" readonly> </td>
 </tr>
 <tr>
-<td style="vertical-align: top;">Type<br>
+<td style="vertical-align: center;">Password<br>
 </td>
-<td style="vertical-align: top;"><input name="Type" value="<%=user.getType()%>" readonly> </td>
+<td style="vertical-align: center;"><input name="Password" value="<%=user.getPassword()%>"> </td>
 </tr>
 <tr>
-<td style="vertical-align: top;">Status<br>
+<td style="vertical-align: center;">Type<br>
 </td>
-<td style="vertical-align: top;"><input name="Status" value="<%=user.getActivated()%>"> </td>
+<td style="vertical-align: center;"><input name="Type" value="<%=user.getType()%>" readonly> </td>
+</tr>
+<tr>
+<td style="vertical-align: center;">Status<br>
+</td>
+<td style="vertical-align: center;"><input name="Status" value="<%=user.getActivated()%>"> </td>
 </tr>
 
 <tr>
-<td style="vertical-align: top;"><input value="Edit"
+<td style="vertical-align: center;"><input value="Edit"
 name="Edit" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-<td style="vertical-align: top;"><input value="Reset"
+<td style="vertical-align: center;"><input value="Reset"
 name="Reset" type="reset"></td>
 </tr>
 </tbody>

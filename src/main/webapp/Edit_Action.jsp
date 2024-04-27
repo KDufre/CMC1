@@ -3,8 +3,7 @@
     <%@include file="VerifyLoginUser.jsp" %>
 <% 
 	AccountController editjuser = new AccountController();
-	User newnew = new User(user.getUsername(), request.getParameter("Password"), request.getParameter("Type").charAt(0), request.getParameter("FirstName"), request.getParameter("LastName"), request.getParameter("Status").charAt(0));
-	
+	User newnew = new User(user.getUsername(), request.getParameter("State"), request.getParameter("Type").charAt(0), request.getParameter("FirstName"), request.getParameter("LastName"), request.getParameter("Status").charAt(0));
 	editjuser.editUser(newnew);
 	response.sendRedirect("EditProfile.jsp");
 %>
