@@ -65,7 +65,7 @@ cellspacing="2">
 </tr>
 <tr align="center">
 	<td colspan="8" rowspan="1" style="vertical-align: top;"><a
-	href="EditUser.jsp">Edit Profile</a>
+	href="EditProfile.jsp">Edit Profile</a>
 	</td>
 </tr>
 <tr align="center">
