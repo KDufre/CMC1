@@ -114,4 +114,7 @@ public class AccountController {
 	public static List<User> getAllUsers(){
 		return DatabaseController.getAllUsers();
 	}
+	public static boolean editUser(User user) {
+		return DatabaseController.editUser(user);
+	}
 }

@@ -22,7 +22,7 @@ cellspacing="2">
 </td>
 <td style="vertical-align: top; text-align: center;">School
 </td>
-<td style="vertical-align: top; text-align: center;">Data Saved
+<td style="vertical-align: top; text-align: center;">Date Saved
 </td>
 <td style="vertical-align: top; text-align: center;">Remove
 </td>

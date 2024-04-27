@@ -136,6 +136,7 @@ public class DatabaseController {
 		return result;
 	}
 	
+	
 	/**
 	 * This method gets the emphases for every university.
 	 * @return HashMap with University and a list of all of their emphases
