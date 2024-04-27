@@ -9,42 +9,42 @@
 <title>Edit Profile</title>
 </head>
 <body>
-<form method="post" action="Edit_action.jsp" name="editUser"><br>
+<form method="post" action="Edit_Action.jsp" name="editUser"><br>
 <table style="text-align: left; width: 266px; height: 228px;"
 border="1" >
 <tbody>
 <tr>
 <td style="vertical-align: top;">First Name<br>
 </td>
-<td style="vertical-align: top;"><input name="FirstName" value="<%=request.getParameter("FirstName")%>"><br>
+<td style="vertical-align: top;"><input name="FirstName" value="<%=user.getFirstName()%>"><br>
 </td>
 </tr>
 <tr>
 <tr>
 <td style="vertical-align: top;">Last Name<br>
 </td>
-<td style="vertical-align: top;"><input name="LastName" value="<%=request.getParameter("LastName")%>"><br>
+<td style="vertical-align: top;"><input name="LastName" value="<%=user.getLastName()%>"><br>
 </td>
 </tr>
 <tr>
 <td style="vertical-align: top;">Username<br>
 </td>
-<td style="vertical-align: top;"><input name="Username" value="<%=request.getParameter("Username")%>" readonly> </td>
+<td style="vertical-align: top;"><input name="Username" value="<%=user.getUsername()%>" readonly> </td>
 </tr>
 <tr>
 <td style="vertical-align: top;">Password<br>
 </td>
-<td style="vertical-align: top;"><input name="Password" value="<%=request.getParameter("Password")%>"> </td>
+<td style="vertical-align: top;"><input name="Password" value="<%=user.getPassword()%>"> </td>
 </tr>
 <tr>
 <td style="vertical-align: top;">Type<br>
 </td>
-<td style="vertical-align: top;"><input name="Type" value="<%=request.getParameter("Type")%>"> </td>
+<td style="vertical-align: top;"><input name="Type" value="<%=user.getType()%>"> </td>
 </tr>
 <tr>
 <td style="vertical-align: top;">Status<br>
 </td>
-<td style="vertical-align: top;"><input name="Status" value="<%=request.getParameter("Status")%>"> </td>
+<td style="vertical-align: top;"><input name="Status" value="<%=user.getActivated()%>"> </td>
 </tr>
 
 <tr>
@@ -57,5 +57,9 @@ name="Reset" type="reset"></td>
 </table>
 <br>
 </form>
+<form method="post" action="UserMenu.jsp" name="Back">
+    <input name="Back" value="Back To Main Menu" type="submit">
+    <input name="Back" type="hidden">
+	</form>
 </body>
 </html>
