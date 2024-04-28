@@ -71,7 +71,8 @@ border: 1px solid #dddddd;
 </form>
 	<%
 	SearchController searchC = new SearchController();
-	
+	List<University> sList = new ArrayList<University>();
+	try{
 	String school = request.getParameter("School");
 	String state = request.getParameter("State");
 	String location = request.getParameter("Location");
@@ -202,7 +203,8 @@ border: 1px solid #dddddd;
 	String emphasis4 = request.getParameter("Emphasis4");
 	String emphasis5 = request.getParameter("Emphasis5");
 	
-	List<University> sList = searchC.search(school, state, location, control, minNumberOfStudents, maxNumberOfStudents, 
+	
+	sList = searchC.search(school, state, location, control, minNumberOfStudents, maxNumberOfStudents, 
 			minPercentFemale, maxPercentFemale, minSATVerbal, maxSATVerbal, minSATMath, maxSATMath, 
 			minExpenses, maxExpenses, minPercentAid, maxPercentAid, minNumOfApplicants, maxNumOfApplicants, 
 			minPercentAdmitted, maxPercentAdmitted, minPercentEnrolled, maxPercentEnrolled, minAcademicScale, 
@@ -227,7 +229,13 @@ cellspacing="2">
 <th style="vertical-align: top; text-align: center;" > Add
 </th>
 </tr>
-	
+<% 
+	}catch(Exception e){
+		%>
+		<p>Invalid Search</p>
+		<%
+	}
+	%>
 	<%
 	for(University uni : sList){
 	%>
