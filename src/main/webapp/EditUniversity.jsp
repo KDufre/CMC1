@@ -18,6 +18,12 @@ University uni = uController.getSchool(schl);
 border="1" >
 <tbody>
 <tr>
+<td style="vertical-align: center;">School<br>
+</td>
+<td style="vertical-align: center;"><input name="School" value="<%=uni.getSchool()%>" readonly><br>
+</td>
+</tr>
+<tr>
 <td style="vertical-align: center;">State<br>
 </td>
 <td style="vertical-align: center;"><input name="State" value="<%=uni.getState()%>"><br>
@@ -27,12 +33,6 @@ border="1" >
 <td style="vertical-align: center;">Location<br>
 </td>
 <td style="vertical-align: center;"><input name="Location" value="<%=uni.getLocation()%>"><br>
-</td>
-</tr>
-<tr>
-<td style="vertical-align: center;">School<br>
-</td>
-<td style="vertical-align: center;"><input name="School" value="<%=uni.getSchool()%>" readonly><br>
 </td>
 </tr>
 <tr>
