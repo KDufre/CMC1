@@ -4,7 +4,7 @@
     <%@include file="VerifyLoginUser.jsp" %>
 <%
 UniversityController uc = new UniversityController();
-uc.saveSchool(user.getUsername(), request.getParameter("School"));
-response.sendRedirect("Search.jsp");
+boolean success = uc.saveSchool(user.getUsername(), request.getParameter("School"));
+response.sendRedirect("Search.jsp?success=" + success);
 
 %>
