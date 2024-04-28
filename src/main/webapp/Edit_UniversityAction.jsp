@@ -3,8 +3,7 @@
     <%@include file="VerifyLoginAdmin.jsp" %>
 <% 
 	UniversityController editUni = new UniversityController();
-	University mewmew = new University( request.getParameter("State"), request.getParameter("Location"), 
-			request.getParameter("School"),
+	University mewmew = new University(request.getParameter("School"), request.getParameter("State"), request.getParameter("Location"), 
 			request.getParameter("Control"), Integer.parseInt(request.getParameter("NumberOfStudents")),
 			Double.parseDouble(request.getParameter("PercentFA")), Integer.parseInt(request.getParameter("SATVerbal")), 
 			Integer.parseInt(request.getParameter("SATMath")), 
@@ -15,6 +14,6 @@
 			Integer.parseInt(request.getParameter("AcademicScale")), Integer.parseInt(request.getParameter("QualityOfLife")), 
 			Double.parseDouble(request.getParameter("GraduationRate")),
 			request.getParameter("UniversityLink"));
-			editUni.editUniversity(mewmew);
-	response.sendRedirect("EditUniversity.jsp");
+	boolean success = editUni.editUniversity(mewmew);
+	response.sendRedirect("AdminMenu.jsp?success=" + success);
 %>
