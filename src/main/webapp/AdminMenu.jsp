@@ -68,6 +68,17 @@ else if (success.equals("false")){
 	<p>Edit Failed - Invalid Input</p>
 	<% 
 }
+
+String error = request.getParameter("error");
+if(error==null){
+	
+}
+
+else if (error.equals("-1")){
+	%>
+	<p>Invalid Username/Password</p>
+	<% 
+}
 %>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
