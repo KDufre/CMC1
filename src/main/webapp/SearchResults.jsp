@@ -220,6 +220,8 @@ cellspacing="2">
 </th>
 <th style="vertical-align: top; text-align: center;">Expenses
 </th>
+<th style="vertical-align: top; text-align: center;">Select
+</th>
 <th style="vertical-align: top; text-align: center;">5 Similar
 </th>
 <th style="vertical-align: top; text-align: center;" > Add
@@ -239,7 +241,12 @@ cellspacing="2">
 </td>	
 <td style="vertical-align: top;"><%= uni.getExpenses()%>
 </td>
-
+<td style="vertical-align: top;">
+<form method="post" action="UserSelectSchool.jsp" name="Select">
+    <input name="Select" value="Select" type="submit">
+    <input name="School" value="<%= uni.getSchool() %>" type="hidden">
+</form>
+</td>
 <td style="vertical-align: top;">
 <form method="post" action="FiveSimilarSchool.jsp" name="Similar">
     <input name="Similar" value="Similar" type="submit">
