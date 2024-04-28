@@ -30,7 +30,7 @@ tr:nth-child(odd) {
 }
 
 tr:nth-child(even) {
-    background-color: rgb(255, 51, 51);
+    background-color: #87CEEB;
 }
 
 input[type="text"] {
@@ -40,13 +40,14 @@ input[type="text"] {
 
 input[type="submit"], input[type="reset"] {
     padding: 10px 20px; /* Add padding to buttons */
-    background-color: rgb(255, 51, 51); /* Green background color */
+    background-color: #87CEEB; /* Green background color */
     color: white; /* White text color */
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px; /* Add some space between inputs */
     text-align: right;
+    border: 2px solid black;
     
 }
 

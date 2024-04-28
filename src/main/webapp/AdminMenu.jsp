@@ -15,7 +15,7 @@
   			top: 10%;
   			left: 50%;
   			transform: translate(-50%, -50%);
-  			color: rgb(255, 51, 51);
+  			color: #87CEEB;
   			font-weight: 800;
 		}
 		table {
@@ -43,7 +43,7 @@
   			text-align: center;
 			}
 		tr:nth-child(even) {
-  			background-color: rgb(255, 51, 51)
+  			background-color: #87CEEB
 ;
   			text-align: center;
 			}
