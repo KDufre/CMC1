@@ -85,8 +85,8 @@ href="Add.jsp">ADD A USER</a>
 
 </tr>
 <tr>
-<td style="vertical-align: top;">
-Edit</td>
+<td style="vertical-align: top; text-align: center;">Edit
+</td>
 <td style="vertical-align: top; text-align: center;">Full name
 </td>
 <td style="vertical-align: top; text-align: center;">Username
@@ -112,14 +112,9 @@ for(User u : allUsers){
 
 <tr>
 <td style="vertical-align: top;">
-<form method="post" action="Edit.jsp" name="Edit">
+<form method="post" action="AdminEditUser.jsp" name="Edit">
     <input name="Edit" value="Edit" type="submit">
     <input name="Username" value="<%= u.getUsername() %>" type="hidden">
-    <input name="Password" value="<%= u.getPassword() %>" type="hidden">
-    <input name="FirstName" value="<%= u.getFirstName() %>" type="hidden">
-    <input name="LastName" value="<%= u.getLastName() %>" type="hidden">
-    <input name="Type" value="<%= u.getType() %>" type="hidden">
-    <input name="Status" value="<%= u.getActivated() %>" type="hidden">
 </form>
 </td>
 <td style="vertical-align: center;"><%= u.getFirstName() + " " + u.getLastName() %>
@@ -133,7 +128,7 @@ for(User u : allUsers){
 <td style="vertical-align: center;"><%= u.getActivated() %>
 </td>
 <td style="vertical-align: top;">
-<form method="post" action="Delete.jsp" name="Delete">
+<form method="post" action="DeleteUser.jsp" name="Delete">
     <input name="Delete" value="Delete" type="submit">
     <input name="Username" value="<%= u.getUsername() %>" type="hidden">
 </form>
