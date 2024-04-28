@@ -112,7 +112,7 @@ border="1" >
 <td style="vertical-align: center;"><input name="Type" value="<%=user.getType()%>" readonly> </td>
 </tr>
 <tr>
-<td style="vertical-align: center;">Status<br>
+<td style="vertical-align: center;">Status<br>(N to Deactivate)<br>
 </td>
 <td style="vertical-align: center;"><input name="Status" value="<%=user.getActivated()%>"> </td>
 </tr>

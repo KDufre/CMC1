@@ -102,5 +102,9 @@ public class User {
 	public void setActivated(char activated) {
 		this.activated = activated;
 	}
+	
+	public boolean isActivated() {
+		return (activated=='Y');
+	}
 
 }
