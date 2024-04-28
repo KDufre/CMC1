@@ -64,12 +64,30 @@ border: 1px solid #cccccc;
 }
 
 </style>
+
 <body>
 </form>
 	<form method="post" action="AdminMenu.jsp" name="Back">
     <input name="Back" value="Back To Main Menu" type="submit">
     <input name="Back" type="hidden">
 	</form>
+	<% 
+	String success = request.getParameter("success");
+if(success==null){
+	
+}
+
+else if (success.equals("true")){
+	%>
+	<p>Deleted Successfully</p>
+	<% 
+}
+else if (success.equals("false")){
+	%>
+	<p>Edit Failed - Invalid Input</p>
+	<% 
+}
+%>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>
@@ -117,9 +135,9 @@ for(University uni : list){
 <td style="vertical-align: center;"><%= uni.getExpenses() %>
 </td>
 <td style="vertical-align: top;">
-<form method="post" action="Delete.jsp" name="Delete">
+<form method="post" action="deleteUniversity_action.jsp" name="Delete">
     <input name="Delete" value="Delete" type="submit">
-    <input name="Username" value="<%= uni.getSchool() %>" type="hidden">
+    <input name="School" value="<%= uni.getSchool() %>" type="hidden">
 </form>
 </td>
 </tr>
