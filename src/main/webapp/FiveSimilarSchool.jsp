@@ -53,6 +53,7 @@ input[type="submit"], input[type="reset"] {
     cursor: pointer;
     margin-top: 10px; /* Add some space between inputs */
     text-align: right;
+    border: 2px solid black;
     
 }
 form {
@@ -60,7 +61,7 @@ style="vertical-align: center;
 }
 
 input[type="submit"]:hover, input[type="reset"]:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: rgb(211, 250, 211); /* Darker green on hover */
     text-align: right;
 }
 td {

@@ -42,6 +42,12 @@
 		tr:nth-child(even) {
   			background-color: rgb(211, 250, 211);
 			}
+			input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: rgb(211, 250, 211); /* Darker green on hover */
+    text-align: right;
+    font-weight: bold;
+    border: 2px solid black;
+}
 </style>
 </head>
 <body>
