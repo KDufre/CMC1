@@ -8,6 +8,61 @@
 <meta charset="UTF-8">
 <title>Edit University</title>
 </head>
+<style>
+body {
+    background-color: #555;
+    font-family: Arial, sans-serif; /* Added font-family for better readability */
+}
+
+table {
+    border-collapse: collapse; /* Collapse table borders for a cleaner look */
+    border: 6px solid #000; /* Add a black border */
+}
+
+th {
+    border: 1px solid #cccccc;
+    padding: 10px; /* Add padding to cells */
+    text-align: left;
+}
+
+tr:nth-child(odd) {
+    background-color: #cccccc;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(255, 51, 51);
+}
+
+input[type="text"] {
+    width: 100%; /* Make text input fields span the entire width */
+    text-align: right;
+}
+
+input[type="submit"], input[type="reset"] {
+    padding: 10px 20px; /* Add padding to buttons */
+    background-color: rgb(255, 51, 51); /* Green background color */
+    color: white; /* White text color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px; /* Add some space between inputs */
+    text-align: right;
+    
+}
+
+input[type="submit"]:hover, input[type="reset"]:hover {
+    background-color: #45a049; /* Darker green on hover */
+    text-align: right;
+}
+td {
+border: 1px solid #cccccc;
+    padding: 2px; /* Add padding to cells */
+    text-align: center;
+    font-weight: bold;
+    
+}
+
+</style>
 <body>
 <% String schl = request.getParameter("University"); 
 UniversityController uController = new UniversityController();
