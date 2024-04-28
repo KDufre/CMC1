@@ -65,7 +65,7 @@ else if (success.equals("true")){
 }
 else if (success.equals("false")){
 	%>
-	<p>Edit Failed</p>
+	<p>Edit Failed - Invalid Input</p>
 	<% 
 }
 %>

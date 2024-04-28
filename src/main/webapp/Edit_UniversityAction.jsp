@@ -2,6 +2,8 @@
     pageEncoding="UTF-8" import="cmc.backend.entities.*" import="cmc.backend.*" %>
     <%@include file="VerifyLoginAdmin.jsp" %>
 <% 
+boolean success = false;
+	try{
 	UniversityController editUni = new UniversityController();
 	University mewmew = new University(request.getParameter("School"), request.getParameter("State"), request.getParameter("Location"), 
 			request.getParameter("Control"), Integer.parseInt(request.getParameter("NumberOfStudents")),
@@ -14,6 +16,10 @@
 			Integer.parseInt(request.getParameter("AcademicScale")), Integer.parseInt(request.getParameter("QualityOfLife")), 
 			Double.parseDouble(request.getParameter("GraduationRate")),
 			request.getParameter("UniversityLink"));
-	boolean success = editUni.editUniversity(mewmew);
+	success = editUni.editUniversity(mewmew);
+	}catch(Exception e){
+		%>
+		<%
+	}
 	response.sendRedirect("AdminMenu.jsp?success=" + success);
 %>

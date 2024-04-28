@@ -49,6 +49,24 @@
 </style>
 </head>
 <body>
+<% 
+
+String success = request.getParameter("success");
+if(success==null){
+	
+}
+
+else if (success.equals("true")){
+	%>
+	<p>Edit Successful</p>
+	<% 
+}
+else if (success.equals("false")){
+	%>
+	<p>Edit Failed - Invalid Input</p>
+	<% 
+}
+%>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
 <tbody>
