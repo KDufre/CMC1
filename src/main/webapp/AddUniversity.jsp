@@ -65,7 +65,7 @@ border: 1px solid #cccccc;
 </style>
 </head>
 <body>
-<form method="post" action="AddUniversity_action.jsp" name="AddUniversity"><br>
+<form method="post" action="AddUniversity_Action.jsp" name="AddUniversity"><br>
 	<table style="text-align: center; width: 1000px;"
 	border="1" cellpadding="2" cellspacing="2">
 	<tbody>
@@ -150,6 +150,16 @@ border: 1px solid #cccccc;
 	</td>
 	<td style="vertical-align: top;"><input name="QualityOfLife"> </td>
 	</tr>
+	<tr>
+	<td style="vertical-align: top;">Graduation Rate<br>
+	</td>
+	<td style="vertical-align: top;"><input name="GraduationRate"> </td>
+	</tr>
+	<td style="vertical-align: top;">University Link<br>
+	</td>
+	<td style="vertical-align: top;"><input name="UniversityLink"> </td>
+	</tr>
+	
 	<td style="vertical-align: top;"><input value="Add University"
 	name="Add" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 	<td style="vertical-align: top;"><input value="Reset"

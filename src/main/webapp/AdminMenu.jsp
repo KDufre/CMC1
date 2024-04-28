@@ -79,6 +79,22 @@ else if (error.equals("-1")){
 	<p>Invalid Username/Password</p>
 	<% 
 }
+
+String success2 = request.getParameter("AddSuccessfully");
+if(success2==null){
+	
+}
+
+else if (success2.equals("true")){
+	%>
+	<p>Added Successfully</p>
+	<% 
+}
+else if (success2.equals("false")){
+	%>
+	<p>Edit Failed - Invalid Input</p>
+	<% 
+}
 %>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">
