@@ -25,12 +25,6 @@ table {
     width: 100%; /* Make the table width 100% of its container */
     border-collapse: collapse; /* Collapse table borders for a cleaner look */
     border: 6px solid #000; /* Add a black border */
-position: absolute;
-  			top: 50%;
-  			left: 50%;
-  			transform: translate(-50%, -50%);
-  			border-style: solid;
-  			font-weight: bold;
 }
 
 th {
@@ -200,9 +194,9 @@ border: 1px solid #dddddd;
 	<td style="vertical-align: top;"><input name="MaxPercentEnrolled"> </td>
 	</tr>
 	<tr>
-	<td style="vertical-align: top;">Academics<br>
+	<td style="vertical-align: top;">Academics (1-5)<br>
 	</td>
-	<td style="vertical-align: top;">between (1-5)
+	<td style="vertical-align: top;">between
 	</td>
 	<td style="vertical-align: top;"><input name="MinAcademics"> </td>
 	<td style="vertical-align: top;">and
@@ -210,9 +204,9 @@ border: 1px solid #dddddd;
 	<td style="vertical-align: top;"><input name="MaxAcademics"> </td>
 	</tr>
 	<tr>
-	<td style="vertical-align: top;">Social<br>
+	<td style="vertical-align: top;">Social (1-5)<br>
 	</td>
-	<td style="vertical-align: top;">between (1-5)
+	<td style="vertical-align: top;">between
 	</td>
 	<td style="vertical-align: top;"><input name="MinSocial"> </td>
 	<td style="vertical-align: top;">and
@@ -220,9 +214,9 @@ border: 1px solid #dddddd;
 	<td style="vertical-align: top;"><input name="MaxSocial"> </td>
 	</tr>
 	<tr>
-	<td style="vertical-align: top;">Quality of Life<br>
+	<td style="vertical-align: top;">Quality of Life (1-5)<br>
 	</td>
-	<td style="vertical-align: top;">between (1-5)
+	<td style="vertical-align: top;">between
 	</td>
 	<td style="vertical-align: top;"><input name="MinQualityOfLife"> </td>
 	<td style="vertical-align: top;">and
