@@ -15,4 +15,3 @@ boolean success = false;
 		
 	}
 	response.sendRedirect("AdminMenu.jsp?success=" + success);
-%>

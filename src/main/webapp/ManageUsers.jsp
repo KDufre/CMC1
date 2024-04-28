@@ -1,4 +1,3 @@
-<%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="cmc.backend.entities.*" import="cmc.backend.*" import="java.util.*"%>
 <%@include file="VerifyLoginAdmin.jsp" %>
@@ -80,7 +79,7 @@ cellspacing="2">
 <tr align="center">
 
 <td colspan="8" rowspan="1" style="vertical-align: top;"><a
-href="Add.jsp">ADD A USER</a>
+href="AdminAddUser.jsp">ADD A USER</a>
 </td>
 
 </tr>
@@ -128,7 +127,7 @@ for(User u : allUsers){
 <td style="vertical-align: center;"><%= u.getActivated() %>
 </td>
 <td style="vertical-align: top;">
-<form method="post" action="DeleteUser.jsp" name="Delete">
+<form method="post" action="AdminDeleteUser_action.jsp" name="Delete">
     <input name="Delete" value="Delete" type="submit">
     <input name="Username" value="<%= u.getUsername() %>" type="hidden">
 </form>

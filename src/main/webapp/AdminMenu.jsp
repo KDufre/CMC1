@@ -69,6 +69,39 @@ else if (success.equals("false")){
 	<% 
 }
 
+String win = request.getParameter("win");
+if(win==null){
+	
+}
+
+else if (win.equals("true")){
+	%>
+	<p>Add User Successful</p>
+	<% 
+}
+else if (win.equals("false")){
+	%>
+	<p>Add User Failed - Invalid Input</p>
+	<% 
+}
+
+String dubz = request.getParameter("dubz");
+if(dubz==null){
+	
+}
+
+else if (dubz.equals("true")){
+	%>
+	<p>Delete User Successful</p>
+	<% 
+}
+else if (dubz.equals("false")){
+	%>
+	<p>Delete User Failed - Invalid Input</p>
+	<% 
+}
+
+
 String error = request.getParameter("error");
 if(error==null){
 	
