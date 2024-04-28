@@ -8,14 +8,15 @@
 <title>Admin Menu</title>
 <style>
 		body{
-			background-color: #777;
+			background-color: #555;
 		}
 		h1 {
 			position: absolute;
   			top: 10%;
   			left: 50%;
   			transform: translate(-50%, -50%);
-  			color: lightgreen;
+  			color: rgb(255, 51, 51);
+  			font-weight: 800;
 		}
 		table {
   			position: absolute;
@@ -38,11 +39,12 @@
 			}
 
 		tr:nth-child(odd) {
-  			background-color: #dddddd;
+  			background-color: #cccccc;
   			text-align: center;
 			}
 		tr:nth-child(even) {
-  			background-color: rgb(211, 250, 211);
+  			background-color: rgb(255, 51, 51)
+;
   			text-align: center;
 			}
 </style>
