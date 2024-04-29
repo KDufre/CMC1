@@ -8,8 +8,8 @@ boolean success = false;
 	success = AddUser.addUser(request.getParameter("Username"), request.getParameter("Password"), request.getParameter("FirstName"), 
 			request.getParameter("LastName"), request.getParameter("Type").charAt(0)=='a');
 	}
-catch(Exception e){
-	
+	catch(Exception e){
+		
 	}
 	response.sendRedirect("AdminMenu.jsp?win=" + success);
 %>

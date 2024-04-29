@@ -5,9 +5,14 @@
 boolean success = false;
 	try{
 	AccountController editjuser = new AccountController();
-	User newnew = new User(request.getParameter("Username"), request.getParameter("Password"), request.getParameter("Type").charAt(0), request.getParameter("FirstName"), request.getParameter("LastName"), request.getParameter("Status").charAt(0));
+	User newnew = new User(request.getParameter("Username"), 
+			request.getParameter("Password"), 
+			request.getParameter("Type").charAt(0), 
+			request.getParameter("FirstName"), 
+			request.getParameter("LastName"), 
+			request.getParameter("Status").charAt(0));
 	success = editjuser.editUser(newnew);
-	if(newnew.isActivated()==false){
+	if(newnew.isActivated()==false && user.getUsername().equals(request.getParameter("Username"))){
 		response.sendRedirect("Logout_action.jsp?error=-2");
 		return;
 	}
@@ -15,3 +20,4 @@ boolean success = false;
 		
 	}
 	response.sendRedirect("AdminMenu.jsp?success=" + success);
+	%>

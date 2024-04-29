@@ -1,4 +1,3 @@
-	pageEncoding="UTF-8"%>
 <%@ page import="cmc.backend.entities.*" import="cmc.backend.*" import="java.util.*"%>
 <%@include file="VerifyLoginAdmin.jsp" %>
 <html>
