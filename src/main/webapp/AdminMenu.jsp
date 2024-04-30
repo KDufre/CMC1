@@ -68,6 +68,66 @@ else if (success.equals("false")){
 	<p>Edit Failed - Invalid Input</p>
 	<% 
 }
+
+String win = request.getParameter("win");
+if(win==null){
+	
+}
+
+else if (win.equals("true")){
+	%>
+	<p>Add User Successful</p>
+	<% 
+}
+else if (win.equals("false")){
+	%>
+	<p>Add User Failed - Invalid Input</p>
+	<% 
+}
+
+String dubz = request.getParameter("dubz");
+if(dubz==null){
+	
+}
+
+else if (dubz.equals("true")){
+	%>
+	<p>Delete User Successful</p>
+	<% 
+}
+else if (dubz.equals("false")){
+	%>
+	<p>Delete User Failed - Invalid Input</p>
+	<% 
+}
+
+
+String error = request.getParameter("error");
+if(error==null){
+	
+}
+
+else if (error.equals("-1")){
+	%>
+	<p>Invalid Username/Password</p>
+	<% 
+}
+
+String success2 = request.getParameter("AddSuccessfully");
+if(success2==null){
+	
+}
+
+else if (success2.equals("true")){
+	%>
+	<p>Added Successfully</p>
+	<% 
+}
+else if (success2.equals("false")){
+	%>
+	<p>Edit Failed - Invalid Input</p>
+	<% 
+}
 %>
 <table style="text-align: left; width: 100%;" border="1" cellpadding="2"
 cellspacing="2">

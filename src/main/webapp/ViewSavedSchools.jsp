@@ -100,7 +100,7 @@ for (UserSchool uni : list){
 <td style="vertical-align: top;"><%= uni.getTimestamp() %>
 </td>
 <td style="vertical-align: top;">
-<form method="post" action="RemoveSchool.jsp" name="Remove">
+<form method="post" action="RemoveSavedSchool_action.jsp" name="Remove">
     <input name="Remove" value="Remove" type="submit">
     <input name="University" value="<%= uni.getUniversity() %>" type="hidden">
 </form>
@@ -109,5 +109,6 @@ for (UserSchool uni : list){
 
 
 <%} %>
+
 </body>
 </html>
