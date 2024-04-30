@@ -10,6 +10,11 @@
 		body{
 			background-color: #777;
 		}
+		p{
+		color: red;
+		font-weight: bold;
+		
+		}
 		h1 {
 			position: absolute;
   			top: 10%;

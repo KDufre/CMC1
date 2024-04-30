@@ -50,11 +50,17 @@ input[type="submit"], input[type="reset"] {
     
 }
 
+.delete-button:hover {
+    background-color: #FF6666; /* Light red color */
+    color: white; /* Text color */
+}
+
 input[type="submit"]:hover, input[type="reset"]:hover {
     background-color: #45a049; /* Darker green on hover */
     text-align: right;
     border: 2px solid black;
 }
+
 td {
 border: 1px solid #dddddd;
     padding: 2px; /* Add padding to cells */
@@ -62,9 +68,8 @@ border: 1px solid #dddddd;
     font-weight: bold;
     
 }
-.Add.jsp {
-    color: #800080; /* Dark red-purple color */
-}
+
+/
 
 
 </style>
