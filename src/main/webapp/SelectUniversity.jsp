@@ -174,7 +174,7 @@ cellspacing="2">
     <input name="Back" value="Back" type="submit">
     <input name="Back" type="hidden">
 	</form>
-<form method="post" action="RemoveSchool.jsp" name="Remove School">
+<form method="post" action="RemoveSavedSchool_action.jsp" name="Remove School">
     <input name="Remove School" value="Remove School" type="submit">
     <input name="University" value="<%= uni.getSchool() %>" type="hidden">
 </form>
