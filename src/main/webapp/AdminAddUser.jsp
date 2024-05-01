@@ -13,11 +13,21 @@ body {
     background-color: #555;
     font-family: Arial, sans-serif; /* Added font-family for better readability */
 }
-
 table {
-    border-collapse: collapse; /* Collapse table borders for a cleaner look */
-    border: 6px solid #000; /* Add a black border */
-}
+  			position: absolute;
+  			top: 50%;
+  			left: 50%;
+  			transform: translate(-50%, -50%);
+  			border-style: solid;
+  			border: 3px solid #000;
+			}
+h1 {
+			position: absolute;
+  			top: 12%;
+  			left: 50%;
+  			transform: translate(-50%, -50%);
+  			color: #87CEEB;
+  			}
 
 th {
     border: 1px solid #cccccc;
@@ -71,13 +81,14 @@ border: 1px solid #dddddd;
 
 </style>
 <body>
+<h1>Create New User! </h1>
 <%
 AccountController AC = new AccountController();
 User u = AC.getUser(request.getParameter("Username"));
 
 %>
 <form method="post" action="AdminAddUser_action.jsp" name="AddUser"><br>
-<table style="text-align: left; width: 266px; height: 228px;"
+<table style="text-align: left; width: 500px; height: 400px;"
 border="1" >
 <tbody>
 <tr>
@@ -103,7 +114,7 @@ border="1" >
 <td style="vertical-align: center;"><input name="Password" > </td>
 </tr>
 <tr>
-<td style="vertical-align: center;">Type<br>
+<td style="vertical-align: center;">Type (U for User: A for Admin))<br>
 </td>
 <td style="vertical-align: center;"><input name="Type" > </td>
 </tr>

@@ -12,19 +12,24 @@ body {
     background-color: #777;
     font-family: Arial, sans-serif; /* Added font-family for better readability */
 }
+h1 {
+			position: absolute;
+  			top: 5%;
+  			left: 50%;
+  			transform: translate(-50%, -50%);
+  			color: lightgreen;
+		}
 
-.container {
-    width: 200%; /* Adjust the width of the container */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 20px; /* Add some padding for spacing */
-    overflow-y: auto; /* Enable vertical scrolling */
-    max-height: 500px; /* Set a maximum height for the container */
-}
+
 
 table {
-    width: 100%; /* Make the table width 100% of its container */
-    border-collapse: collapse; /* Collapse table borders for a cleaner look */
-    border: 6px solid #000; /* Add a black border */
+   position: absolute;
+  			top: 50%;
+  			left: 50%;
+  			transform: translate(-50%, -50%);
+  			border-style: solid;
+  			border: 3px solid #000;
+    background-color: #ffffff;border: 4px solid #000;
 }
 
 th {
@@ -77,6 +82,7 @@ border: 1px solid #dddddd;
 </style>
 </head>
 <body>
+<h1> Search a School </></h1>
 	<form method="post" action="SearchResults.jsp" name="Search"><br>
 	<table style="text-align: center; width: 1000px;"
 	border="1" cellpadding="2" cellspacing="2">

@@ -16,7 +16,11 @@ body {
 
 table {
     border-collapse: collapse; /* Collapse table borders for a cleaner look */
-    border: 6px solid #000; /* Add a black border */
+    border: 4px solid #000; /* Add a black border */
+    position: absolute;
+  	top: 45%;
+  			left: 50%;
+  			transform: translate(-50%, -50%);
 }
 
 th {
@@ -174,7 +178,7 @@ cellspacing="2">
     <input name="Back" value="Back" type="submit">
     <input name="Back" type="hidden">
 	</form>
-<form method="post" action="RemoveSavedSchool_action.jsp" name="Remove School">
+<form style="position: absolute; top: 85%; right: 5%;" method="post" action="RemoveSavedSchool_action.jsp" name="Remove School">
     <input name="Remove School" value="Remove School" type="submit">
     <input name="University" value="<%= uni.getSchool() %>" type="hidden">
 </form>

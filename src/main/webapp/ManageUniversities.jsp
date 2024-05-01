@@ -93,7 +93,7 @@ cellspacing="2">
 <tbody>
 <tr align="center">
 
-<td colspan="8" rowspan="1" style="vertical-align: top;"><a
+<td style="padding: 15px; " colspan="8" rowspan="1" style="vertical-align: top;"><a
 href="AddUniversity.jsp">ADD A UNIVERSITY</a>
 </td>
 

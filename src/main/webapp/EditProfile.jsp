@@ -12,21 +12,20 @@ body {
     background-color: #777;
     font-family: Arial, sans-serif; /* Added font-family for better readability */
 }
-
-.container {
-    width: 200%; /* Adjust the width of the container */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 20px; /* Add some padding for spacing */
-    overflow-y: auto; /* Enable vertical scrolling */
-    max-height: 500px; /* Set a maximum height for the container */
-}
+h1 {
+			position: absolute;
+  			top: 10%;
+  			left: 50%;
+  			transform: translate(-50%, -50%);
+  			color: lightgreen;
+  			}
 
 table {
-    width: 400%; /* Make the table width 100% of its container */
+    width: 20%; /* Make the table width 100% of its container */
     border-collapse: collapse; /* Collapse table borders for a cleaner look */
-    border: 6px solid #000; /* Add a black border */
+    border: 4px solid #000; /* Add a black border */
 position: absolute;
-  			top: 50%;
+  	top: 50%;
   			left: 50%;
   			transform: translate(-50%, -50%);
   			border-style: solid;
@@ -34,7 +33,7 @@ position: absolute;
 
 th {
     border: 1px solid #dddddd;
-    padding: 10px; /* Add padding to cells */
+    padding: 15px; /* Add padding to cells */
     text-align: right;
 }
 
@@ -75,15 +74,18 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 td {
 border: 1px solid #dddddd;
     padding: 2px; /* Add padding to cells */
-    text-align: right;
+    text-align: center;
+    font-weight: bold;
 }
 </style>
 </head>
 <body>
+<h1>Edit Your Profile <%= user.getFirstName() %> !</h1>
 <form method="post" action="Edit_Action.jsp" name="editUser"><br>
-<table style="text-align: left; width: 266px; height: 228px;"
+<table style="text-align: left; width: 800px; height: 500px;"
 border="1" >
 <tbody>
+
 <tr>
 <td style="vertical-align: center;">First Name<br>
 </td>

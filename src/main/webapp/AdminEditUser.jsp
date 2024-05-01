@@ -13,10 +13,23 @@ body {
     background-color: #555;
     font-family: Arial, sans-serif; /* Added font-family for better readability */
 }
+h1 {
+			position: absolute;
+  			top: 10%;
+  			left: 50%;
+  			transform: translate(-50%, -50%);
+  			color: #87CEEB;
+  			}
 
 table {
+    width: 20%; /* Make the table width 100% of its container */
     border-collapse: collapse; /* Collapse table borders for a cleaner look */
     border: 6px solid #000; /* Add a black border */
+position: absolute;
+  	top: 50%;
+  			left: 50%;
+  			transform: translate(-50%, -50%);
+  			border-style: solid;
 }
 
 th {
@@ -46,7 +59,7 @@ input[type="submit"], input[type="reset"] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px; /* Add some space between inputs */
+    margin-top: 9px; /* Add some space between inputs */
     text-align: right;
     border: 2px solid black;
     
@@ -76,10 +89,12 @@ AccountController AC = new AccountController();
 User u = AC.getUser(request.getParameter("Username"));
 
 %>
+
 <form method="post" action="AdminEditUser_action.jsp" name="editUser"><br>
-<table style="text-align: left; width: 266px; height: 228px;"
+<table style="text-align: left; width: 800px; height: 500px;"
 border="1" >
 <tbody>
+<h1>Edit Your Profile <%= user.getFirstName() %> !</h1>
 <tr>
 <td style="vertical-align: center;">First Name<br>
 </td>
@@ -108,7 +123,7 @@ border="1" >
 <td style="vertical-align: center;"><input name="Type" value="<%=u.getType()%>"> </td>
 </tr>
 <tr>
-<td style="vertical-align: center;">Status<br>(N to Deactivate)<br>
+<td style="vertical-align: center;">Status<br>(Y to Activate - N to Deactivate)<br>
 </td>
 <td style="vertical-align: center;"><input name="Status" value="<%=u.getActivated()%>"> </td>
 </tr>

@@ -12,11 +12,10 @@
 		}
 		h1 {
 			position: absolute;
-  			top: 10%;
+  			top: 16%;
   			left: 50%;
   			transform: translate(-50%, -50%);
   			color: #87CEEB;
-  			font-weight: 800;
 		}
 		table {
   			position: absolute;
@@ -50,7 +49,7 @@
 </style>
 </head>
 <body>
-<h1> Welcome back <%= user.getFirstName() %></h1>
+<h1> Welcome back <%= user.getFirstName() %>!</h1>
 <% 
 
 String success = request.getParameter("success");

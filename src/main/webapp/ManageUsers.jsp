@@ -61,9 +61,10 @@ input[type="submit"]:hover, input[type="reset"]:hover {
 
 td {
 border: 1px solid #dddddd;
-    padding: 2px; /* Add padding to cells */
+    padding: 8px; /* Add padding to cells */
     text-align: center;
     font-weight: bold;
+    font-size: 18px;
     
 }
 
@@ -77,13 +78,14 @@ border: 1px solid #dddddd;
     <input name="Back" value="Back To Main Menu" type="submit">
     <input name="Back" type="hidden">
 	</form>
-<table style="text-align: left; width: 100%;" border="1" cellpadding="2"
-cellspacing="2">
+<table style="text-align: left; width: 100%;" border="1" cellpadding="5"
+cellspacing="6">
 <tbody>
 <tr align="center">
 
-<td colspan="8" rowspan="1" style="vertical-align: top;"><a
+<td style="padding: 15px; " colspan="8" rowspan="1" style="vertical-align: top;"><a
 href="AdminAddUser.jsp">ADD A USER</a>
+
 </td>
 
 </tr>

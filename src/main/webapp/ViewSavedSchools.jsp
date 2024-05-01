@@ -16,7 +16,11 @@ body {
 
 table {
     border-collapse: collapse; /* Collapse table borders for a cleaner look */
-    border: 6px solid #000; /* Add a black border */
+    border: 4px solid #000; /* Add a black border */
+    position: absolute;
+  	top: 50%;
+  			left: 50%;
+  			transform: translate(-50%, -50%);
 }
 
 th {

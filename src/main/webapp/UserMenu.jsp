@@ -13,7 +13,7 @@
 		}
 		h1 {
 			position: absolute;
-  			top: 10%;
+  			top: 16%;
   			left: 50%;
   			transform: translate(-50%, -50%);
   			color: lightgreen;
@@ -82,7 +82,7 @@ else if (error.equals("-1")){
 cellspacing="2">
 <tbody>
 
-<h1>Welcome back <%= user.getFirstName() %></h1>
+<h1>Welcome back <%= user.getFirstName() %>! </h1>
 <tr align="center">
 	<td colspan="8" rowspan="1" style="vertical-align: top;"><a
 	href="Search.jsp">Search</a>

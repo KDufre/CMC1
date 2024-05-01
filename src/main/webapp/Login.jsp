@@ -17,7 +17,7 @@
 		}
 		h1 {
 			position: absolute;
-  			top: 10%;
+  			top: 16%;
   			left: 50%;
   			transform: translate(-50%, -50%);
   			color: lightgreen;
@@ -35,6 +35,7 @@
   			border: 1px solid #dddddd;
   			text-align: left;
   			padding: 16px;
+  			
 			}
 		th {
 			border-width: 4px;
